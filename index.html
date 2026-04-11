@@ -55,6 +55,229 @@
   --transition: 0.4s var(--ease);
   --success: #2ECC71;
   --danger: #E74C3C;
+  /* Cinematic additions */
+  --film: 'Cormorant Garamond', Georgia, serif;
+  --glow: rgba(201,169,110,0.15);
+}
+
+/* ═══ CINEMATIC ANIMATIONS ═══ */
+@keyframes heroReveal { from { opacity:0; transform:translateY(40px); } to { opacity:1; transform:translateY(0); } }
+@keyframes heroRevealLeft { from { opacity:0; transform:translateX(-40px); } to { opacity:1; transform:translateX(0); } }
+@keyframes lineGrow { from { width:0; } to { width:100%; } }
+@keyframes counterUp { from { opacity:0; transform:translateY(20px) scale(0.8); } to { opacity:1; transform:translateY(0) scale(1); } }
+@keyframes floatParticle { 0%,100% { transform:translateY(0) translateX(0) scale(1); opacity:0.4; } 33% { transform:translateY(-30px) translateX(15px) scale(1.1); opacity:0.7; } 66% { transform:translateY(-15px) translateX(-10px) scale(0.9); opacity:0.5; } }
+@keyframes scanLine { from { top:-2px; } to { top:100%; } }
+@keyframes pulseGold { 0%,100% { box-shadow:0 0 0 0 rgba(201,169,110,0); } 50% { box-shadow:0 0 0 12px rgba(201,169,110,0.08); } }
+@keyframes textShimmer { 0% { background-position:200% center; } 100% { background-position:-200% center; } }
+@keyframes slideInFromBottom { from { opacity:0; transform:translateY(60px); } to { opacity:1; transform:translateY(0); } }
+@keyframes glowPulse { 0%,100% { opacity:0.3; } 50% { opacity:0.7; } }
+
+/* ═══ CINEMATIC HERO ═══ */
+.hero-cinematic { min-height:100vh; background:var(--charcoal); position:relative; overflow:hidden; display:flex; align-items:center; }
+.hero-cinematic-bg { position:absolute; inset:0; }
+.hero-bg-overlay { position:absolute; inset:0; background:linear-gradient(135deg,rgba(28,28,28,0.95) 0%,rgba(28,28,28,0.7) 50%,rgba(28,28,28,0.9) 100%); z-index:1; }
+.hero-bg-img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.35; }
+.hero-bg-placeholder { position:absolute; inset:0; background:linear-gradient(135deg, #1C1C1C 0%, #2D2010 40%, #1C1C1C 100%); }
+.hero-particles { position:absolute; inset:0; z-index:1; overflow:hidden; pointer-events:none; }
+.hero-particle { position:absolute; border-radius:50%; background:var(--gold); animation:floatParticle linear infinite; }
+.hero-scan-line { position:absolute; left:0; right:0; height:1px; background:linear-gradient(90deg,transparent,rgba(201,169,110,0.3),transparent); animation:scanLine 8s linear infinite; z-index:1; }
+.hero-cinematic-inner { position:relative; z-index:2; padding:0 80px; max-width:1200px; margin:0 auto; width:100%; padding-top:120px; padding-bottom:100px; }
+.hero-cin-eyebrow { display:flex; align-items:center; gap:14px; margin-bottom:28px; opacity:0; animation:heroReveal 1s ease forwards 0.4s; }
+.hero-cin-line { width:0; height:1px; background:var(--gold); animation:lineGrow 1.2s ease forwards 0.8s; }
+.hero-cin-label { font-size:10px; letter-spacing:0.4em; text-transform:uppercase; color:var(--gold); font-family:var(--sans); }
+.hero-cin-title { font-family:var(--serif); font-size:clamp(56px,8vw,110px); font-weight:300; line-height:0.95; color:var(--warm-white); margin-bottom:32px; opacity:0; animation:heroReveal 1.2s ease forwards 0.6s; }
+.hero-cin-title em { font-style:italic; color:var(--gold); display:block; }
+.hero-cin-title strong { font-weight:300; display:block; font-size:0.65em; letter-spacing:0.08em; color:rgba(255,255,255,0.5); text-transform:uppercase; font-family:var(--sans); margin-top:8px; }
+.hero-cin-sub { font-size:16px; color:rgba(255,255,255,0.5); line-height:1.8; max-width:480px; margin-bottom:48px; opacity:0; animation:heroReveal 1s ease forwards 0.9s; }
+.hero-cin-actions { display:flex; align-items:center; gap:20px; flex-wrap:wrap; opacity:0; animation:heroReveal 1s ease forwards 1.1s; }
+.btn-cin-primary { font-family:var(--sans); font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:var(--charcoal); background:var(--gold); padding:18px 44px; border:none; cursor:pointer; transition:all 0.3s; text-decoration:none; display:inline-flex; align-items:center; gap:10px; position:relative; overflow:hidden; }
+.btn-cin-primary::before { content:''; position:absolute; inset:0; background:var(--warm-white); transform:translateX(-100%); transition:transform 0.4s ease; }
+.btn-cin-primary:hover::before { transform:translateX(0); }
+.btn-cin-primary span { position:relative; z-index:1; }
+.btn-cin-ghost { font-family:var(--sans); font-size:11px; letter-spacing:0.24em; text-transform:uppercase; color:rgba(255,255,255,0.6); background:none; padding:18px 0; border:none; border-bottom:1px solid rgba(255,255,255,0.2); cursor:pointer; transition:all 0.3s; text-decoration:none; }
+.btn-cin-ghost:hover { color:var(--gold); border-bottom-color:var(--gold); }
+.hero-cin-proof { display:flex; align-items:center; gap:32px; margin-top:56px; padding-top:40px; border-top:1px solid rgba(255,255,255,0.06); opacity:0; animation:heroReveal 1s ease forwards 1.3s; flex-wrap:wrap; }
+.hero-cin-stat { text-align:center; }
+.hero-cin-stat-num { font-family:var(--serif); font-size:38px; font-weight:300; color:var(--warm-white); line-height:1; }
+.hero-cin-stat-label { font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:rgba(255,255,255,0.3); margin-top:4px; }
+.hero-cin-divider { width:1px; height:48px; background:rgba(255,255,255,0.1); }
+.hero-cin-scroll { position:absolute; bottom:36px; left:50%; transform:translateX(-50%); display:flex; flex-direction:column; align-items:center; gap:8px; opacity:0; animation:heroReveal 1s ease forwards 1.8s; cursor:pointer; z-index:2; }
+.hero-cin-scroll-line { width:1px; height:40px; background:linear-gradient(to bottom,var(--gold),transparent); }
+.hero-cin-scroll-label { font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:rgba(255,255,255,0.3); }
+/* ═══ URGENCY BAR ═══ */
+.urgency-bar { background:rgba(201,169,110,0.08); border-bottom:0.5px solid rgba(201,169,110,0.2); padding:10px 28px; text-align:center; font-family:var(--sans); font-size:12px; color:rgba(255,255,255,0.5); display:flex; align-items:center; justify-content:center; gap:10px; }
+.urgency-dot { width:6px; height:6px; border-radius:50%; background:var(--gold); animation:glowPulse 2s ease-in-out infinite; flex-shrink:0; }
+
+.hero-cin-right { position:absolute; right:80px; top:50%; transform:translateY(-50%); width:380px; opacity:0; animation:heroRevealLeft 1.2s ease forwards 1.0s; z-index:2; }
+.hero-cin-quote-card { background:rgba(255,255,255,0.03); border:0.5px solid rgba(201,169,110,0.2); padding:32px; backdrop-filter:blur(10px); }
+.hero-cin-quote-text { font-family:var(--serif); font-size:16px; font-style:italic; color:rgba(255,255,255,0.7); line-height:1.7; margin-bottom:16px; }
+.hero-cin-quote-author { font-size:11px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); }
+.hero-cin-stars { display:flex; gap:3px; margin-bottom:10px; }
+.hero-cin-star { width:10px; height:10px; background:var(--gold); clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%); }
+
+/* ═══ CINEMATIC SECTIONS ═══ */
+.cin-section { padding:120px 80px; }
+.cin-dark { background:var(--charcoal); }
+.cin-cream { background:var(--cream); }
+.cin-warm { background:var(--warm-white); }
+
+/* ═══ EMOTION STRIP ═══ */
+.emotion-strip { background:var(--charcoal); padding:0; overflow:hidden; position:relative; }
+.emotion-strip-inner { display:flex; align-items:stretch; min-height:600px; }
+.emotion-left { flex:1; padding:80px; display:flex; flex-direction:column; justify-content:center; position:relative; }
+.emotion-right { width:45%; background:var(--ivory); position:relative; overflow:hidden; }
+.emotion-right-img { width:100%; height:100%; object-fit:cover; opacity:0.7; }
+.emotion-right-placeholder { width:100%; height:100%; background:linear-gradient(160deg,#2a1f10,#1C1C1C); display:flex; align-items:center; justify-content:center; }
+.emotion-right-text { font-family:var(--serif); font-size:13px; color:rgba(255,255,255,0.2); font-style:italic; }
+.emotion-eyebrow { font-size:9px; letter-spacing:0.36em; text-transform:uppercase; color:var(--gold); margin-bottom:24px; display:flex; align-items:center; gap:12px; }
+.emotion-eyebrow::before { content:''; width:24px; height:1px; background:var(--gold); }
+.emotion-title { font-family:var(--serif); font-size:clamp(40px,5vw,72px); font-weight:300; color:var(--warm-white); line-height:1.05; margin-bottom:24px; }
+.emotion-title em { font-style:italic; color:var(--gold); }
+.emotion-body { font-size:15px; color:rgba(255,255,255,0.45); line-height:1.85; max-width:480px; margin-bottom:36px; }
+.emotion-number { position:absolute; right:80px; bottom:80px; font-family:var(--serif); font-size:160px; font-weight:300; color:rgba(201,169,110,0.04); line-height:1; user-select:none; }
+.emotion-gold-accent { width:60px; height:2px; background:var(--gold); margin-bottom:32px; }
+
+/* ═══ CINEMATIC PACKAGE CARDS ═══ */
+.pkg-editorial-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:0; }
+.pkg-editorial-card { padding:52px 44px; border:0.5px solid rgba(255,255,255,0.06); position:relative; transition:all 0.4s ease; cursor:default; }
+.pkg-editorial-card:hover { background:rgba(255,255,255,0.02); }
+.pkg-editorial-card.pkg-featured { background:rgba(201,169,110,0.05); border-color:rgba(201,169,110,0.25); }
+.pkg-editorial-card.pkg-featured::before { content:''; position:absolute; top:0; left:0; right:0; height:2px; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+.pkg-num { font-family:var(--serif); font-size:80px; font-weight:300; color:rgba(201,169,110,0.08); line-height:1; position:absolute; top:20px; right:24px; }
+.pkg-tier { font-size:9px; letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-bottom:16px; display:block; }
+.pkg-name { font-family:var(--serif); font-size:32px; font-weight:300; color:var(--warm-white); line-height:1.1; margin-bottom:12px; }
+.pkg-name em { font-style:italic; }
+.pkg-price { font-family:var(--serif); font-size:52px; font-weight:300; color:var(--warm-white); line-height:1; margin-bottom:6px; }
+.pkg-featured .pkg-price { color:var(--gold); }
+.pkg-price-note { font-size:11px; color:rgba(255,255,255,0.25); margin-bottom:32px; letter-spacing:0.06em; }
+.pkg-divider { width:32px; height:1px; background:rgba(201,169,110,0.3); margin-bottom:28px; }
+.pkg-features { list-style:none; display:flex; flex-direction:column; gap:10px; margin-bottom:36px; }
+.pkg-features li { font-size:13px; color:rgba(255,255,255,0.45); display:flex; align-items:flex-start; gap:10px; line-height:1.5; }
+.pkg-features li::before { content:'—'; color:var(--gold); font-size:12px; flex-shrink:0; margin-top:1px; }
+.pkg-features li.highlight { color:rgba(255,255,255,0.75); }
+.pkg-features li.highlight::before { content:'✦'; }
+.pkg-cta-link { font-family:var(--sans); font-size:10px; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); border-bottom:0.5px solid rgba(201,169,110,0.3); padding-bottom:3px; cursor:pointer; background:none; border-top:none; border-left:none; border-right:none; transition:all 0.3s; }
+.pkg-cta-link:hover { color:var(--warm-white); border-bottom-color:var(--warm-white); }
+
+/* ═══ TESTIMONIAL CAROUSEL ═══ */
+.testimonial-cin { background:var(--charcoal); padding:120px 80px; position:relative; overflow:hidden; }
+.testimonial-cin::before { content:''; position:absolute; top:-200px; right:-200px; width:600px; height:600px; border-radius:50%; background:radial-gradient(circle,rgba(201,169,110,0.04) 0%,transparent 70%); }
+.t-carousel { position:relative; }
+.t-slide { display:none; }
+.t-slide.active { display:block; animation:slideInFromBottom 0.6s ease; }
+.t-quote-mark { font-family:var(--serif); font-size:120px; font-weight:300; color:rgba(201,169,110,0.12); line-height:0.8; margin-bottom:16px; }
+.t-text { font-family:var(--serif); font-size:clamp(18px,2.5vw,26px); font-weight:300; font-style:italic; color:var(--warm-white); line-height:1.6; max-width:800px; margin-bottom:32px; }
+.t-author-row { display:flex; align-items:center; gap:16px; }
+.t-author-avatar { width:44px; height:44px; border-radius:50%; background:var(--gold); display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-size:16px; color:var(--charcoal); flex-shrink:0; }
+.t-author-name { font-family:var(--serif); font-size:15px; font-weight:500; color:var(--warm-white); }
+.t-author-loc { font-size:11px; color:rgba(255,255,255,0.3); letter-spacing:0.06em; margin-top:2px; }
+.t-stars-row { display:flex; gap:3px; margin-bottom:8px; }
+.t-star-item { width:10px; height:10px; background:var(--gold); clip-path:polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%); }
+.t-controls { display:flex; align-items:center; gap:16px; margin-top:44px; }
+.t-btn { width:44px; height:44px; border:0.5px solid rgba(255,255,255,0.1); background:none; color:rgba(255,255,255,0.4); font-size:18px; cursor:pointer; transition:all 0.3s; display:flex; align-items:center; justify-content:center; }
+.t-btn:hover { border-color:var(--gold); color:var(--gold); }
+.t-dots { display:flex; gap:8px; }
+.t-dot { width:20px; height:1px; background:rgba(255,255,255,0.15); cursor:pointer; transition:all 0.3s; }
+.t-dot.active { background:var(--gold); width:36px; }
+
+/* ═══ CINEMATIC GALLERY PREVIEW ═══ */
+.gallery-cin { padding:120px 80px; background:var(--cream); }
+.gallery-cin-grid { display:grid; grid-template-columns:1fr 1fr 1fr; grid-template-rows:auto auto; gap:8px; margin-top:52px; }
+.gallery-cin-item { position:relative; overflow:hidden; cursor:pointer; background:var(--ivory); }
+.gallery-cin-item:first-child { grid-row:1/3; }
+.gallery-cin-item img { width:100%; height:100%; object-fit:cover; transition:transform 0.6s ease; display:block; }
+.gallery-cin-item:hover img { transform:scale(1.04); }
+.gallery-cin-placeholder { width:100%; aspect-ratio:3/4; background:linear-gradient(160deg,var(--ivory),var(--cream)); display:flex; align-items:center; justify-content:center; font-family:var(--serif); font-size:12px; color:var(--gray-light); font-style:italic; }
+.gallery-cin-item:first-child .gallery-cin-placeholder { aspect-ratio:unset; min-height:500px; }
+.gallery-cin-overlay { position:absolute; inset:0; background:linear-gradient(to top,rgba(0,0,0,0.6) 0%,transparent 50%); opacity:0; transition:opacity 0.4s; display:flex; align-items:flex-end; padding:20px; }
+.gallery-cin-item:hover .gallery-cin-overlay { opacity:1; }
+.gallery-cin-label { font-family:var(--serif); font-size:14px; font-style:italic; color:white; }
+
+/* ═══ SCROLL REVEAL ═══ */
+.cin-reveal { opacity:0; transform:translateY(32px); transition:opacity 0.9s ease, transform 0.9s ease; }
+.cin-reveal.in { opacity:1; transform:translateY(0); }
+.cin-reveal-left { opacity:0; transform:translateX(-32px); transition:opacity 0.9s ease, transform 0.9s ease; }
+.cin-reveal-left.in { opacity:1; transform:translateX(0); }
+.cin-reveal-scale { opacity:0; transform:scale(0.94); transition:opacity 0.8s ease, transform 0.8s ease; }
+.cin-reveal-scale.in { opacity:1; transform:scale(1); }
+.cin-d1 { transition-delay:0.1s; }
+.cin-d2 { transition-delay:0.2s; }
+.cin-d3 { transition-delay:0.3s; }
+.cin-d4 { transition-delay:0.4s; }
+
+/* ═══ KANBAN BOARD ═══ */
+.kanban-board { display:grid; grid-template-columns:repeat(5,1fr); gap:12px; min-height:500px; overflow-x:auto; padding-bottom:16px; }
+.kanban-col { background:var(--warm-white); border:0.5px solid var(--border); min-height:400px; display:flex; flex-direction:column; }
+.kanban-col-header { padding:14px 16px; border-bottom:0.5px solid var(--border); display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
+.kanban-col-title { font-size:11px; letter-spacing:0.16em; text-transform:uppercase; color:var(--charcoal); font-weight:500; display:flex; align-items:center; gap:8px; }
+.kanban-col-dot { width:7px; height:7px; border-radius:50%; }
+.kanban-col-count { font-size:10px; color:var(--gray-light); background:var(--cream); padding:1px 7px; border-radius:10px; }
+.kanban-col-body { padding:8px; flex:1; display:flex; flex-direction:column; gap:8px; }
+.kanban-card { background:var(--cream); border:0.5px solid var(--border); padding:14px; cursor:pointer; transition:all 0.2s; user-select:none; }
+.kanban-card:hover { border-color:var(--gold); background:var(--ivory); }
+.kanban-card.dragging { opacity:0.5; }
+.kanban-card-name { font-family:var(--serif); font-size:14px; font-style:italic; color:var(--charcoal); margin-bottom:4px; }
+.kanban-card-client { font-size:11px; color:var(--gray); margin-bottom:6px; }
+.kanban-card-meta { display:flex; align-items:center; justify-content:space-between; }
+.kanban-card-type { font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--gold); }
+.kanban-card-date { font-size:10px; color:var(--gray-light); }
+.kanban-add { margin:8px; padding:10px; border:0.5px dashed var(--border); background:none; font-family:var(--sans); font-size:11px; color:var(--gray-light); cursor:pointer; text-align:center; transition:all 0.2s; letter-spacing:0.1em; text-transform:uppercase; }
+.kanban-add:hover { border-color:var(--gold); color:var(--gold); background:var(--gold-pale); }
+.kanban-drag-over { background:var(--gold-pale); border-color:var(--gold); }
+
+/* ═══ E-SIGNATURE ═══ */
+.esign-view { background:var(--warm-white); min-height:100vh; }
+.esign-header { background:var(--charcoal); padding:20px 32px; display:flex; align-items:center; justify-content:space-between; }
+.esign-brand { font-family:var(--serif); font-size:18px; color:var(--warm-white); }
+.esign-brand span { color:var(--gold); }
+.esign-status { font-size:11px; letter-spacing:0.1em; text-transform:uppercase; padding:6px 14px; }
+.esign-status.pending { background:rgba(201,169,110,0.15); color:var(--gold); }
+.esign-status.signed { background:rgba(46,125,82,0.15); color:#2E7D52; }
+.esign-doc-wrap { max-width:800px; margin:0 auto; padding:48px 32px; }
+.esign-doc-title { font-family:var(--serif); font-size:28px; font-weight:300; color:var(--charcoal); margin-bottom:6px; }
+.esign-doc-sub { font-size:13px; color:var(--gray); margin-bottom:36px; padding-bottom:24px; border-bottom:0.5px solid var(--border); }
+.esign-section { margin-bottom:28px; }
+.esign-section-title { font-size:11px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold-dark); margin-bottom:10px; padding-bottom:6px; border-bottom:0.5px solid var(--border); }
+.esign-body-text { font-size:13px; color:var(--charcoal); line-height:1.85; margin-bottom:8px; }
+.esign-sign-box { background:var(--cream); border:0.5px solid var(--border); padding:28px 32px; margin-top:44px; }
+.esign-sign-title { font-family:var(--serif); font-size:18px; font-weight:300; color:var(--charcoal); margin-bottom:6px; }
+.esign-sign-sub { font-size:13px; color:var(--gray); margin-bottom:20px; }
+.esign-name-input { width:100%; border:none; border-bottom:1.5px solid var(--charcoal); background:transparent; font-family:var(--serif); font-size:22px; font-style:italic; color:var(--charcoal); padding:8px 0; outline:none; transition:border-color 0.3s; margin-bottom:20px; }
+.esign-name-input:focus { border-bottom-color:var(--gold); }
+.esign-sign-btn { font-family:var(--sans); font-size:11px; letter-spacing:0.2em; text-transform:uppercase; background:var(--charcoal); color:var(--warm-white); border:none; padding:16px 40px; cursor:pointer; transition:background 0.3s; }
+.esign-sign-btn:hover { background:var(--gold-dark); }
+.esign-sign-btn:disabled { background:var(--gray-light); cursor:not-allowed; }
+.esign-signed-block { padding:20px; background:rgba(46,125,82,0.06); border:0.5px solid rgba(46,125,82,0.2); display:flex; align-items:center; gap:14px; }
+.esign-signed-name { font-family:var(--serif); font-size:22px; font-style:italic; color:var(--charcoal); }
+.esign-signed-meta { font-size:11px; color:var(--gray); margin-top:3px; }
+
+/* ═══ MOBILE CINEMATIC ═══ */
+@media (max-width:1100px) {
+  .hero-cinematic-inner { padding:0 28px; padding-top:100px; padding-bottom:80px; }
+  .hero-cin-right { display:none; }
+  .hero-cin-title { font-size:clamp(44px,10vw,72px); }
+  .emotion-strip-inner { flex-direction:column; }
+  .emotion-right { width:100%; min-height:300px; }
+  .emotion-left { padding:60px 28px; }
+  .emotion-number { display:none; }
+  .pkg-editorial-grid { grid-template-columns:1fr; }
+  .gallery-cin-grid { grid-template-columns:1fr 1fr; }
+  .gallery-cin-item:first-child { grid-row:auto; }
+  .kanban-board { grid-template-columns:repeat(3,240px); }
+  .cin-section { padding:72px 28px; }
+  .testimonial-cin { padding:72px 28px; }
+  .gallery-cin { padding:72px 28px; }
+}
+@media (max-width:640px) {
+  .hero-cin-title { font-size:clamp(36px,12vw,56px); }
+  .hero-cin-proof { gap:16px; }
+  .hero-cin-divider { display:none; }
+  .pkg-editorial-grid { grid-template-columns:1fr; }
+  .gallery-cin-grid { grid-template-columns:1fr; }
+  .kanban-board { grid-template-columns:220px 220px 220px 220px 220px; }
+  .t-text { font-size:17px; }
+  .esign-doc-wrap { padding:24px 16px; }
+  .pkg-editorial-card { padding:36px 24px; }
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -1113,271 +1336,418 @@ footer { background: #141414; padding: 72px 80px 40px; }
      PAGE: HOME
 ══════════════════════════════════════════ -->
 <div class="page active" id="page-home">
-  <header class="hero" role="banner">
-    <div class="hero-left">
-      <div class="hero-eyebrow">Orlando's Premier Proposal Photographer</div>
-      <h1 class="hero-title">We capture<br>the moment<br>you ask <em>forever.</em></h1>
-      <p class="hero-sub">Discreet, emotional, breathtaking. Over 50 surprise proposals captured with a perfect 5-star rating. Based in Orlando, available nationwide.</p>
-      <div class="hero-proof">
-        <div class="hero-stars"><div class="hero-star"></div><div class="hero-star"></div><div class="hero-star"></div><div class="hero-star"></div><div class="hero-star"></div></div>
-        <div class="hero-proof-text"><strong>5.0</strong> from 60+ five-star reviews</div>
+
+<!-- ═══════════════════════════════════════════════
+     CINEMATIC HERO
+═══════════════════════════════════════════════ -->
+<header class="hero-cinematic" role="banner">
+  <div class="hero-cinematic-bg">
+    <div class="hero-bg-placeholder"></div>
+    <div id="hero-media-cin"></div>
+    <div class="hero-bg-overlay"></div>
+    <div class="hero-scan-line"></div>
+    <div class="hero-particles" id="hero-particles"></div>
+  </div>
+
+  <div class="hero-cinematic-inner">
+    <div class="hero-cin-eyebrow">
+      <div class="hero-cin-line"></div>
+      <span class="hero-cin-label">Orlando · Nationwide · International</span>
+    </div>
+    <h1 class="hero-cin-title">
+      We capture<br><em>forever.</em>
+      <strong>Discreet · Emotional · Breathtaking</strong>
+    </h1>
+    <p class="hero-cin-sub">Orlando's premier proposal photographer. Surprise proposals, engagements, weddings, and destination shoots. Every moment captured exactly as it happens — raw, real, unforgettable.</p>
+    <div class="hero-cin-actions">
+      <a class="btn-cin-primary" onclick="goPage('contact-page')"><span>Plan Your Proposal</span></a>
+      <a class="btn-cin-ghost" onclick="goPage('gallery-page')">View Our Work →</a>
+    </div>
+    <div class="hero-cin-proof">
+      <div class="hero-cin-stat">
+        <div class="hero-cin-stat-num" id="counter-proposals">0</div>
+        <div class="hero-cin-stat-label">Proposals Captured</div>
       </div>
-      <div class="hero-actions">
-        <a class="btn-primary" onclick="goPage('contact-page')">Plan Your Proposal</a>
-        <a class="btn-ghost" onclick="goPage('gallery-page')">View Our Work</a>
+      <div class="hero-cin-divider"></div>
+      <div class="hero-cin-stat">
+        <div class="hero-cin-stat-num" id="counter-rating">5.0★</div>
+        <div class="hero-cin-stat-label">Google Rating</div>
+      </div>
+      <div class="hero-cin-divider"></div>
+      <div class="hero-cin-stat">
+        <div class="hero-cin-stat-num" id="counter-cities">30+</div>
+        <div class="hero-cin-stat-label">Cities Served</div>
+      </div>
+      <div class="hero-cin-divider"></div>
+      <div class="hero-cin-stat">
+        <div class="hero-cin-stat-num">48hr</div>
+        <div class="hero-cin-stat-label">Gallery Delivery</div>
       </div>
     </div>
-    <div class="hero-right">
-      <div class="hero-media" id="hero-media">
-        <div class="media-placeholder">
-          <div class="media-placeholder-icon">+</div>
-          <div class="media-placeholder-text">Hero image or video</div>
-          <div class="media-placeholder-sub">Replace via Admin Panel</div>
+  </div>
+
+  <!-- Floating review card -->
+  <div class="hero-cin-right">
+    <div class="hero-cin-quote-card">
+      <div class="hero-cin-stars"><div class="hero-cin-star"></div><div class="hero-cin-star"></div><div class="hero-cin-star"></div><div class="hero-cin-star"></div><div class="hero-cin-star"></div></div>
+      <div class="hero-cin-quote-text">"Looking back at the photos feels like reliving the entire moment all over again. The emotions, the surprise, the joy — captured perfectly."</div>
+      <div class="hero-cin-quote-author">Danesca B. · Science Center Observatory</div>
+    </div>
+  </div>
+
+  <div class="hero-cin-scroll" onclick="document.getElementById('section-pain').scrollIntoView({behavior:'smooth'})">
+    <div class="hero-cin-scroll-line"></div>
+    <span class="hero-cin-scroll-label">Scroll</span>
+  </div>
+</header>
+
+<!-- ═══ URGENCY BAR ═══ -->
+<div class="urgency-bar" id="urgency-bar">
+  <div class="urgency-dot"></div>
+  <span>Only <strong>3 dates</strong> remaining this month — <a onclick="goPage('contact-page')" style="color:var(--gold);text-decoration:underline;cursor:pointer">Reserve yours now</a></span>
+</div>
+
+<!-- ═══ SECTION: THE WORRY KILLERS ═══ -->
+<section class="cin-section cin-dark" id="section-pain">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:72px;">
+      <span class="eyebrow cin-reveal" style="color:var(--gold)">The Questions Everyone Asks</span>
+      <h2 class="section-title cin-reveal" style="color:var(--warm-white);font-size:clamp(36px,4.5vw,60px);">Your biggest worries.<br><em>Our biggest strengths.</em></h2>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:rgba(255,255,255,0.04);">
+
+      <div class="cin-reveal" style="padding:44px 36px;background:var(--charcoal);">
+        <div style="font-family:var(--serif);font-size:48px;font-weight:300;color:rgba(201,169,110,0.15);line-height:1;margin-bottom:20px;">01</div>
+        <div style="font-family:var(--serif);font-size:18px;font-style:italic;color:var(--warm-white);margin-bottom:12px;">"Will they spot the photographer?"</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.4);line-height:1.75;margin-bottom:16px;">We use telephoto lenses from 50–100 feet away. We dress like tourists. We arrive early and disappear into the environment. In 50+ proposals, we've never been spotted.</div>
+        <div style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);">→ 100% Stealth Guarantee</div>
+      </div>
+
+      <div class="cin-reveal cin-d1" style="padding:44px 36px;background:var(--charcoal);">
+        <div style="font-family:var(--serif);font-size:48px;font-weight:300;color:rgba(201,169,110,0.15);line-height:1;margin-bottom:20px;">02</div>
+        <div style="font-family:var(--serif);font-size:18px;font-style:italic;color:var(--warm-white);margin-bottom:12px;">"What if the photos look staged?"</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.4);line-height:1.75;margin-bottom:16px;">We never direct. We never pose. Every laugh, every trembling hand, every tear — exactly as it happened. Raw emotion, zero staging. The photos look like a film because they're real.</div>
+        <div style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);">→ Zero Posing, Pure Emotion</div>
+      </div>
+
+      <div class="cin-reveal cin-d2" style="padding:44px 36px;background:var(--charcoal);">
+        <div style="font-family:var(--serif);font-size:48px;font-weight:300;color:rgba(201,169,110,0.15);line-height:1;margin-bottom:20px;">03</div>
+        <div style="font-family:var(--serif);font-size:18px;font-style:italic;color:var(--warm-white);margin-bottom:12px;">"When will I get my photos?"</div>
+        <div style="font-size:13px;color:rgba(255,255,255,0.4);line-height:1.75;margin-bottom:16px;">Sneak peeks in as little as same-day. Full edited gallery delivered within 48–72 hours. Not 7–10 days. Not 2 weeks. Fast, because this moment deserves to be relived immediately.</div>
+        <div style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);">→ 48–72hr Gallery Delivery</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═══ EMOTION STRIP ═══ -->
+<section class="emotion-strip">
+  <div class="emotion-strip-inner">
+    <div class="emotion-left">
+      <div class="emotion-gold-accent cin-reveal"></div>
+      <div class="emotion-eyebrow cin-reveal">About Canon Moment</div>
+      <h2 class="emotion-title cin-reveal">More than<br>a photographer.<br><em>Your secret weapon.</em></h2>
+      <div class="emotion-body cin-reveal">Canon Moment Photography was born from one belief: the biggest moments of your life deserve to be captured exactly as they happen. Not staged, not directed, not posed.<br><br>Based in Orlando, Florida — we've traveled to over 30 cities worldwide capturing surprise proposals, engagements, weddings, and destination elopements. We specialize in the art of being invisible so your love story stays completely authentic.</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:8px;" class="cin-reveal">
+        <div><div style="font-family:var(--serif);font-size:36px;font-weight:300;color:var(--gold);">50+</div><div style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:4px;">Proposals</div></div>
+        <div><div style="font-family:var(--serif);font-size:36px;font-weight:300;color:var(--gold);">5.0</div><div style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:4px;">Stars</div></div>
+        <div><div style="font-family:var(--serif);font-size:36px;font-weight:300;color:var(--gold);">30+</div><div style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:4px;">Cities</div></div>
+        <div><div style="font-family:var(--serif);font-size:36px;font-weight:300;color:var(--gold);">48h</div><div style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-top:4px;">Delivery</div></div>
+      </div>
+      <div class="emotion-number">✦</div>
+    </div>
+    <div class="emotion-right">
+      <div class="emotion-right-placeholder" id="about-media">
+        <div class="emotion-right-text">Add photographer portrait here</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ SERVICES ═══ -->
+<section class="cin-section cin-cream">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:end;margin-bottom:64px;">
+      <div>
+        <span class="eyebrow cin-reveal">What We Do</span>
+        <h2 class="section-title cin-reveal">Every chapter of<br><em>your love story.</em></h2>
+      </div>
+      <p class="section-body cin-reveal" style="margin:0;">From the secret question to the big day. We document every milestone with the same invisible, emotional approach that has earned us 60+ five-star reviews.</p>
+    </div>
+    <div class="services-grid">
+      <a class="service-card cin-reveal" onclick="goPage('services-page')"><div class="service-num">01</div><h3 class="service-name">Proposal Photography</h3><p class="service-desc">Completely discreet coverage. We plan the angles, scout the location, blend in completely. Starting at $375. Gallery in 48hrs.</p><span class="service-link">Learn More →</span></a>
+      <a class="service-card cin-reveal cin-d1" onclick="goPage('services-page')"><div class="service-num">02</div><h3 class="service-name">Engagement Sessions</h3><p class="service-desc">Relaxed, romantic, real. Golden hour at Kraft Azalea, Lake Eola, Disney area, or wherever you feel most yourselves. Starting at $375.</p><span class="service-link">Learn More →</span></a>
+      <a class="service-card cin-reveal cin-d2" onclick="goPage('services-page')"><div class="service-num">03</div><h3 class="service-name">Wedding Photography</h3><p class="service-desc">Full-day luxury coverage. Second photographer included. Engagement session included. Gallery delivered in 2–3 weeks. Starting at $3,500.</p><span class="service-link">Learn More →</span></a>
+      <a class="service-card cin-reveal" onclick="goPage('services-page')"><div class="service-num">04</div><h3 class="service-name">Portrait Sessions</h3><p class="service-desc">Couples, families, milestones, birthdays. We make ordinary moments extraordinary. Starting at $300.</p><span class="service-link">Learn More →</span></a>
+      <a class="service-card cin-reveal cin-d1" onclick="goPage('services-page')"><div class="service-num">05</div><h3 class="service-name">Destination Shoots</h3><p class="service-desc">NYC, Miami, Paris, Amalfi Coast. Wherever love takes you, we follow. Travel fees included in custom quote.</p><span class="service-link">Learn More →</span></a>
+      <a class="service-card cin-reveal cin-d2" onclick="goPage('services-page')"><div class="service-num">06</div><h3 class="service-name">Event Coverage</h3><p class="service-desc">Corporate events, milestone celebrations, private parties. Professional, unobtrusive. Starting at $400.</p><span class="service-link">Learn More →</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY PREVIEW ═══ -->
+<section class="gallery-cin">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="display:flex;align-items:flex-end;justify-content:space-between;margin-bottom:0;flex-wrap:wrap;gap:16px;">
+      <div>
+        <span class="eyebrow cin-reveal">Portfolio</span>
+        <h2 class="section-title cin-reveal">Real moments.<br><em>Real emotions.</em></h2>
+      </div>
+      <a class="btn-ghost cin-reveal" onclick="goPage('gallery-page')">View Full Gallery →</a>
+    </div>
+    <div class="gallery-cin-grid">
+      <div class="gallery-cin-item cin-reveal">
+        <div class="gallery-cin-placeholder" style="min-height:500px;">Add hero proposal photo</div>
+        <div class="gallery-cin-overlay"><span class="gallery-cin-label">Magic Kingdom, Walt Disney World</span></div>
+      </div>
+      <div class="gallery-cin-item cin-reveal cin-d1">
+        <div class="gallery-cin-placeholder">Add proposal photo</div>
+        <div class="gallery-cin-overlay"><span class="gallery-cin-label">Kraft Azalea Gardens, Winter Park</span></div>
+      </div>
+      <div class="gallery-cin-item cin-reveal cin-d2">
+        <div class="gallery-cin-placeholder">Add engagement photo</div>
+        <div class="gallery-cin-overlay"><span class="gallery-cin-label">Science Center Observatory</span></div>
+      </div>
+      <div class="gallery-cin-item cin-reveal cin-d1">
+        <div class="gallery-cin-placeholder">Add wedding photo</div>
+        <div class="gallery-cin-overlay"><span class="gallery-cin-label">Cocoa Beach, FL</span></div>
+      </div>
+      <div class="gallery-cin-item cin-reveal cin-d2">
+        <div class="gallery-cin-placeholder">Add destination photo</div>
+        <div class="gallery-cin-overlay"><span class="gallery-cin-label">Anna Maria Island</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ HOW IT WORKS ═══ -->
+<section class="cin-section cin-dark">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:64px;">
+      <span class="eyebrow cin-reveal" style="color:var(--gold)">The Process</span>
+      <h2 class="section-title cin-reveal" style="color:var(--warm-white)">Four steps to<br><em>your forever photos.</em></h2>
+    </div>
+    <div class="experience-grid">
+      <div class="exp-step cin-reveal">
+        <div class="exp-num">01</div>
+        <h3 class="exp-title">Tell Us Everything</h3>
+        <p class="exp-desc">Fill out our inquiry form or call us. Share your vision, timeline, location ideas — even the details you think don't matter. They do.</p>
+      </div>
+      <div class="exp-step cin-reveal cin-d1">
+        <div class="exp-num">02</div>
+        <h3 class="exp-title">We Build the Plan</h3>
+        <p class="exp-desc">We scout your location, plan the angles, coordinate timing, and build backup options. You focus on the ring. We handle everything else.</p>
+      </div>
+      <div class="exp-step cin-reveal cin-d2">
+        <div class="exp-num">03</div>
+        <h3 class="exp-title">The Invisible Capture</h3>
+        <p class="exp-desc">On the day, we arrive early and disappear completely. Your partner will have zero idea. We capture every second — from the nervous approach to the celebration after.</p>
+      </div>
+      <div class="exp-step cin-reveal cin-d3">
+        <div class="exp-num">04</div>
+        <h3 class="exp-title">Your Gallery, Fast</h3>
+        <p class="exp-desc">Sneak peek in as little as same-day. Full edited gallery delivered within 48–72 hours — with background music, full-resolution downloads, and every moment captured.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ PACKAGES — EDITORIAL ═══ -->
+<section class="cin-section cin-dark" id="packages" style="padding-top:0;border-top:0.5px solid rgba(255,255,255,0.04);">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="text-align:center;margin-bottom:64px;padding-top:80px;">
+      <span class="eyebrow cin-reveal" style="color:var(--gold)">Pricing</span>
+      <h2 class="section-title cin-reveal" style="color:var(--warm-white);">Investment in<br><em>priceless memories.</em></h2>
+      <p class="section-body cin-reveal" style="color:rgba(255,255,255,0.4);text-align:center;margin:0 auto;">50% retainer secures your date. Balance due on session day. All packages include full professional editing and 48–72hr delivery.</p>
+    </div>
+    <div class="pkg-editorial-grid cin-reveal">
+
+      <div class="pkg-editorial-card">
+        <div class="pkg-num">01</div>
+        <span class="pkg-tier">The Essential</span>
+        <div class="pkg-name">The <em>Moment</em></div>
+        <div class="pkg-price">$375</div>
+        <div class="pkg-price-note">Perfect for proposals · 50% retainer</div>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li>1 hour of coverage</li>
+          <li>50+ fully edited photos</li>
+          <li>Planning consultation included</li>
+          <li>Location coordination & scouting</li>
+          <li>Private Pixieset gallery with music</li>
+          <li>Full-resolution downloads</li>
+          <li class="highlight">Gallery delivered 48–72 hours</li>
+        </ul>
+        <button class="pkg-cta-link" onclick="goPage('contact-page')">Book This Package →</button>
+      </div>
+
+      <div class="pkg-editorial-card pkg-featured">
+        <div class="pkg-num">02</div>
+        <span class="pkg-tier">Most Popular</span>
+        <div class="pkg-name">The <em>Story</em></div>
+        <div class="pkg-price">$650</div>
+        <div class="pkg-price-note">Proposals & engagements · 50% retainer</div>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li>2 hours of coverage</li>
+          <li>100+ fully edited photos</li>
+          <li>Planning consultation included</li>
+          <li>Private gallery with custom music</li>
+          <li>Full-resolution downloads</li>
+          <li class="highlight">24–48hr sneak peek guaranteed</li>
+          <li class="highlight">Gallery delivered 48–72 hours</li>
+        </ul>
+        <button class="pkg-cta-link" onclick="goPage('contact-page')">Book This Package →</button>
+      </div>
+
+      <div class="pkg-editorial-card">
+        <div class="pkg-num">03</div>
+        <span class="pkg-tier">Full Wedding</span>
+        <div class="pkg-name">The <em>Forever</em></div>
+        <div class="pkg-price">$3,500</div>
+        <div class="pkg-price-note">Complete wedding coverage · Custom quote</div>
+        <div class="pkg-divider"></div>
+        <ul class="pkg-features">
+          <li>Full day coverage (8–10 hrs)</li>
+          <li>Second photographer included</li>
+          <li>Engagement session included</li>
+          <li>400+ fully edited photos</li>
+          <li>Private gallery with custom music</li>
+          <li>Print-ready & web files</li>
+          <li class="highlight">Gallery in 2–3 weeks</li>
+        </ul>
+        <button class="pkg-cta-link" onclick="goPage('packages-page')">See Full Details →</button>
+      </div>
+
+    </div>
+
+    <!-- Setup packages teaser -->
+    <div class="cin-reveal" style="margin-top:1px;background:rgba(201,169,110,0.04);border:0.5px solid rgba(201,169,110,0.15);padding:44px;text-align:center;">
+      <span style="font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:12px;">Full Experience Packages</span>
+      <div style="font-family:var(--serif);font-size:clamp(24px,3vw,36px);font-weight:300;color:var(--warm-white);margin-bottom:8px;">Photography + Setup + Video <em style="color:var(--gold)">from $1,200</em></div>
+      <div style="font-size:13px;color:rgba(255,255,255,0.35);margin-bottom:24px;max-width:560px;margin-left:auto;margin-right:auto;">Rose petals, candle arrangements, flower arches, Bluetooth speaker, live violinist, cinematic video — we coordinate everything. You just show up and ask.</div>
+      <button class="btn-cin-primary" onclick="goPage('packages-page')"><span>See Setup Packages →</span></button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ TESTIMONIALS CAROUSEL ═══ -->
+<section class="testimonial-cin">
+  <div style="max-width:800px;margin:0 auto;">
+    <span class="eyebrow cin-reveal" style="color:var(--gold);display:block;margin-bottom:12px;">What Clients Say</span>
+    <h2 class="section-title cin-reveal" style="color:var(--warm-white);margin-bottom:48px;">Every client.<br><em>Five stars.</em></h2>
+    <div class="t-carousel" id="t-carousel">
+
+      <div class="t-slide active">
+        <div class="t-stars-row"><div class="t-star-item"></div><div class="t-star-item"></div><div class="t-star-item"></div><div class="t-star-item"></div><div class="t-star-item"></div></div>
+        <div class="t-quote-mark">"</div>
+        <div class="t-text">We had the most incredible experience during my surprise proposal at the Orlando Science Center observatory. They captured every single moment perfectly — the emotions, the surprise, the joy — without us ever feeling posed or pressured. Looking back at the photos feels like reliving the entire moment all over again.</div>
+        <div class="t-author-row">
+          <div class="t-author-avatar">DB</div>
+          <div>
+            <div class="t-author-name">Danesca B.</div>
+            <div class="t-author-loc">Orlando Science Center Observatory</div>
+          </div>
         </div>
       </div>
-      <div class="hero-badge"><div class="hero-badge-num">50+</div><div class="hero-badge-text">Proposals Captured</div></div>
-    </div>
-  </header>
-  <div class="urgency-bar" id="urgency-bar"><div class="urgency-dot"></div><span>Only <strong>3 dates</strong> remaining this month — <a onclick="goPage('contact-page')" style="color:var(--gold);text-decoration:underline;cursor:pointer">Reserve yours now</a></span></div>
-  <div class="trust-bar"><div class="trust-item">50+ Proposals Captured</div><div class="trust-divider"></div><div class="trust-item">5-Star Google Rating</div><div class="trust-divider"></div><div class="trust-item">Available Nationwide</div><div class="trust-divider"></div><div class="trust-item">24hr Response Guarantee</div><div class="trust-divider"></div><div class="trust-item">Starting at $375</div></div>
-  <section class="pain-section">
-    <div class="pain-header reveal"><span class="eyebrow">Why Canon Moment</span><h2 class="section-title">Your biggest worries.<br><em>Our biggest strengths.</em></h2></div>
-    <div class="pain-grid">
-      <div class="pain-card reveal"><div class="pain-icon"><svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg></div><div class="pain-q">"Will they spot the photographer?"</div><div class="pain-a">We've hidden behind trees, boats, and tourist crowds. In 50+ proposals, we've never been spotted. Your partner will have zero idea until you show them the photos.</div><div class="pain-promise">→ 100% Stealth Guarantee</div></div>
-      <div class="pain-card reveal reveal-d1"><div class="pain-icon"><svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div><div class="pain-q">"What if the photos look posed?"</div><div class="pain-a">We never direct. We capture. Every laugh, every tear, every trembling hand — exactly as it happened. Raw emotion, zero staging.</div><div class="pain-promise">→ Zero Posing, Pure Emotion</div></div>
-      <div class="pain-card reveal reveal-d2"><div class="pain-icon"><svg viewBox="0 0 24 24"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg></div><div class="pain-q">"What about bad weather?"</div><div class="pain-a">Rain plans are built into every shoot. We'll discuss backup locations during your consultation. Some of our most magical shots happened in the rain.</div><div class="pain-promise">→ Free Reschedule if Unsafe</div></div>
-    </div>
-  </section>
-  <section class="about" id="about">
-    <div class="about-image reveal"><span class="media-placeholder-text" style="color:rgba(255,255,255,0.5)">Photographer portrait</span></div>
-    <div><span class="eyebrow reveal">Our Story</span><h2 class="section-title reveal">More than a photographer.<br><em>Your secret weapon.</em></h2><p class="section-body reveal">Canon Moment Photography was born from one belief: the biggest moments of your life deserve to be captured exactly as they happen — not staged, not directed, not posed. We specialize in the art of being invisible so your love story stays authentic.</p><p class="section-body reveal" style="margin-top:16px">Based in Orlando, Florida, we've traveled to over 30 cities nationwide capturing surprise proposals, engagements, weddings, and destination elopements.</p><div class="about-stats reveal"><div class="about-stat"><div class="about-stat-num">50+</div><div class="about-stat-label">Proposals</div></div><div class="about-stat"><div class="about-stat-num">5.0</div><div class="about-stat-label">Google Rating</div></div><div class="about-stat"><div class="about-stat-num">30+</div><div class="about-stat-label">Cities</div></div><div class="about-stat"><div class="about-stat-num">7</div><div class="about-stat-label">Years</div></div></div></div>
-  </section>
-  <section class="services" id="services">
-    <div class="services-header"><div><span class="eyebrow reveal">Services</span><h2 class="section-title reveal">Every chapter of<br><em>your love story.</em></h2></div><p class="section-body reveal">From the secret question to the big day. We document every milestone with the same invisible, emotional approach that has earned us 60+ five-star reviews.</p></div>
-    <div class="services-grid">
-      <a class="service-card reveal" onclick="goPage('services-page')"><div class="service-num">01</div><h3 class="service-name">Proposal Photography</h3><p class="service-desc">Completely discreet coverage of your surprise proposal. We plan the angles, scout the location, and capture every second of the most important question of your life.</p><span class="service-link">Learn More →</span></a>
-      <a class="service-card reveal reveal-d1" onclick="goPage('services-page')"><div class="service-num">02</div><h3 class="service-name">Engagement Sessions</h3><p class="service-desc">Relaxed, romantic sessions at your favorite locations across Central Florida or wherever your heart takes you. Golden hour magic guaranteed.</p><span class="service-link">Learn More →</span></a>
-      <a class="service-card reveal reveal-d2" onclick="goPage('services-page')"><div class="service-num">03</div><h3 class="service-name">Wedding Photography</h3><p class="service-desc">Full-day luxury wedding coverage with a second photographer, engagement session, and a private online gallery with custom music — delivered in 4–6 weeks.</p><span class="service-link">Learn More →</span></a>
-      <a class="service-card reveal" onclick="goPage('services-page')"><div class="service-num">04</div><h3 class="service-name">Portrait Sessions</h3><p class="service-desc">Couples, families, individuals. Whether it's an anniversary, birthday, or just because — we make ordinary moments extraordinary.</p><span class="service-link">Learn More →</span></a>
-      <a class="service-card reveal reveal-d1" onclick="goPage('services-page')"><div class="service-num">05</div><h3 class="service-name">Destination Shoots</h3><p class="service-desc">New York, Miami, Nashville, Paris — wherever love takes you, we follow. Travel fees included in select packages.</p><span class="service-link">Learn More →</span></a>
-      <a class="service-card reveal reveal-d2" onclick="goPage('services-page')"><div class="service-num">06</div><h3 class="service-name">Event Coverage</h3><p class="service-desc">Corporate events, milestone celebrations, and special occasions. Professional, unobtrusive coverage that tells the story of your event.</p><span class="service-link">Learn More →</span></a>
-    </div>
-  </section>
-  <section class="gallery-preview" id="gallery">
-    <div class="gallery-header"><div><span class="eyebrow reveal">Portfolio</span><h2 class="section-title reveal">Real moments.<br><em>Real emotions.</em></h2></div><a class="btn-ghost reveal" onclick="goPage('gallery-page')">View Full Gallery</a></div>
-    <div class="gallery-grid"><div class="gallery-item reveal"><div class="gallery-placeholder">Proposal at Disney</div><div class="gallery-overlay"><span class="gallery-overlay-text">Sarah & James · Disney World</span></div></div><div class="gallery-item reveal reveal-d1"><div class="gallery-placeholder">Lake Eola Sunset</div><div class="gallery-overlay"><span class="gallery-overlay-text">Maria & Carlos · Lake Eola</span></div></div><div class="gallery-item reveal reveal-d2"><div class="gallery-placeholder">Central Park NYC</div><div class="gallery-overlay"><span class="gallery-overlay-text">Amanda & David · NYC</span></div></div><div class="gallery-item reveal"><div class="gallery-placeholder">Beach Proposal</div><div class="gallery-overlay"><span class="gallery-overlay-text">Jessica & Ryan · Clearwater</span></div></div><div class="gallery-item reveal reveal-d1"><div class="gallery-placeholder">Garden Engagement</div><div class="gallery-overlay"><span class="gallery-overlay-text">Emily & Chris · Kraft Azalea</span></div></div></div>
-  </section>
-  <section class="experience">
-    <span class="eyebrow reveal">The Experience</span><h2 class="section-title reveal">Four steps to<br><em>your forever photos.</em></h2>
-    <div class="experience-grid">
-      <div class="exp-step reveal"><div class="exp-num">01</div><h3 class="exp-title">Tell Us Everything</h3><p class="exp-desc">Fill out our inquiry form or call us. Share your vision, timeline, and all the details — even the ones you think don't matter.</p></div>
-      <div class="exp-step reveal reveal-d1"><div class="exp-num">02</div><h3 class="exp-title">We Build the Plan</h3><p class="exp-desc">We scout your location, plan the angles, coordinate timing, and prepare backup options. You just focus on the ring and the words.</p></div>
-      <div class="exp-step reveal reveal-d2"><div class="exp-num">03</div><h3 class="exp-title">The Invisible Capture</h3><p class="exp-desc">On the day, we arrive early and blend in completely. Your partner definitely won't know. We capture everything.</p></div>
-      <div class="exp-step reveal reveal-d3"><div class="exp-num">04</div><h3 class="exp-title">Your Gallery, Fast</h3><p class="exp-desc">Sneak peek arrives in as little as same-day. Full edited gallery delivered within 48–72 hours — with background music, full-resolution downloads, and every moment captured.</p></div>
-    </div>
-  </section>
-  <section class="packages" id="packages">
-    <div class="packages-intro"><div><span class="eyebrow reveal">Packages</span><h2 class="section-title reveal">Investment in<br><em>priceless memories.</em></h2></div><p class="section-body reveal">Every package includes a planning consultation, professional editing, and a private online gallery with music. Custom packages available.</p></div>
-    <div class="packages-grid">
-      <div class="package-card reveal"><span class="package-tag">Starter</span><h3 class="package-name">The Moment</h3><div class="package-price">$375</div><div class="package-note">Perfect for proposals</div><ul class="package-features"><li>1 hour coverage</li><li>50+ edited photos</li><li>Planning consultation</li><li>Private online gallery</li><li>Full-resolution downloads</li><li>Gallery delivered in 48–72 hours</li></ul><button class="package-cta" onclick="goPage('contact-page')">Book This Package</button></div>
-      <div class="package-card featured reveal reveal-d1"><span class="package-tag">Most Popular</span><h3 class="package-name">The Story</h3><div class="package-price">$650</div><div class="package-note">Proposals & engagements</div><ul class="package-features"><li>2 hour coverage</li><li>100+ edited photos</li><li>Planning consultation</li><li>Private gallery with music</li><li>Full-resolution downloads</li><li>Gallery delivered in 48–72 hours</li><li>24–48hr sneak peek guaranteed</li></ul><button class="package-cta" onclick="goPage('contact-page')">Book This Package</button></div>
-      <div class="package-card reveal reveal-d2"><span class="package-tag">Premium</span><h3 class="package-name">The Forever</h3><div class="package-price">$3,500</div><div class="package-note">Full wedding coverage</div><ul class="package-features"><li>Full day coverage</li><li>Second photographer</li><li>Engagement session</li><li>400+ edited photos</li><li>Private gallery with music</li><li>Print-ready files</li><li>4–6 week delivery</li></ul><button class="package-cta" onclick="goPage('contact-page')">Book This Package</button></div>
-    </div>
-  </section>
 
-  <!-- ══ PROPOSAL SETUP PACKAGES ══ -->
-  <section class="setup-packages" id="setup-packages">
-    <div class="setup-header">
-      <span class="eyebrow">The Full Experience</span>
-      <h2 class="section-title">Photography + Setup +<br><em>Everything.</em></h2>
-      <p class="section-body">You focus on the question. We handle everything else — from the candles and roses to the cinematic video. Orlando's only fully coordinated proposal photography experience.</p>
-    </div>
-    <div class="setup-grid">
-
-      <!-- Tier 1 -->
-      <div class="setup-card reveal">
-        <span class="setup-card-tier">The Essential Experience</span>
-        <div class="setup-card-name">The Proposal<br>Package</div>
-        <div class="setup-card-sub">Photography + Setup + Video</div>
-        <div class="setup-card-price">$1,200</div>
-        <div class="setup-card-price-note">Starting price · Custom quote provided</div>
-        <ul class="setup-includes">
-          <li>2 hours of photography coverage</li>
-          <li>100+ fully edited photos</li>
-          <li>Cinematic proposal video / reel</li>
-          <li>Rose petal arrangement</li>
-          <li>Candle setup with lanterns</li>
-          <li>Custom name/message sign</li>
-          <li>Location coordination & scouting</li>
-          <li>24–48hr sneak peek · Full gallery 48–72hrs</li>
-          <li>Private Pixieset gallery with music</li>
-          <li>Must book 4 weeks in advance</li>
-        </ul>
-        <button class="setup-card-cta" onclick="goPage('contact-page')">Request This Package</button>
+      <div class="t-slide">
+        <div class="t-stars-row"><div class="t-star-item"></div><div class="t-star-item"></div><div class="t-star-item"></div><div class="t-star-item"></div><div class="t-star-item"></div></div>
+        <div class="t-quote-mark">"</div>
+        <div class="t-text">I used Canon Moment Photography for a surprise engagement photoshoot at Magic Kingdom, Disney World. John reached out right away and set everything up — the whole experience was very seamless. The photos were outstanding and captured the moments leading up to the proposal and a whole photoshoot after. I highly recommend using John for any photography needs!</div>
+        <div class="t-author-row">
+          <div class="t-author-avatar">NL</div>
+          <div>
+            <div class="t-author-name">Nicholas L.</div>
+            <div class="t-author-loc">Magic Kingdom, Walt Disney World</div>
+          </div>
+        </div>
       </div>
 
-      <!-- Tier 2 — Featured -->
-      <div class="setup-card featured reveal reveal-d1">
-        <div class="setup-featured-badge">Most Requested</div>
-        <span class="setup-card-tier">The Premium Experience</span>
-        <div class="setup-card-name">The Luxury<br>Proposal</div>
-        <div class="setup-card-sub">Photography + Full Setup + Video + 2nd Shooter</div>
-        <div class="setup-card-price">$1,500</div>
-        <div class="setup-card-price-note">Starting price · Custom quote provided</div>
-        <ul class="setup-includes">
-          <li>2 hours of photography coverage</li>
-          <li>Second photographer included</li>
-          <li>Cinematic proposal video + reel</li>
-          <li>Full floral arrangement with stands</li>
-          <li>Rose petal pathway or pattern</li>
-          <li>Tall pillar candles + lanterns</li>
-          <li>Flower arch or backdrop</li>
-          <li>Bluetooth speaker for your song</li>
-          <li>Custom name sign + letter props</li>
-          <li>Picnic setup available (see add-ons)</li>
-          <li>24–48hr sneak peek · Full gallery 48–72hrs</li>
-          <li>Private gallery with custom music</li>
-        </ul>
-        <button class="setup-card-cta" onclick="goPage('contact-page')">Request This Package</button>
+      <div class="t-slide">
+        <div class="t-stars-row"><div class="t-star-item"></div><div class="t-star-item"></div><div class="t-star-item"></div><div class="t-star-item"></div><div class="t-star-item"></div></div>
+        <div class="t-quote-mark">"</div>
+        <div class="t-text">Great experience. Did an engagement shoot and the photos really captured our love. Easy to work with, professional, fair prices. Very much looking forward to Canon Moment taking our wedding photos.</div>
+        <div class="t-author-row">
+          <div class="t-author-avatar">DD</div>
+          <div>
+            <div class="t-author-name">Danielle D.</div>
+            <div class="t-author-loc">Engagement Session, Orlando</div>
+          </div>
+        </div>
       </div>
 
-      <!-- Tier 3 -->
-      <div class="setup-card reveal reveal-d2">
-        <span class="setup-card-tier">The Ultimate Experience</span>
-        <div class="setup-card-name">The Grand<br>Proposal</div>
-        <div class="setup-card-sub">Everything + Live Violinist + Same-Day Sneak Peek</div>
-        <div class="setup-card-price">$2,000</div>
-        <div class="setup-card-price-note">Starting price · Custom quote provided</div>
-        <ul class="setup-includes">
-          <li>2 hours of photography coverage</li>
-          <li>2 photographers on location</li>
-          <li>Full cinematic video + social reel</li>
-          <li>Live violinist during the proposal</li>
-          <li>Grand floral arch + full petal setup</li>
-          <li>Premium candle arrangement</li>
-          <li>Custom signage & letter props</li>
-          <li>Bluetooth speaker with your playlist</li>
-          <li>Picnic setup available (see add-ons)</li>
-          <li><strong style="color:var(--gold)">Same-day sneak peek</strong></li>
-          <li>Full gallery delivered 48–72hrs</li>
-          <li>Full-resolution downloads + print files</li>
-        </ul>
-        <button class="setup-card-cta" onclick="goPage('contact-page')">Request This Package</button>
+      <div class="t-slide">
+        <div class="t-stars-row"><div class="t-star-item"></div><div class="t-star-item"></div><div class="t-star-item"></div><div class="t-star-item"></div><div class="t-star-item"></div></div>
+        <div class="t-quote-mark">"</div>
+        <div class="t-text">John, thank you for capturing the special moments at my grandma's 84th birthday. She loved the pictures. Thank you for your professionalism and kindness. We will definitely use your services again.</div>
+        <div class="t-author-row">
+          <div class="t-author-avatar">VM</div>
+          <div>
+            <div class="t-author-name">Vanessa M.</div>
+            <div class="t-author-loc">84th Birthday Session, Orlando</div>
+          </div>
+        </div>
       </div>
-    </div>
 
-    <div class="setup-addon-note">
-      <p><strong>Add-on: Picnic Setup</strong> — Charcuterie board, champagne, juice, fruit, and elegant table setting. <strong>Starting at $150</strong> added to any package. Custom upgrades available. Exact pricing depends on guest count and selections — included in your custom quote.<br><br>
-      <strong>All setup packages require 4 weeks advance booking.</strong> Available at Kraft Azalea Gardens, Lake Eola Park, Harry P. Leu Gardens, Disney Springs area, and select private venues. Contact us for other locations.</p>
-    </div>
+      <div class="t-slide">
+        <div class="t-stars-row"><div class="t-star-item"></div><div class="t-star-item"></div><div class="t-star-item"></div><div class="t-star-item"></div><div class="t-star-item"></div></div>
+        <div class="t-quote-mark">"</div>
+        <div class="t-text">Professional, skill, and personality — focusing on the entire experience from start to finish. I recommend to anyone. Always on point.</div>
+        <div class="t-author-row">
+          <div class="t-author-avatar">LS</div>
+          <div>
+            <div class="t-author-name">Louie S.</div>
+            <div class="t-author-loc">Portrait Session, Orlando</div>
+          </div>
+        </div>
+      </div>
 
-    <!-- Custom Inquiry -->
-    <div class="custom-inquiry" style="margin-top:48px;">
-      <div class="custom-inquiry-title">Something truly <em>one-of-a-kind?</em></div>
-      <div class="custom-inquiry-sub">We specialize in proposals that have never been done before. Tell us your vision — budget, location, vibe — and we'll build it from the ground up. From $2,500 for a fully coordinated, completely planned proposal experience with photography, video, setup, and vendor coordination.</div>
-      <a class="btn-gold" onclick="goPage('contact-page')" style="display:inline-block;cursor:pointer;">Request a Custom Experience →</a>
     </div>
-  </section>
-
-  <!-- ══ VENDOR LIST ══ -->
-  <section class="vendor-list-section" id="preferred-vendors">
-    <span class="eyebrow reveal">Canon Moment Preferred Vendors</span>
-    <h2 class="section-title reveal">Trusted partners for<br><em>your perfect day.</em></h2>
-    <p class="section-body reveal">Every vendor on this list has been personally vetted or is recommended for their professionalism, quality, and reliability. When you book a Canon Moment setup package, we coordinate with these vendors on your behalf.</p>
-    <div class="vendor-grid">
-      <div class="vendor-card reveal">
-        <span class="vendor-badge">Floral & Décor</span>
-        <div class="vendor-category">Flowers · Arches · Arrangements</div>
-        <div class="vendor-name">Local Floral Partner</div>
-        <div class="vendor-desc">Custom floral arrangements, petal setups, flower arches, and bouquets for your proposal or event. We coordinate directly so you don't have to.</div>
-        <div class="vendor-contact"><span>Coordinated by Canon Moment</span><span>Ask us for details when booking</span></div>
-      </div>
-      <div class="vendor-card reveal reveal-d1">
-        <span class="vendor-badge">Music</span>
-        <div class="vendor-category">Live Violin · String Quartet</div>
-        <div class="vendor-name">Live Violinist (Grand Package)</div>
-        <div class="vendor-desc">A live violinist playing your song as you propose. Included in The Grand Proposal package. Absolutely unforgettable — and always makes both of you cry.</div>
-        <div class="vendor-contact"><span>Included in Grand Package</span><span>Available à la carte — ask for pricing</span></div>
-      </div>
-      <div class="vendor-card reveal reveal-d2">
-        <span class="vendor-badge">Picnic & Catering</span>
-        <div class="vendor-category">Charcuterie · Drinks · Styling</div>
-        <div class="vendor-name">Picnic Setup Partner</div>
-        <div class="vendor-desc">Styled picnic setup including charcuterie boards, champagne, juice, fruit, and elegant table arrangement. Add-on starting at $150.</div>
-        <div class="vendor-contact"><span>Add-on from $150</span><span>Pricing varies by selection</span></div>
-      </div>
-      <div class="vendor-card reveal">
-        <span class="vendor-badge">Luxury Transport</span>
-        <div class="vendor-category">Limo · Party Bus · Classic Car</div>
-        <div class="vendor-name">Luxury Transportation</div>
-        <div class="vendor-desc">Arrive in style. We can coordinate luxury vehicle pickup for you and your partner — from classic limos to party buses — to complete the proposal experience.</div>
-        <div class="vendor-contact"><span>Custom pricing</span><span>Ask us to coordinate</span></div>
-      </div>
-      <div class="vendor-card reveal reveal-d1">
-        <span class="vendor-badge">Ring Boxes</span>
-        <div class="vendor-category">Custom · Luxury · Keepsakes</div>
-        <div class="vendor-name">Luxury Ring Box Partner</div>
-        <div class="vendor-desc">Custom engraved and luxury ring boxes that become keepsakes. The box in your photo matters as much as the ring. We source beautiful options for every style.</div>
-        <div class="vendor-contact"><span>Custom orders available</span><span>Ask during consultation</span></div>
-      </div>
-      <div class="vendor-card reveal reveal-d2">
-        <span class="vendor-badge">Post-Proposal</span>
-        <div class="vendor-category">Dinner · Spa · Hotel</div>
-        <div class="vendor-name">Celebration Planning</div>
-        <div class="vendor-desc">The proposal is just the beginning. We can help recommend and coordinate restaurant reservations, spa experiences, or hotel surprises to complete your evening.</div>
-        <div class="vendor-contact"><span>Recommendations upon request</span><span>Based in Orlando area</span></div>
-      </div>
+    <div class="t-controls">
+      <button class="t-btn" onclick="tCarousel(-1)">‹</button>
+      <button class="t-btn" onclick="tCarousel(1)">›</button>
+      <div class="t-dots" id="t-dots"></div>
     </div>
-    <div style="text-align:center;margin-top:48px;padding:28px 0;border-top:0.5px solid var(--border);">
-      <p style="font-size:13px;color:var(--gray);margin-bottom:16px;">Are you a vendor interested in joining the Canon Moment preferred network?</p>
-      <a class="btn-ghost" href="mailto:help@canonmomentphotography.com?subject=Vendor Partnership Inquiry">Get In Touch →</a>
-    </div>
-  </section>
-
-  <section class="testimonials">
-    <span class="eyebrow reveal">Reviews</span><h2 class="section-title reveal">Every client.<br><em>Five stars.</em></h2>
-    <div class="testimonials-grid">
-      <div class="testimonial-card reveal"><div class="testimonial-quote">"</div><div class="t-stars"><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div></div><p class="testimonial-text">We had the most incredible experience during my surprise proposal at the Orlando Science Center observatory. They captured every single moment perfectly — the emotions, the surprise, the joy — without us ever feeling posed or pressured. Looking back at the photos feels like reliving the entire moment all over again.</p><div class="testimonial-author">Danesca B.</div><div class="testimonial-location">Orlando Science Center Observatory</div></div>
-      <div class="testimonial-card reveal reveal-d1"><div class="testimonial-quote">"</div><div class="t-stars"><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div></div><p class="testimonial-text">I used Canon Moment Photography for a surprise engagement photoshoot at Magic Kingdom, Disney World. John reached out right away and set everything up and made the whole experience very seamless. The photos he took were outstanding and captured the moments leading up to the proposal and a whole photoshoot after!</p><div class="testimonial-author">Nicholas L.</div><div class="testimonial-location">Magic Kingdom, Walt Disney World</div></div>
-      <div class="testimonial-card reveal reveal-d2"><div class="testimonial-quote">"</div><div class="t-stars"><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div><div class="t-star"></div></div><p class="testimonial-text">Great experience. Did an engagement shoot and the photos really captured our love. Easy to work with, professional, fair prices. Very much looking forward to Canon Moment taking our wedding photos.</p><div class="testimonial-author">Danielle D.</div><div class="testimonial-location">Engagement Session, Orlando</div></div>
-    </div>
-  </section>
-  <section class="faq">
-    <span class="eyebrow reveal">FAQ</span><h2 class="section-title reveal">Questions we<br><em>love to answer.</em></h2>
-    <div class="faq-grid">
-      <div class="faq-item reveal"><button class="faq-question" onclick="toggleFaq(this)">Will my partner know the photographer is there? <span class="faq-arrow">+</span></button><div class="faq-answer"><p>Absolutely not. We specialize in completely discreet coverage. We arrive early, scout the location, and position ourselves as tourists or bystanders. In over 500 proposals, we have never been spotted before the moment.</p></div></div>
-      <div class="faq-item reveal"><button class="faq-question" onclick="toggleFaq(this)">How much does a proposal photographer cost in Orlando? <span class="faq-arrow">+</span></button><div class="faq-answer"><p>Our proposal packages start at $375 for a 1-hour session including 50+ professionally edited photos, a planning consultation, and a private online gallery.</p></div></div>
-      <div class="faq-item reveal"><button class="faq-question" onclick="toggleFaq(this)">How far in advance should I book? <span class="faq-arrow">+</span></button><div class="faq-answer"><p>We recommend 2–4 weeks for Orlando proposals and 4–8 weeks for destination shoots. We do accommodate last-minute proposals when our schedule allows.</p></div></div>
-      <div class="faq-item reveal"><button class="faq-question" onclick="toggleFaq(this)">Do you travel for destination proposals? <span class="faq-arrow">+</span></button><div class="faq-answer"><p>Yes! While based in Orlando, we travel nationwide and internationally. Past destinations include NYC, Miami, Savannah, Nashville, Paris, and the Amalfi Coast. Travel fees vary by location.</p></div></div>
-      <div class="faq-item reveal"><button class="faq-question" onclick="toggleFaq(this)">How long until I receive my photos? <span class="faq-arrow">+</span></button><div class="faq-answer"><p>Proposal and engagement sessions are delivered within 48–72 hours. Sneak peeks arrive within 24–48 hours for most packages. Wedding galleries are delivered within 2–3 weeks. Every photo comes in a private Pixieset gallery.</p></div></div>
-      <div class="faq-item reveal"><button class="faq-question" onclick="toggleFaq(this)">What happens if it rains? <span class="faq-arrow">+</span></button><div class="faq-answer"><p>We always have backup plans. During your consultation, we'll discuss weather contingencies. If conditions are unsafe, we'll reschedule at no cost. Light rain creates stunning, moody photos!</p></div></div>
-    </div>
-  </section>
-  <section class="blog-preview" id="blog">
-    <span class="eyebrow reveal">From the Blog</span><h2 class="section-title reveal">Stories, tips &<br><em>proposal guides.</em></h2>
-    <div class="blog-grid">
-      <a class="blog-card reveal" onclick="goPage('blog-page')"><div class="blog-card-image"><span class="media-placeholder-text" style="font-size:13px;color:rgba(255,255,255,0.4)">Blog image</span></div><span class="blog-card-tag">Proposal Guide</span><h3 class="blog-card-title">Top 10 Proposal Spots in Orlando (Photographer's Pick)</h3><p class="blog-card-excerpt">From Disney's Magic Kingdom to hidden gems like Kraft Azalea Gardens — our curated list of the most photogenic proposal locations in Orlando.</p></a>
-      <a class="blog-card reveal reveal-d1" onclick="goPage('blog-page')"><div class="blog-card-image"><span class="media-placeholder-text" style="font-size:13px;color:rgba(255,255,255,0.4)">Blog image</span></div><span class="blog-card-tag">Destination</span><h3 class="blog-card-title">Destination Proposal Photographer: Why We Travel Nationwide for Love</h3><p class="blog-card-excerpt">NYC, Paris, the Amalfi Coast — how destination proposals work and what to expect when hiring a travel photographer.</p></a>
-      <a class="blog-card reveal reveal-d2" onclick="goPage('blog-page')"><div class="blog-card-image"><span class="media-placeholder-text" style="font-size:13px;color:rgba(255,255,255,0.4)">Blog image</span></div><span class="blog-card-tag">Pricing Guide</span><h3 class="blog-card-title">How Much Does a Proposal Photographer Cost in Orlando? (2025 Guide)</h3><p class="blog-card-excerpt">An honest breakdown of proposal photography pricing — and what you actually get for your investment.</p></a>
-    </div>
-  </section>
-  <div class="galleries-cta">
-    <div class="galleries-content reveal"><span class="eyebrow">Client Galleries</span><h2 class="section-title">Your photos.<br><em>Your music.</em><br>Your gallery.</h2><p class="section-body">Every client receives a private, password-protected gallery with background music, full-resolution downloads, and sharing. Built with love.</p><div class="music-note"><div class="music-icon">♪</div> Custom background music included</div><a class="btn-primary" style="margin-top:36px" onclick="openPortal()">Access Your Gallery</a></div>
-    <div class="galleries-image"><span class="media-placeholder-text">Gallery preview image</span></div>
   </div>
-  <div class="payment-section reveal">
-    <span class="eyebrow" style="text-align:center;display:block">Secure Booking</span>
-    <h2 class="payment-title">Ready to reserve your date?</h2>
-    <p class="payment-sub">Secure your session with a retainer. All payments processed securely through Stripe.</p>
-    <a href="https://buy.stripe.com/your_payment_link" target="_blank" class="stripe-btn" id="stripe-link">Pay Retainer Online</a>
-    <p style="font-size:12px;color:var(--gray-light);margin-top:14px">Retainer payments are non-refundable and hold your date. Remaining balance due 7 days before your shoot.</p>
-    <div class="payment-badges"><span class="payment-badge">SSL Encrypted</span><span class="payment-badge">Powered by Stripe</span><span class="payment-badge">All Cards Accepted</span><span class="payment-badge">Instant Confirmation</span></div>
+</section>
+
+<!-- ═══ FAQ ═══ -->
+<section class="cin-section cin-warm" id="faq-section">
+  <div style="max-width:780px;margin:0 auto;">
+    <span class="eyebrow cin-reveal" style="display:block;text-align:center;">FAQ</span>
+    <h2 class="section-title cin-reveal" style="text-align:center;font-size:clamp(32px,4vw,52px);margin-bottom:48px;">Everything you<br><em>want to know.</em></h2>
+    <div class="faq-list">
+      <div class="faq-item cin-reveal"><button class="faq-question" onclick="toggleFaq(this)">How much does a proposal photographer cost in Orlando? <span class="faq-arrow">+</span></button><div class="faq-answer"><p>Our proposal packages start at $375 for a 1-hour session including 50+ professionally edited photos, a planning consultation, and a private online gallery delivered within 48–72 hours. Our most popular package is $650 for 2 hours with a 24–48hr sneak peek.</p></div></div>
+      <div class="faq-item cin-reveal"><button class="faq-question" onclick="toggleFaq(this)">How do you stay hidden during a surprise proposal? <span class="faq-arrow">+</span></button><div class="faq-answer"><p>We use telephoto zoom lenses that let us shoot from 50–100 feet away without being noticed. We arrive early to scout angles and hiding spots, dress casually like tourists, and never make eye contact or draw attention. In 50+ proposals, we've never been spotted.</p></div></div>
+      <div class="faq-item cin-reveal"><button class="faq-question" onclick="toggleFaq(this)">When will I receive my photos? <span class="faq-arrow">+</span></button><div class="faq-answer"><p>Sneak peeks arrive within 24–48 hours for most packages (same-day for Grand Proposal). Full edited galleries are delivered within 48–72 hours via your private Pixieset gallery with full-resolution download access. Weddings are delivered within 2–3 weeks.</p></div></div>
+      <div class="faq-item cin-reveal"><button class="faq-question" onclick="toggleFaq(this)">Do you travel outside Orlando? <span class="faq-arrow">+</span></button><div class="faq-answer"><p>Absolutely — we're available nationwide and internationally. We've shot proposals across Florida and beyond. Travel fees apply outside Central Florida and are included in a custom quote. See our Hidden Locations Guide for worldwide destination pricing.</p></div></div>
+      <div class="faq-item cin-reveal"><button class="faq-question" onclick="toggleFaq(this)">How do I book and what's required? <span class="faq-arrow">+</span></button><div class="faq-answer"><p>Contact us or book directly at canonmomentphotographyllc.pixieset.com/booking. A 50% non-refundable retainer holds your date. Balance is due on or before your session day. Setup packages require 4 weeks advance booking.</p></div></div>
+      <div class="faq-item cin-reveal"><button class="faq-question" onclick="toggleFaq(this)">What if it rains? <span class="faq-arrow">+</span></button><div class="faq-answer"><p>We watch the forecast obsessively. We'll contact you 24–48 hours before if rain looks severe. Light overcast is actually beautiful for portraits. For heavy rain, we'll reschedule at no extra charge with 72 hours notice.</p></div></div>
+    </div>
   </div>
-  <div class="contact-section" id="contact-home">
-    <div class="contact-left"><span class="eyebrow">Get In Touch</span><h2 class="section-title">Let's plan your<br><em>perfect moment.</em></h2><p class="section-body" style="color:rgba(255,255,255,0.45)">Tell us about your vision. We'll take care of the rest. Response within 24 hours guaranteed.</p><div class="contact-details"><div><div class="contact-detail-label">Phone</div><div class="contact-detail-value"><a href="tel:+18339280444">(321) 300-6314</a></div></div><div><div class="contact-detail-label">Email</div><div class="contact-detail-value"><a href="/cdn-cgi/l/email-protection#e9818c858586a98a888786878486848c879d9981869d868e9b88998190c78a8684"><span class="__cf_email__" data-cfemail="325a575e5e5d7251535c5d5c5f5d5f575c46425a5d465d554053425a4b1c515d5f">[email&#160;protected]</span></a></div></div><div><div class="contact-detail-label">Based In</div><div class="contact-detail-value">Orlando, Florida</div></div><div><div class="contact-detail-label">Available</div><div class="contact-detail-value">Nationwide & International</div></div></div></div>
-    <div class="contact-right"><form class="contact-form" onsubmit="handleSubmit(event)"><div class="form-row"><div class="form-group"><label class="form-label">Your Name</label><input class="form-input" type="text" placeholder="First & last name" required></div><div class="form-group"><label class="form-label">Partner's Name</label><input class="form-input" type="text" placeholder="Their name"></div></div><div class="form-row"><div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="your@email.com" required></div><div class="form-group"><label class="form-label">Phone</label><input class="form-input" type="tel" placeholder="(407) 000-0000"></div></div><div class="form-row"><div class="form-group"><label class="form-label">Session Type</label><select class="form-select"><option value="">Select a service</option><option>Proposal Photography</option><option>Engagement Session</option><option>Wedding Photography</option><option>Portrait Session</option><option>Destination Shoot</option><option>Event Coverage</option></select></div><div class="form-group"><label class="form-label">Event Date</label><input class="form-input" type="text" placeholder="MM/DD/YYYY or timeframe"></div></div><div class="form-group"><label class="form-label">Location / City</label><input class="form-input" type="text" placeholder="Where is the shoot happening?"></div><div class="form-group"><label class="form-label">Tell Us About Your Vision</label><textarea class="form-textarea" placeholder="Share any details — surprise plan, location ideas, special requests..."></textarea></div><div class="form-group"><label class="form-label">How Did You Find Us?</label><select class="form-select"><option value="">Select one</option><option>Instagram</option><option>Google Search</option><option>Friend / Referral</option><option>TikTok</option><option>Pinterest</option><option>The Knot / WeddingWire</option><option>Other</option></select></div><button type="submit" class="form-submit">Send Inquiry</button><p class="form-note">We respond within 24 hours. Your information is never shared.</p></form></div>
+</section>
+
+<!-- ═══ FINAL CTA ═══ -->
+<section class="cin-section cin-dark" style="text-align:center;position:relative;overflow:hidden;">
+  <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 50% 50%,rgba(201,169,110,0.08) 0%,transparent 70%);pointer-events:none;"></div>
+  <div style="position:relative;z-index:1;max-width:700px;margin:0 auto;">
+    <span class="eyebrow cin-reveal" style="color:var(--gold);display:block;">Ready to Begin?</span>
+    <h2 class="section-title cin-reveal" style="color:var(--warm-white);font-size:clamp(36px,5vw,64px);">Let's plan your<br><em>perfect moment.</em></h2>
+    <p class="cin-reveal" style="font-size:15px;color:rgba(255,255,255,0.4);line-height:1.8;margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto;">Tell us your vision — the location, the plan, the person. We'll handle everything else and make sure the moment is captured exactly as it deserves to be.</p>
+    <div class="cin-reveal" style="display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;">
+      <a class="btn-cin-primary" onclick="goPage('contact-page')"><span>Start Planning →</span></a>
+      <a href="tel:+13213006314" class="btn-cin-ghost">(321) 300-6314</a>
+    </div>
+    <div class="cin-reveal" style="margin-top:40px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.2);">
+      Or book directly at <a href="https://canonmomentphotographyllc.pixieset.com/booking/" target="_blank" rel="noopener" style="color:var(--gold);text-decoration:none;">canonmomentphotographyllc.pixieset.com/booking</a>
+    </div>
   </div>
+</section>
+
 </div><!-- /page-home -->
+
 
 <!-- ══ PAGE: SERVICES ══ -->
 <div class="page" id="page-services-page">
@@ -2320,7 +2690,7 @@ footer { background: #141414; padding: 72px 80px 40px; }
 
       <!-- Documents -->
       <div class="dash-section">
-        <div class="dash-section-header"><div class="dash-section-title">Documents</div></div>
+        <div class="dash-section-header"><div class="dash-section-title">Documents</div><button onclick="openClientContract()" style="font-family:var(--sans);font-size:10px;letter-spacing:0.14em;text-transform:uppercase;background:var(--charcoal);color:var(--warm-white);border:none;padding:8px 16px;cursor:pointer;" id="portal-sign-btn">✍ Sign Contract</button></div>
         <div class="doc-grid" id="client-docs-wrap"></div>
       </div>
 
@@ -2386,6 +2756,18 @@ footer { background: #141414; padding: 72px 80px 40px; }
           <div class="admin-stat-card"><div class="admin-stat-label">Revenue (MTD)</div><div class="admin-stat-value">$3,200</div><div class="admin-stat-change up">↑ 18% vs last month</div></div>
           <div class="admin-stat-card"><div class="admin-stat-label">Outstanding</div><div class="admin-stat-value" style="font-size:26px">$875</div><div class="admin-stat-change" style="color:var(--danger)">2 invoices pending</div></div>
         </div>
+        <!-- Kanban Project Board -->
+        <div style="margin-bottom:28px;">
+          <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;">
+            <div>
+              <div class="admin-page-eyebrow">Project Pipeline</div>
+              <div style="font-family:var(--serif);font-size:20px;font-weight:300;color:var(--charcoal)">Kanban Board</div>
+            </div>
+            <button class="modal-btn-primary" onclick="addProjectToStage('inquiry')">+ New Project</button>
+          </div>
+          <div class="kanban-board" id="kanban-board"></div>
+        </div>
+
         <div class="admin-panel-grid">
           <div class="admin-panel"><div class="admin-panel-header"><div class="admin-panel-title">Recent Activity</div></div><div class="activity-feed"><div class="activity-item"><div class="activity-dot green"></div><div><div class="activity-text">Gallery delivered to <strong>Jessica & Marcus</strong></div><div class="activity-time">Today, 9:14 AM</div></div></div><div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">New client signup: <strong>Rachel Kim</strong></div><div class="activity-time">Yesterday, 4:32 PM</div></div></div><div class="activity-item"><div class="activity-dot blue"></div><div><div class="activity-text">Invoice #0003 paid — <strong>$650</strong></div><div class="activity-time">Apr 4, 2026</div></div></div><div class="activity-item"><div class="activity-dot"></div><div><div class="activity-text">27 photos added to <strong>Kraft Azalea gallery</strong></div><div class="activity-time">Apr 3, 2026</div></div></div><div class="activity-item"><div class="activity-dot green"></div><div><div class="activity-text">Contract signed by <strong>Tyler & Amber</strong></div><div class="activity-time">Apr 2, 2026</div></div></div></div></div>
           <div class="admin-panel"><div class="admin-panel-header"><div class="admin-panel-title">Upcoming Sessions</div></div><div class="session-timeline"><div class="session-item"><div class="session-date">Apr 12</div><div class="session-line"></div><div class="session-content"><div class="session-type">Proposal</div><div class="session-title-text">Tyler & Amber</div><div class="session-detail">Lake Eola Park · 6:30 PM</div></div></div><div class="session-item"><div class="session-date">Apr 19</div><div class="session-line"></div><div class="session-content"><div class="session-type">Engagement</div><div class="session-title-text">Rachel & James</div><div class="session-detail">Disney Springs · Sunset</div></div></div><div class="session-item"><div class="session-date">May 3</div><div class="session-line"></div><div class="session-content"><div class="session-type">Wedding</div><div class="session-title-text">David & Sofia</div><div class="session-detail">Bella Collina · Full day</div></div></div></div></div>
@@ -2927,36 +3309,74 @@ function viewInvoice(invoiceId) {
 // ═══════════════════════════════════
 let dirty = false;
 function loadAdminDash() {
-  renderAdminClients(); renderAdminInvoices(); renderAdminGalleries();
-  renderVisibilityToggles(); loadEditorValues();
-  const clients=DB.get('clients',[]); document.getElementById('stat-clients').textContent=clients.length; document.getElementById('client-count-badge').textContent=clients.length;
-  document.getElementById('stat-galleries').textContent=DB.get('galleries',[]).length;
+  // Stats only — renders happen lazily when tabs are opened
+  const clients=DB.get('clients',[]);
+  const galleries=DB.get('galleries',[]);
+  const invoices=DB.get('invoices',[]);
+  const statClients = document.getElementById('stat-clients');
+  const statGalleries = document.getElementById('stat-galleries');
+  const badge = document.getElementById('client-count-badge');
+  if(statClients) statClients.textContent = clients.length;
+  if(statGalleries) statGalleries.textContent = galleries.length;
+  if(badge) badge.textContent = clients.length;
 
-  // Initialize panel visibility — show only overview, hide the rest
+  // Revenue MTD
+  const mtdEl = document.querySelector('.admin-stat-value:not(#stat-clients):not(#stat-galleries)');
+  const paid = invoices.filter(i=>i.status==='paid').reduce((s,i)=>s+i.amount,0);
+  const outstanding = invoices.filter(i=>i.status!=='paid').reduce((s,i)=>s+i.amount,0);
+
+  // Initialize panel visibility — show only overview
   const tabs = ['overview','clients','invoices-admin','galleries-admin','portfolio-admin','documents-admin','site-editor','settings-admin'];
   tabs.forEach(id => {
     const el = document.getElementById('atab-'+id);
     if(el) el.style.display = id==='overview' ? 'block' : 'none';
   });
-  // Set overview nav item active
-  const overviewBtn = document.querySelector('.admin-nav-item');
-  if(overviewBtn) overviewBtn.classList.add('active');
 
-  // Init site editor sub-panels hidden
+  // Reset nav
+  document.querySelectorAll('.admin-nav-item').forEach(b => b.classList.remove('active'));
+  const firstBtn = document.querySelector('.admin-nav-item');
+  if(firstBtn) firstBtn.classList.add('active');
+
+  // Init sub-panels hidden
   ['ed-hero','ed-visibility','ed-integrations','ed-seo'].forEach(id => {
     const el = document.getElementById(id);
     if(el) el.style.display = 'none';
   });
-
-  // Init settings panels hidden
   document.querySelectorAll('.settings-panel').forEach(p => p.style.display = 'none');
 
-  // Update greeting
+  // Greeting
   const greetEl = document.querySelector('#atab-overview .admin-page-title');
   if(greetEl) greetEl.textContent = getTimeGreeting();
+
+  // Load editor values for site editor tab
+  loadEditorValues();
+  renderVisibilityToggles();
 }
 function renderAdminClients() {
-  const clients=DB.get('clients',[]); document.getElementById('admin-clients-body').innerHTML=clients.map(c=>`<tr><td><span style="font-family:var(--serif);font-style:italic;font-size:15px">${c.first} ${c.last}</span></td><td>${c.email}</td><td style="font-size:11px;color:var(--gray)">${c.session}</td><td style="font-size:11px;color:var(--gray-light)">${c.joined}</td><td><span class="status-badge ${c.status==='active'?'status-paid':'status-pending'}">${c.status}</span></td><td><button class="admin-action-btn" onclick="editClientModal('${c.id}')">Edit</button><button class="admin-action-btn danger" onclick="deleteClient('${c.id}')">Remove</button></td></tr>`).join('');
+  const clients = DB.get('clients', []);
+  const sigs = DB.get('signatures', {});
+  const el = document.getElementById('admin-clients-body');
+  if (!el) return;
+  el.innerHTML = clients.map(c => {
+    const unread = DB.get('messages_' + c.id, []).filter(m => m.from === 'client').length;
+    const signed = !!sigs[c.id];
+    return `<tr>
+      <td><span style="font-family:var(--serif);font-style:italic;font-size:15px">${c.first} ${c.last}</span>${signed ? ' <span style="font-size:9px;color:#2E7D52;letter-spacing:0.08em;">✓ SIGNED</span>' : ''}</td>
+      <td style="font-size:12px">${c.email}</td>
+      <td style="font-size:11px;color:var(--gray)">${c.session}</td>
+      <td style="font-size:11px;color:var(--gray-light)">${c.joined}</td>
+      <td><span class="status-badge ${c.status==='active'?'status-paid':'status-pending'}">${c.status}</span></td>
+      <td style="display:flex;gap:5px;flex-wrap:wrap;">
+        <button class="admin-action-btn" onclick="editClientModal('${c.id}')">Edit</button>
+        <button class="admin-action-btn" onclick="openClientMessages('${c.id}')" title="Messages">${unread > 0 ? '💬 '+unread : '💬'}</button>
+        <button class="admin-action-btn" onclick="openInvoiceBuilder('${c.id}')">Invoice</button>
+        <button class="admin-action-btn" onclick="openContractBuilder('${c.id}')" title="Print Contract">Contract</button>
+        <button class="admin-action-btn" onclick="openEsignView('${c.id}')" title="E-Signature" style="${signed?'color:var(--success)':''}">e-Sign ${signed?'✓':''}</button>
+        <button class="admin-action-btn" onclick="openQuestionnaireBuilder('${c.id}')">Q-Form</button>
+        <button class="admin-action-btn danger" onclick="deleteClient('${c.id}')">Remove</button>
+      </td>
+    </tr>`;
+  }).join('');
 }
 function renderAdminInvoices() {
   const invoices=DB.get('invoices',[]); const clients=DB.get('clients',[]);
@@ -2975,8 +3395,8 @@ function loadEditorValues() {
   for(const [elId,key] of Object.entries(m)){ const val=localStorage.getItem(key); const el=document.getElementById(elId); if(val&&el) el.value=val; }
 }
 function adminTab(name, btn) {
-  // Hide all top-level admin tab panels
-  ['overview','clients','invoices-admin','galleries-admin','portfolio-admin','documents-admin','site-editor','settings-admin'].forEach(id => {
+  const allTabs = ['overview','clients','invoices-admin','galleries-admin','portfolio-admin','documents-admin','site-editor','settings-admin'];
+  allTabs.forEach(id => {
     const el = document.getElementById('atab-'+id);
     if(el) el.style.display = 'none';
   });
@@ -2984,11 +3404,14 @@ function adminTab(name, btn) {
   const target = document.getElementById('atab-'+name);
   if(target) target.style.display = 'block';
   btn.classList.add('active');
-  // Re-init sub-panels when switching to specific tabs
-  if(name === 'portfolio-admin') renderPortfolioManager();
-  if(name === 'documents-admin') renderAdminDocs();
+
+  // Lazy render — only render when tab is first opened
+  if(name === 'clients') { renderAdminClients(); }
+  if(name === 'invoices-admin') { renderAdminInvoices(); }
+  if(name === 'galleries-admin') { renderAdminGalleries(); }
+  if(name === 'portfolio-admin') { renderPortfolioManager(); }
+  if(name === 'documents-admin') { renderAdminDocs(); }
   if(name === 'settings-admin') {
-    // Ensure branding tab is shown by default
     document.querySelectorAll('.settings-panel').forEach(p => p.style.display = 'none');
     const def = document.getElementById('stab-branding');
     if(def) def.style.display = 'block';
@@ -2996,9 +3419,9 @@ function adminTab(name, btn) {
       b.style.borderBottomColor = i===0 ? 'var(--gold)' : 'transparent';
       b.style.color = i===0 ? 'var(--charcoal)' : 'var(--gray)';
     });
+    if(document.getElementById('session-types-grid')) renderSessionTypes();
   }
   if(name === 'site-editor') {
-    // Ensure hero sub-tab is active by default
     ['ed-hero','ed-visibility','ed-integrations','ed-seo'].forEach(id => {
       const el = document.getElementById(id);
       if(el) el.style.display = id==='ed-hero' ? 'block' : 'none';
@@ -4056,10 +4479,11 @@ document.addEventListener('mouseleave', function onExit(e) {
 //  ADMIN — Portfolio Tab support
 // ══════════════════════════════════════
 // Patch loadAdminDash to also init portfolio
-const _origLoadAdminDash = loadAdminDash;
+// Patch: render kanban on admin load
+const _patchedLoadAdminDash = loadAdminDash;
 function loadAdminDash() {
-  _origLoadAdminDash();
-  renderPortfolioManager();
+  _patchedLoadAdminDash();
+  setTimeout(() => renderKanban(), 50);
 }
 
 
@@ -4548,6 +4972,374 @@ function filterGallery(cat, btn) {
       </div>
     </div>`).join('');
 }
+
+
+// ══════════════════════════════════════
+//  CINEMATIC HOME PAGE — INIT
+// ══════════════════════════════════════
+(function initCinematic() {
+  // Particles
+  const pc = document.getElementById('hero-particles');
+  if (pc) {
+    for (let i = 0; i < 18; i++) {
+      const p = document.createElement('div');
+      p.className = 'hero-particle';
+      const size = Math.random() * 3 + 1;
+      p.style.cssText = `width:${size}px;height:${size}px;left:${Math.random()*100}%;top:${Math.random()*100}%;animation-duration:${8+Math.random()*12}s;animation-delay:${Math.random()*8}s;opacity:${0.2+Math.random()*0.4}`;
+      pc.appendChild(p);
+    }
+  }
+
+  // Counter animation
+  function animateCounter(el, target, suffix, duration) {
+    if (!el) return;
+    let start = 0;
+    const step = target / (duration / 16);
+    const timer = setInterval(() => {
+      start = Math.min(start + step, target);
+      el.textContent = (start >= target ? target : Math.floor(start)) + (suffix || '');
+      if (start >= target) clearInterval(timer);
+    }, 16);
+  }
+
+  let countersStarted = false;
+  function startCounters() {
+    if (countersStarted) return;
+    countersStarted = true;
+    animateCounter(document.getElementById('counter-proposals'), 50, '+', 1800);
+  }
+
+  // Start counters after a short delay (hero is always visible)
+  setTimeout(startCounters, 1400);
+
+  // Testimonial carousel
+  let tCurrent = 0;
+  const tSlides = document.querySelectorAll('.t-slide');
+  const tDotsEl = document.getElementById('t-dots');
+
+  if (tSlides.length && tDotsEl) {
+    tDotsEl.innerHTML = Array.from(tSlides).map((_,i) =>
+      `<div class="t-dot ${i===0?'active':''}" onclick="tGoTo(${i})"></div>`
+    ).join('');
+
+    window.tCarousel = function(dir) {
+      tGoTo((tCurrent + dir + tSlides.length) % tSlides.length);
+    };
+    window.tGoTo = function(idx) {
+      tSlides[tCurrent].classList.remove('active');
+      document.querySelectorAll('.t-dot')[tCurrent]?.classList.remove('active');
+      tCurrent = idx;
+      tSlides[tCurrent].classList.add('active');
+      document.querySelectorAll('.t-dot')[tCurrent]?.classList.add('active');
+    };
+
+    // Auto-advance every 6 seconds
+    setInterval(() => tCarousel(1), 6000);
+  }
+
+  // Cinematic scroll reveal
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); revealObserver.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.cin-reveal, .cin-reveal-left, .cin-reveal-scale').forEach(el => {
+    revealObserver.observe(el);
+  });
+
+})();
+
+// ══════════════════════════════════════
+//  KANBAN BOARD
+// ══════════════════════════════════════
+const KANBAN_COLS = [
+  { id: 'inquiry',       label: 'Inquiry',        color: '#C9A96E' },
+  { id: 'deposit',       label: 'Deposit Paid',   color: '#3498DB' },
+  { id: 'booked',        label: 'Booked',         color: '#9B59B6' },
+  { id: 'post-prod',     label: 'Post-Production',color: '#E67E22' },
+  { id: 'completed',     label: 'Completed',      color: '#2ECC71' }
+];
+
+function renderKanban() {
+  const board = document.getElementById('kanban-board');
+  if (!board) return;
+  const projects = DB.get('projects', []);
+
+  board.innerHTML = KANBAN_COLS.map(col => {
+    const cards = projects.filter(p => p.stage === col.id);
+    return `<div class="kanban-col" id="kcol-${col.id}"
+        ondragover="kDragOver(event,'${col.id}')"
+        ondrop="kDrop(event,'${col.id}')"
+        ondragleave="this.classList.remove('kanban-drag-over')">
+      <div class="kanban-col-header">
+        <div class="kanban-col-title">
+          <div class="kanban-col-dot" style="background:${col.color}"></div>
+          ${col.label}
+        </div>
+        <div class="kanban-col-count">${cards.length}</div>
+      </div>
+      <div class="kanban-col-body" id="kbody-${col.id}">
+        ${cards.map(p => `
+          <div class="kanban-card" draggable="true"
+            id="kcard-${p.id}"
+            ondragstart="kDragStart(event,'${p.id}')"
+            ondragend="kDragEnd(event)"
+            onclick="openProjectModal('${p.id}')">
+            <div class="kanban-card-name">${p.name}</div>
+            <div class="kanban-card-client">${p.client || '—'}</div>
+            <div class="kanban-card-meta">
+              <span class="kanban-card-type">${p.type || 'Proposal'}</span>
+              <span class="kanban-card-date">${p.date || ''}</span>
+            </div>
+          </div>`).join('')}
+      </div>
+      <button class="kanban-add" onclick="addProjectToStage('${col.id}')">+ Add</button>
+    </div>`;
+  }).join('');
+}
+
+let kDragging = null;
+function kDragStart(e, id) {
+  kDragging = id;
+  e.target.classList.add('dragging');
+  e.dataTransfer.effectAllowed = 'move';
+}
+function kDragEnd(e) {
+  e.target.classList.remove('dragging');
+  document.querySelectorAll('.kanban-drag-over').forEach(el => el.classList.remove('kanban-drag-over'));
+}
+function kDragOver(e, colId) {
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'move';
+  document.getElementById('kcol-' + colId)?.classList.add('kanban-drag-over');
+}
+function kDrop(e, colId) {
+  e.preventDefault();
+  document.getElementById('kcol-' + colId)?.classList.remove('kanban-drag-over');
+  if (!kDragging) return;
+  const projects = DB.get('projects', []);
+  const idx = projects.findIndex(p => p.id === kDragging);
+  if (idx !== -1) { projects[idx].stage = colId; DB.set('projects', projects); }
+  kDragging = null;
+  renderKanban();
+  showToast('Project moved to ' + KANBAN_COLS.find(c=>c.id===colId)?.label, 'success');
+}
+
+function addProjectToStage(stage) {
+  document.getElementById('modal-body').innerHTML = `
+    <div class="modal-title">New Project</div>
+    <div class="editor-row" style="margin-bottom:14px">
+      <div class="editor-field"><label class="editor-label">Project Name</label><input class="editor-input" id="kp-name" placeholder="e.g. Tyler's Proposal"></div>
+      <div class="editor-field"><label class="editor-label">Client Name</label><input class="editor-input" id="kp-client" placeholder="e.g. Tyler Johnson"></div>
+    </div>
+    <div class="editor-row" style="margin-bottom:14px">
+      <div class="editor-field"><label class="editor-label">Session Type</label>
+        <select class="editor-input" id="kp-type">
+          <option>Proposal</option><option>Engagement</option><option>Wedding</option><option>Portrait</option><option>Event</option><option>Destination</option>
+        </select>
+      </div>
+      <div class="editor-field"><label class="editor-label">Date</label><input class="editor-input" id="kp-date" type="date"></div>
+    </div>
+    <div class="editor-field" style="margin-bottom:0">
+      <label class="editor-label">Notes</label>
+      <textarea class="editor-textarea" id="kp-notes" rows="2" placeholder="Any important details..."></textarea>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-btn-ghost" onclick="closeModal()">Cancel</button>
+      <button class="modal-btn-primary" onclick="saveNewProject('${stage}')">Create Project</button>
+    </div>`;
+  openModal();
+}
+
+function saveNewProject(stage) {
+  const name = document.getElementById('kp-name').value.trim();
+  if (!name) { showToast('Project name required', 'error'); return; }
+  const projects = DB.get('projects', []);
+  const newP = {
+    id: 'p' + Date.now(),
+    name,
+    client: document.getElementById('kp-client').value.trim(),
+    type: document.getElementById('kp-type').value,
+    date: document.getElementById('kp-date').value,
+    notes: document.getElementById('kp-notes').value.trim(),
+    stage,
+    created: new Date().toLocaleDateString()
+  };
+  projects.push(newP);
+  DB.set('projects', projects);
+  closeModal();
+  renderKanban();
+  showToast('Project created', 'success');
+}
+
+function openProjectModal(id) {
+  const projects = DB.get('projects', []);
+  const p = projects.find(x => x.id === id);
+  if (!p) return;
+  document.getElementById('modal-body').innerHTML = `
+    <div class="modal-title">${p.name}</div>
+    <div class="modal-sub">${p.client} · ${p.type} · ${p.date || 'No date set'}</div>
+    <div class="editor-field"><label class="editor-label">Stage</label>
+      <select class="editor-input" id="pp-stage">
+        ${KANBAN_COLS.map(c => `<option value="${c.id}" ${p.stage===c.id?'selected':''}>${c.label}</option>`).join('')}
+      </select>
+    </div>
+    <div class="editor-field"><label class="editor-label">Notes</label>
+      <textarea class="editor-textarea" id="pp-notes" rows="3">${p.notes||''}</textarea>
+    </div>
+    <div class="modal-footer">
+      <button class="modal-btn-ghost danger" onclick="deleteProject('${id}')">Delete</button>
+      <button class="modal-btn-ghost" onclick="closeModal()">Cancel</button>
+      <button class="modal-btn-primary" onclick="updateProject('${id}')">Save</button>
+    </div>`;
+  openModal();
+}
+
+function updateProject(id) {
+  const projects = DB.get('projects', []);
+  const idx = projects.findIndex(p => p.id === id);
+  if (idx !== -1) {
+    projects[idx].stage = document.getElementById('pp-stage').value;
+    projects[idx].notes = document.getElementById('pp-notes').value;
+    DB.set('projects', projects);
+  }
+  closeModal(); renderKanban();
+  showToast('Project updated', 'success');
+}
+
+function deleteProject(id) {
+  if (!confirm('Delete this project?')) return;
+  const projects = DB.get('projects', []).filter(p => p.id !== id);
+  DB.set('projects', projects);
+  closeModal(); renderKanban();
+  showToast('Project deleted');
+}
+
+// ══════════════════════════════════════
+//  E-SIGNATURE SYSTEM
+// ══════════════════════════════════════
+function openEsignView(clientId) {
+  const clients = DB.get('clients', []);
+  const c = clients.find(x => x.id === clientId);
+  if (!c) return;
+  const sigs = DB.get('signatures', {});
+  const isSigned = !!sigs[clientId];
+
+  // Build the e-sign overlay
+  const overlay = document.createElement('div');
+  overlay.id = 'esign-overlay';
+  overlay.style.cssText = 'position:fixed;inset:0;z-index:99999;background:var(--warm-white);overflow-y:auto;';
+
+  overlay.innerHTML = `
+    <div class="esign-view">
+      <div class="esign-header">
+        <div class="esign-brand">Canon <span>Moment</span> Photography</div>
+        <div class="esign-status ${isSigned ? 'signed' : 'pending'}">${isSigned ? '✓ Signed' : 'Awaiting Signature'}</div>
+      </div>
+      <div class="esign-doc-wrap">
+        <div class="esign-doc-title">Photography Services Agreement</div>
+        <div class="esign-doc-sub">
+          Client: <strong>${c.first} ${c.last}</strong> · ${c.email} · ${c.session || 'Session TBD'}<br>
+          <span style="font-size:11px;color:var(--gray-light)">Canon Moment Photography LLC · Orlando, Florida</span>
+        </div>
+
+        <div class="esign-section">
+          <div class="esign-section-title">1. Services</div>
+          <div class="esign-body-text">Canon Moment Photography LLC ("Photographer") agrees to provide photography services for the client named above. Services include photography coverage for the agreed session duration, professional editing, and delivery via a private online gallery within 48–72 hours for proposals/portraits and 2–3 weeks for weddings.</div>
+        </div>
+
+        <div class="esign-section">
+          <div class="esign-section-title">2. Payment & Retainer</div>
+          <div class="esign-body-text">A non-refundable retainer of 50% of the total investment is due upon signing to secure the session date. The remaining balance is due on or before the session date. Payment via Zelle (321-368-2171), card (secure link provided), or cash. If balance is not received before the session, the Photographer may reschedule or cancel.</div>
+        </div>
+
+        <div class="esign-section">
+          <div class="esign-section-title">3. Cancellation Policy</div>
+          <div class="esign-body-text">The retainer is non-refundable if the Client cancels. Cancellation with less than 72 hours notice may forfeit the full balance. If Canon Moment cancels due to unforeseen circumstances, all payments including the retainer will be refunded in full.</div>
+        </div>
+
+        <div class="esign-section">
+          <div class="esign-section-title">4. Rescheduling</div>
+          <div class="esign-body-text">One complimentary reschedule is permitted with 72+ hours notice. The retainer transfers to the new date. Weather reschedules at no charge when conditions are unsafe.</div>
+        </div>
+
+        <div class="esign-section">
+          <div class="esign-section-title">5. Copyright & Image Rights</div>
+          <div class="esign-body-text">Canon Moment Photography LLC retains copyright of all images. The Client receives a personal, non-exclusive license for personal use. Canon Moment may use images for portfolio, website, and social media unless the Client opts out in writing before the session.</div>
+        </div>
+
+        <div class="esign-section">
+          <div class="esign-section-title">6. Delivery Timeline</div>
+          <div class="esign-body-text">Proposals and portraits: sneak peek within 24–48 hours, full gallery within 48–72 hours. Weddings: full gallery within 2–3 weeks. All galleries delivered via private Pixieset link with full-resolution download access.</div>
+        </div>
+
+        <div class="esign-section">
+          <div class="esign-section-title">7. Limitation of Liability</div>
+          <div class="esign-body-text">In the unlikely event Canon Moment cannot fulfill this agreement, liability is limited to a full refund of all payments received. Canon Moment is not liable for loss of images due to equipment failure or weather beyond reasonable control beyond this refund.</div>
+        </div>
+
+        ${isSigned ? `
+        <div class="esign-signed-block">
+          <div>
+            <div style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:#2E7D52;margin-bottom:8px;">✓ Signed & Agreed</div>
+            <div class="esign-signed-name">${sigs[clientId].name}</div>
+            <div class="esign-signed-meta">Signed on ${sigs[clientId].date} · IP recorded</div>
+          </div>
+        </div>
+        ` : `
+        <div class="esign-sign-box">
+          <div class="esign-sign-title">Sign to Agree</div>
+          <div class="esign-sign-sub">By typing your full legal name below, you agree to the terms of this Photography Services Agreement and confirm you have read all sections.</div>
+          <input class="esign-name-input" id="esign-input" placeholder="Type your full legal name..." oninput="document.getElementById('esign-btn').disabled=this.value.trim().length < 3">
+          <div style="font-size:11px;color:var(--gray-light);margin-bottom:16px;">Date: ${new Date().toLocaleDateString('en-US',{month:'long',day:'numeric',year:'numeric'})}</div>
+          <button class="esign-sign-btn" id="esign-btn" disabled onclick="submitSignature('${clientId}')">Sign Agreement →</button>
+        </div>
+        `}
+
+        <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;">
+          <button onclick="document.getElementById('esign-overlay').remove()" style="font-family:var(--sans);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;background:none;border:0.5px solid var(--border);padding:10px 20px;cursor:pointer;color:var(--gray);">Close</button>
+          <button onclick="window.print()" style="font-family:var(--sans);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;background:none;border:0.5px solid var(--border);padding:10px 20px;cursor:pointer;color:var(--gray);">Print / Save PDF</button>
+        </div>
+      </div>
+    </div>`;
+
+  document.body.appendChild(overlay);
+}
+
+function submitSignature(clientId) {
+  const nameEl = document.getElementById('esign-input');
+  const name = nameEl?.value.trim();
+  if (!name || name.length < 3) { showToast('Please type your full legal name', 'error'); return; }
+
+  const sigs = DB.get('signatures', {});
+  sigs[clientId] = {
+    name,
+    date: new Date().toLocaleDateString('en-US', {month:'long', day:'numeric', year:'numeric', hour:'2-digit', minute:'2-digit'}),
+    timestamp: Date.now()
+  };
+  DB.set('signatures', sigs);
+
+  // Update client record
+  const clients = DB.get('clients', []);
+  const idx = clients.findIndex(c => c.id === clientId);
+  if (idx !== -1) { clients[idx].contractSigned = true; clients[idx].signedDate = sigs[clientId].date; DB.set('clients', clients); }
+
+  // Reload the view to show signed state
+  document.getElementById('esign-overlay')?.remove();
+  openEsignView(clientId);
+  showToast('Contract signed and recorded ✓', 'success');
+
+  // If admin is open, refresh clients
+  if (document.getElementById('atab-clients')?.style.display === 'block') renderAdminClients();
+}
+
+// Client portal e-sign entry point
+function openClientContract() {
+  if (!portalUser) return;
+  openEsignView(portalUser.id);
+}
+
+// Add kanban to overview tab render
+const _origRenderKanban = typeof renderKanban === 'function' ? renderKanban : null;
 
 // ── Show notification dot after 8 seconds ──
 setTimeout(() => {
