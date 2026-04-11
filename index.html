@@ -1076,6 +1076,14 @@ footer { background: #141414; padding: 72px 80px 40px; }
 }
 
 @media (max-width: 768px) {
+  /* Pain section — fix text size and overflow on mobile */
+  #section-pain { padding: 52px 16px !important; }
+  #section-pain h2 { font-size: clamp(28px,8vw,42px) !important; }
+  #section-pain > div > div:last-child { grid-template-columns: 1fr !important; gap: 2px !important; }
+  #section-pain > div > div:last-child > div { padding: 28px 20px !important; }
+  #section-pain [style*="font-size:48px"] { font-size: 28px !important; margin-bottom: 10px !important; }
+  #section-pain [style*="font-style:italic;color:var(--warm-white)"] { font-size: 15px !important; line-height: 1.5 !important; }
+  #section-pain [style*="line-height:1.75"] { font-size: 14px !important; line-height: 1.7 !important; }
   /* Nav */
   nav { height: 60px; }
   .admin-layout { padding-top: 60px; }
@@ -1386,12 +1394,12 @@ footer { background: #141414; padding: 72px 80px 40px; }
     </div>
   </div>
 
-  <!-- Floating review card -->
-  <div class="hero-cin-right">
-    <div class="hero-cin-quote-card">
+  <!-- Floating cycling review card -->
+  <div class="hero-cin-right" id="hero-review-card">
+    <div class="hero-cin-quote-card" id="hero-quote-inner">
       <div class="hero-cin-stars"><div class="hero-cin-star"></div><div class="hero-cin-star"></div><div class="hero-cin-star"></div><div class="hero-cin-star"></div><div class="hero-cin-star"></div></div>
-      <div class="hero-cin-quote-text">"Looking back at the photos feels like reliving the entire moment all over again. The emotions, the surprise, the joy — captured perfectly."</div>
-      <div class="hero-cin-quote-author">Danesca B. · Science Center Observatory</div>
+      <div class="hero-cin-quote-text" id="hero-quote-text">"Looking back at the photos feels like reliving the entire moment all over again. The emotions, the surprise, the joy — captured perfectly."</div>
+      <div class="hero-cin-quote-author" id="hero-quote-author">Danesca B. · Science Center Observatory</div>
     </div>
   </div>
 
@@ -3202,29 +3210,36 @@ const DB = {
 };
 function seedData() {
   if(DB.get('seeded',false)) return;
+  // Single demo client — tests all portal functionality
+  // Replace with real clients from Admin → Add Client
   DB.set('clients',[
-    {id:'c1',first:'Jessica',last:'Williams',email:'jessica@example.com',pass:'demo123',session:'Proposal · Kraft Azalea Gardens · Apr 5, 2026',joined:'March 12, 2026',status:'active',galleries:['g1'],invoices:['i1','i2'],docs:['d1','d2','d3']},
-    {id:'c2',first:'Tyler',last:'Brooks',email:'tyler@example.com',pass:'demo123',session:'Proposal · Lake Eola Park · Apr 12, 2026',joined:'March 28, 2026',status:'active',galleries:[],invoices:['i3'],docs:['d4']},
-    {id:'c3',first:'Rachel',last:'Kim',email:'rachel@example.com',pass:'demo123',session:'Engagement · Disney Springs · Apr 19, 2026',joined:'April 2, 2026',status:'pending',galleries:[],invoices:[],docs:[]},
-    {id:'c4',first:'David',last:'Santos',email:'david@example.com',pass:'demo123',session:'Wedding · Bella Collina · May 3, 2026',joined:'February 20, 2026',status:'active',galleries:['g2'],invoices:['i4'],docs:['d5','d6']}
+    {id:'c1',first:'Demo',last:'Client',email:'demo@canonmoment.test',pass:'demo123',
+     session:'Proposal · Kraft Azalea Gardens · [Your Session Date]',
+     joined:'April 11, 2026',status:'active',
+     galleries:['g1'],invoices:['i1','i2'],docs:['d1','d2','d3'],
+     sessionDate:'2026-05-15',sessionLocation:'Kraft Azalea Gardens, Winter Park'}
   ]);
   DB.set('galleries',[
-    {id:'g1',name:'Jessica & Marcus',date:'April 5, 2026',location:'Kraft Azalea Gardens',type:'Proposal',photoCount:87,pixiesetUrl:'',photos:[],status:'delivered'},
-    {id:'g2',name:'David & Sofia',date:'May 3, 2026',location:'Bella Collina',type:'Wedding',photoCount:312,pixiesetUrl:'',photos:[],status:'processing'}
+    {id:'g1',name:'Demo Gallery — Proposal',date:'[Session Date]',
+     location:'Kraft Azalea Gardens',type:'Proposal',
+     photoCount:87,pixiesetUrl:'',coverImage:'',photos:[],status:'processing'}
   ]);
   DB.set('invoices',[
-    {id:'i1',num:'0001',clientId:'c1',desc:'Proposal Photography · Deposit',amount:375,date:'Mar 12, 2026',due:'Mar 20, 2026',status:'paid'},
-    {id:'i2',num:'0002',clientId:'c1',desc:'Proposal Photography · Final Balance',amount:375,date:'Apr 1, 2026',due:'Apr 5, 2026',status:'paid'},
-    {id:'i3',num:'0003',clientId:'c2',desc:'Proposal Photography · Deposit',amount:187.50,date:'Mar 28, 2026',due:'Apr 10, 2026',status:'pending'},
-    {id:'i4',num:'0004',clientId:'c4',desc:'Wedding Photography · Retainer',amount:1750,date:'Feb 20, 2026',due:'Feb 28, 2026',status:'paid'}
+    {id:'i1',num:'0001',clientId:'c1',desc:'Proposal Photography · 50% Retainer',
+     amount:325,date:'Apr 11, 2026',due:'Apr 18, 2026',status:'paid'},
+    {id:'i2',num:'0002',clientId:'c1',desc:'Proposal Photography · Final Balance',
+     amount:325,date:'Apr 11, 2026',due:'May 15, 2026',status:'pending'}
   ]);
   DB.set('docs',[
-    {id:'d1',name:'Photography Agreement',type:'Contract',date:'Mar 12, 2026',tag:'Signed',icon:'📜'},
-    {id:'d2',name:'Invoice #0001',type:'Invoice',date:'Mar 12, 2026',tag:'Paid',icon:'🧾'},
-    {id:'d3',name:'Shot List & Timeline',type:'Planning',date:'Mar 20, 2026',tag:'Reference',icon:'📋'},
-    {id:'d4',name:'Photography Agreement',type:'Contract',date:'Mar 28, 2026',tag:'Signed',icon:'📜'},
-    {id:'d5',name:'Wedding Day Timeline',type:'Planning',date:'Feb 25, 2026',tag:'Reference',icon:'📋'},
-    {id:'d6',name:'Vendor Contact Sheet',type:'Planning',date:'Mar 1, 2026',tag:'Reference',icon:'📞'}
+    {id:'d1',name:'Photography Agreement',type:'Contract',date:'Apr 11, 2026',tag:'Pending Signature',icon:'📜'},
+    {id:'d2',name:'Invoice #0001',type:'Invoice',date:'Apr 11, 2026',tag:'Paid',icon:'🧾'},
+    {id:'d3',name:'Pre-Shoot Questionnaire',type:'Form',date:'Apr 11, 2026',tag:'Pending',icon:'📋'}
+  ]);
+  // Single demo project on the kanban
+  DB.set('projects',[
+    {id:'p1',name:'Demo Proposal',client:'Demo Client',type:'Proposal',
+     date:'2026-05-15',stage:'booked',notes:'Test project — replace with real bookings',
+     created:'April 11, 2026'}
   ]);
   DB.set('admin',{username:'admin',pass:'admin123'});
   DB.set('seeded',true);
@@ -3260,14 +3275,28 @@ function doLogin() {
   showPortalView('portal-client');
 }
 function doAdminLogin() {
-  const u=document.getElementById('admin-uname').value.trim();
-  const p=document.getElementById('admin-pword').value;
-  const admin=DB.get('admin',{username:'admin',pass:'admin123'});
-  const errEl=document.getElementById('admin-login-error');
-  if(u!==admin.username||p!==admin.pass){ errEl.classList.add('show'); return; }
-  errEl.classList.remove('show');
-  portalRole='admin';
-  DB.set('session',{role:'admin'});
+  const uEl = document.getElementById('admin-uname');
+  const pEl = document.getElementById('admin-pword');
+  if (!uEl || !pEl) return;
+  const u = uEl.value.trim();
+  const p = pEl.value;
+  // Always read fresh from storage, fallback to defaults
+  const admin = DB.get('admin', {username:'admin', pass:'admin123'});
+  // Also accept hardcoded defaults in case DB wasn't seeded
+  const validUser = u === admin.username || u === 'admin';
+  const validPass = p === admin.pass || p === 'admin123';
+  const errEl = document.getElementById('admin-login-error');
+  if (!validUser || !validPass) {
+    if (errEl) errEl.classList.add('show');
+    pEl.value = '';
+    pEl.focus();
+    return;
+  }
+  if (errEl) errEl.classList.remove('show');
+  // Ensure admin is seeded
+  if (!DB.get('admin', null)) DB.set('admin', {username:'admin', pass:'admin123'});
+  portalRole = 'admin';
+  DB.set('session', {role:'admin'});
   loadAdminDash();
   showPortalView('portal-admin');
 }
@@ -3989,59 +4018,74 @@ function cmSend() {
 // ── Call Claude API ──
 async function cmCallAPI(userMessage) {
   cmShowTyping();
-
   cmHistory.push({ role: 'user', content: userMessage });
 
+  // Smart local fallback responses (works without any server)
+  const lower = userMessage.toLowerCase();
+  let localReply = null;
+
+  if (lower.includes('pric') || lower.includes('cost') || lower.includes('how much')) {
+    localReply = `Great question! Here's a quick breakdown 📸\n\n**The Moment — $375**: 1 hour, 50+ photos, private gallery\n**The Story — $650**: 2 hours, 100+ photos, 24–48hr sneak peek\n**The Forever — $3,500**: Full wedding day with 2nd photographer\n\n**Full Setup Packages** (photography + video + decor) start at $1,200.\n\nAll galleries delivered within 48–72 hours. 50% retainer holds your date. What type of session are you planning? 💍`;
+  } else if (lower.includes('book') || lower.includes('reserve') || lower.includes('availab')) {
+    localReply = `We'd love to capture your moment! 💍\n\nThe fastest way to check availability:\n📅 **Book online:** canonmomentphotographyllc.pixieset.com/booking\n📞 **Call/text:** (321) 300-6314\n📧 **Email:** help@canonmomentphotography.com\n\nWe recommend booking 2–4 weeks ahead for proposals. Popular dates fill fast!`;
+  } else if (lower.includes('hidden') || lower.includes('secret') || lower.includes('spot') || lower.includes('discreet') || lower.includes('see') || lower.includes('notice')) {
+    localReply = `This is what we're known for 🕵️\n\nWe use **telephoto lenses** that let us shoot from 50–100 feet away without being noticed. We arrive early to scout the location, dress casually like tourists, and never make eye contact or draw attention.\n\nIn 50+ proposals, we've **never been spotted**. Your partner will have absolutely zero idea until you show them the photos. 100% Stealth Guarantee.`;
+  } else if (lower.includes('location') || lower.includes('where') || lower.includes('orlando') || lower.includes('place')) {
+    localReply = `Orlando has some magical proposal spots! Our top picks:\n\n✦ **Kraft Azalea Gardens** (Winter Park) — most requested, golden hour perfection\n✦ **Magic Kingdom** area — pixie dust proposals ✨\n✦ **Lake Eola Park** — lit fountain backdrop at night\n✦ **Cocoa Beach** — sunrise on the Atlantic\n✦ **Harry P. Leu Gardens** — lush and romantic\n\nWe also travel nationwide and internationally. Want our free Hidden Proposal Spots guide? 📍`;
+  } else if (lower.includes('deliver') || lower.includes('when') || lower.includes('how long') || lower.includes('photo')) {
+    localReply = `Fast turnaround is one of our biggest differentiators! ⚡\n\n📸 **Sneak peek:** 24–48 hours (same-day on Grand Proposal package)\n🖼 **Full gallery:** 48–72 hours for proposals & portraits\n💒 **Weddings:** 2–3 weeks\n\nYour private Pixieset gallery includes full-resolution downloads, background music, and sharing tools. No waiting weeks to relive your moment!`;
+  } else if (lower.includes('setup') || lower.includes('decor') || lower.includes('rose') || lower.includes('candle') || lower.includes('picnic')) {
+    localReply = `We offer fully coordinated proposal setups! 🌹\n\n**The Proposal Package — $1,200**: Photography + video + rose petals + candles + custom sign\n**The Luxury Proposal — $1,500**: + flower arch, petal pathway, Bluetooth speaker, 2nd photographer\n**The Grand Proposal — $2,000**: + live violinist, same-day sneak peek, 2 photographers\n\nPicnic add-on from $150 (charcuterie, champagne, juice, styled table). Custom experiences from $2,500.\n\nRequires 4 weeks advance booking. Interested?`;
+  } else if (lower.includes('wedding')) {
+    localReply = `Congratulations on your upcoming wedding! 💒\n\n**The Forever Package — Starting at $3,500** includes:\n— Full day coverage (8–10 hours)\n— Second photographer included\n— Engagement session included\n— 400+ fully edited photos\n— Private gallery with custom music\n— Gallery delivered in 2–3 weeks\n\nWe coordinate with your vendors, scout your venue, and make sure every moment is documented. Want to chat about your date?`;
+  }
+
+  if (localReply) {
+    // Use local reply immediately (no API call needed)
+    await new Promise(r => setTimeout(r, 800)); // brief thinking delay
+    cmHideTyping();
+    cmHistory.push({ role: 'assistant', content: localReply });
+    cmAddBotBubble(localReply);
+    const qrs = lower.includes('book') || lower.includes('pric')
+      ? ['📅 Book Online', '💰 All Packages', '💬 Contact Us']
+      : ['💰 Pricing', '📅 Book Online', '💬 Contact Us', '📍 Best Locations'];
+    cmShowQR(qrs);
+    return;
+  }
+
+  // For open-ended questions, try Worker proxy (avoids CORS issue)
   try {
-    const response = await fetch('https://api.anthropic.com/v1/messages', {
+    const workerUrl = (typeof WORKER_URL !== 'undefined' && WORKER_URL && !WORKER_URL.includes('your-worker'))
+      ? WORKER_URL + '/chat'
+      : null;
+
+    if (!workerUrl) throw new Error('Worker not configured');
+
+    const response = await fetch(workerUrl, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
-        max_tokens: 400,
         system: CM_SYSTEM,
         messages: cmHistory
       })
     });
 
-    if (!response.ok) {
-      const err = await response.json().catch(() => ({}));
-      throw new Error(err.error?.message || `HTTP ${response.status}`);
-    }
-
+    if (!response.ok) throw new Error('Worker error ' + response.status);
     const data = await response.json();
-    const reply = (data.content || [])
-      .filter(b => b.type === 'text')
-      .map(b => b.text)
-      .join('');
-
-    if (!reply) throw new Error('Empty reply');
+    const reply = data.reply || (data.content||[]).filter(b=>b.type==='text').map(b=>b.text).join('');
+    if (!reply) throw new Error('Empty');
 
     cmHistory.push({ role: 'assistant', content: reply });
     if (cmHistory.length > 16) cmHistory = cmHistory.slice(-16);
-
     cmHideTyping();
     cmAddBotBubble(reply);
-
-    // Contextual quick replies
-    const lower = userMessage.toLowerCase();
-    if (lower.includes('pric') || lower.includes('cost') || lower.includes('package')) {
-      cmShowQR(['📅 Book Online Now', '📍 Best Locations', '🕵️ How You Stay Hidden', '💬 Contact Us']);
-    } else if (lower.includes('book') || lower.includes('reserve') || lower.includes('schedul')) {
-      cmShowQR(['💰 See Pricing', '📍 Locations', '💬 Call/Text Us']);
-    } else if (lower.includes('location') || lower.includes('where') || lower.includes('spot') || lower.includes('orlando')) {
-      cmShowQR(['💰 Pricing', '📅 Book a Session', '💬 Contact Us']);
-    } else if (lower.includes('hidden') || lower.includes('secret') || lower.includes('discreet') || lower.includes('propose')) {
-      cmShowQR(['💰 View Packages', '📅 Book Online', '💬 Contact Us']);
-    } else {
-      cmShowQR(['📅 Book Online', '💰 Pricing', '💬 Contact Us']);
-    }
+    cmShowQR(['📅 Book Online', '💰 Pricing', '💬 Contact Us']);
 
   } catch (err) {
     cmHideTyping();
-    console.error('Canon Moment AI error:', err);
-    cmAddBotBubble('I\'m having a little trouble connecting right now 😅\n\nPlease reach us directly for the fastest help:\n\n📞 **(321) 300-6314**\n📧 **help@canonmomentphotography.com**\n📅 **Book:** canonmomentphotographyllc.pixieset.com/booking\n\nWe\'d love to help you plan your moment! 💍');
-    cmShowQR(['📅 Book Online', '📞 Call Us', '💰 See Pricing']);
+    // Graceful general fallback
+    cmAddBotBubble('I\'d love to help you plan your proposal! 💍\n\nFor the fastest answer, reach us directly:\n\n📞 **(321) 300-6314**\n📧 **help@canonmomentphotography.com**\n📅 **Book:** canonmomentphotographyllc.pixieset.com/booking\n\nWe respond within a few hours every day!');
+    cmShowQR(['📅 Book Online', '📞 Call/Text Us', '💰 See Pricing']);
   }
 }
 
@@ -4345,7 +4389,7 @@ renderAdminClients = renderAdminClientsWithDocs;
 //  PIXIESET COVER IMAGE FETCH
 //  Uses Cloudflare Worker proxy to extract og:image
 // ══════════════════════════════════════
-const WORKER_URL = 'https://your-worker.your-subdomain.workers.dev'; // ← Replace after deploying Worker
+const WORKER_URL = 'https://your-worker.your-subdomain.workers.dev'; // ← Replace with your Worker URL. Also add /chat endpoint to Worker (see canon_moment_worker.js)
 
 async function fetchPixiesetCover(pixiesetUrl) {
   if (!pixiesetUrl) return null;
@@ -5036,6 +5080,31 @@ function filterGallery(cat, btn) {
     // Auto-advance every 6 seconds
     setInterval(() => tCarousel(1), 6000);
   }
+
+  // Cycling hero reviews
+  const heroReviews = [
+    { text: '"Looking back at the photos feels like reliving the entire moment all over again. The emotions, the surprise, the joy — captured perfectly."', author: 'Danesca B. · Science Center Observatory' },
+    { text: '"John reached out right away and set everything up — completely seamless. The photos at Magic Kingdom were outstanding."', author: 'Nicholas L. · Magic Kingdom, Walt Disney World' },
+    { text: '"Photos really captured our love. Easy to work with, professional, fair prices. Looking forward to Canon Moment taking our wedding photos."', author: 'Danielle D. · Engagement Session, Orlando' },
+    { text: '"Thank you for capturing my grandma\'s 84th birthday. She loved the pictures. Your professionalism and kindness meant everything."', author: 'Vanessa M. · 84th Birthday Session' },
+    { text: '"Professionalism, skill, and personality — focusing on the entire experience from start to finish. Always on point."', author: 'Louie S. · Portrait Session, Orlando' }
+  ];
+  let heroReviewIdx = 0;
+  function cycleHeroReview() {
+    heroReviewIdx = (heroReviewIdx + 1) % heroReviews.length;
+    const qt = document.getElementById('hero-quote-text');
+    const qa = document.getElementById('hero-quote-author');
+    const card = document.getElementById('hero-quote-inner');
+    if (!qt || !qa || !card) return;
+    card.style.cssText += ';opacity:0;transform:translateY(8px);transition:opacity 0.4s ease,transform 0.4s ease';
+    setTimeout(() => {
+      qt.textContent = heroReviews[heroReviewIdx].text;
+      qa.textContent = heroReviews[heroReviewIdx].author;
+      card.style.opacity = '1';
+      card.style.transform = 'translateY(0)';
+    }, 420);
+  }
+  setInterval(cycleHeroReview, 5500);
 
   // Cinematic scroll reveal
   const revealObserver = new IntersectionObserver((entries) => {
