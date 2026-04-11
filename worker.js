@@ -104,6 +104,9 @@ async function handleRequest(request) {
 
   // ── Route requests ──
   try {
+    if (path === '/chat' && request.method === 'POST') {
+      return await handleChatProxy(request, corsHeaders);
+    }
     if (path === '/create-payment-intent' && request.method === 'POST') {
       return await handleStripePayment(request, corsHeaders);
     }
@@ -118,6 +121,52 @@ async function handleRequest(request) {
     console.error('Worker error:', err);
     return jsonResponse({ error: 'Internal server error', message: err.message }, corsHeaders, 500);
   }
+}
+
+
+// ═══════════════════════════════════════════════
+//  CLAUDE CHAT PROXY — Solves browser CORS issue
+// ═══════════════════════════════════════════════
+async function handleChatProxy(request, corsHeaders) {
+  const body = await request.json();
+  const { system, messages } = body;
+
+  if (!messages || !messages.length) {
+    return jsonResponse({ error: 'No messages provided' }, corsHeaders, 400);
+  }
+
+  // Get API key from environment variable ANTHROPIC_API_KEY
+  const apiKey = typeof ANTHROPIC_API_KEY !== 'undefined' ? ANTHROPIC_API_KEY : null;
+  if (!apiKey) {
+    return jsonResponse({ error: 'Anthropic API key not configured' }, corsHeaders, 500);
+  }
+
+  const response = await fetch('https://api.anthropic.com/v1/messages', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'x-api-key': apiKey,
+      'anthropic-version': '2023-06-01',
+    },
+    body: JSON.stringify({
+      model: 'claude-haiku-4-5-20251001', // Fast + cheap for chat
+      max_tokens: 400,
+      system: system || '',
+      messages: messages.slice(-10), // Last 10 messages max
+    }),
+  });
+
+  const data = await response.json();
+  if (data.error) {
+    return jsonResponse({ error: data.error.message }, corsHeaders, 400);
+  }
+
+  const reply = (data.content || [])
+    .filter(b => b.type === 'text')
+    .map(b => b.text)
+    .join('');
+
+  return jsonResponse({ reply }, corsHeaders);
 }
 
 // ═══════════════════════════════════════════════
