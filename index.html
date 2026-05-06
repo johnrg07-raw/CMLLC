@@ -28,7 +28,7 @@
 {"@context":"https://schema.org","@type":["LocalBusiness","ProfessionalService","PhotographyBusiness"],"@id":"https://canonmomentphotography.com/#business","name":"Canon Moment Photography","alternateName":"Canon Moment Photography LLC","description":"Orlando's best proposal photographer — surprise proposals, engagements, and wedding photography in Orlando FL and nationwide. #1 rated proposal photographer in Central Florida. Cinematic quality, invisible photographer technique, 48-72hr delivery.","url":"https://canonmomentphotography.com","telephone":"+13213682171","email":"booking@canonmomentphotography.com","priceRange":"$200 - $3500","currenciesAccepted":"USD","paymentAccepted":"Credit Card, Debit Card","address":{"@type":"PostalAddress","streetAddress":"Orlando","addressLocality":"Orlando","addressRegion":"FL","postalCode":"32801","addressCountry":"US"},"geo":{"@type":"GeoCoordinates","latitude":28.5383,"longitude":-81.3792},"areaServed":[{"@type":"City","name":"Orlando","sameAs":"https://en.wikipedia.org/wiki/Orlando,_Florida"},{"@type":"City","name":"Winter Park"},{"@type":"City","name":"Kissimmee"},{"@type":"City","name":"Lake Nona"},{"@type":"City","name":"Celebration"},{"@type":"City","name":"Lake Mary"},{"@type":"City","name":"Sanford"},{"@type":"City","name":"Windermere"},{"@type":"City","name":"Daytona Beach"},{"@type":"City","name":"Tampa"},{"@type":"City","name":"Jacksonville"},{"@type":"City","name":"Miami"},{"@type":"State","name":"Florida"},{"@type":"Country","name":"United States"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Photography Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Surprise Proposal Photography","description":"Hidden photographer captures your surprise proposal with telephoto lens from 50-100 feet away. Cinematic quality, planning consultation included."},"price":"375","priceCurrency":"USD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Wedding Photography","description":"Full day wedding coverage with 2 photographers, engagement session, and cinematic highlight film."},"price":"1800","priceCurrency":"USD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Engagement Photography","description":"Couples portrait sessions at Orlando's most beautiful locations."},"price":"375","priceCurrency":"USD"},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Full Proposal Setup","description":"Complete romantic proposal setup with rose petals, candles, floral arch, and photography coverage."},"price":"1200","priceCurrency":"USD"}]},"serviceType":["Proposal Photography","Engagement Photography","Wedding Photography","Portrait Photography","Event Photography","Corporate Photography","Family Photography","Destination Photography"],"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"60","bestRating":"5"},"sameAs":["https://instagram.com/canonmomentllc","https://www.facebook.com/p/Canon-Moment-Photography-61557151730847/"],"openingHours":"Mo-Su 08:00-22:00","foundingDate":"2023","founder":{"@type":"Person","name":"John Rosario"}}
 </script>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does a proposal photographer cost in Orlando?","acceptedAnswer":{"@type":"Answer","text":"Proposal photography in Orlando starts at $375 for 1 hour of coverage with 50+ edited photos. Photo + video packages start at $650. Premium packages including champagne toast and bouquet start at $950. A 50% deposit is required to book."}},{"@type":"Question","name":"How does surprise proposal photography work?","acceptedAnswer":{"@type":"Answer","text":"Your photographer arrives early and positions themselves 50-100 feet away with a telephoto lens. You won't know they're there. After the proposal, you'll do a portrait session together. Sneak peek in 24-48 hours, full gallery in 48-72 hours."}},{"@type":"Question","name":"What are the best proposal spots in Orlando?","acceptedAnswer":{"@type":"Answer","text":"Top Orlando proposal locations include Kraft Azalea Garden in Winter Park (sunrise), Disney's Grand Floridian Boardwalk (sunset with fireworks), Lake Eola Park downtown, Harry P. Leu Gardens, and downtown Orlando rooftops for city views."}},{"@type":"Question","name":"Do you travel for proposals outside Orlando?","acceptedAnswer":{"@type":"Answer","text":"Yes — Canon Moment Photography is available nationwide and internationally. Travel fees apply outside Central Florida. We've photographed proposals across Florida, New York, and destination locations worldwide."}}]}
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"How much does a proposal photographer cost in Orlando?","acceptedAnswer":{"@type":"Answer","text":"Proposal photography in Orlando starts at $375 for 1 hour of coverage with Full gallery · every photo edited & delivered. Photo + video packages start at $650. Premium packages including champagne toast and bouquet start at $950. A 50% deposit is required to book."}},{"@type":"Question","name":"How does surprise proposal photography work?","acceptedAnswer":{"@type":"Answer","text":"Your photographer arrives early and positions themselves 50-100 feet away with a telephoto lens. You won't know they're there. After the proposal, you'll do a portrait session together. Sneak peek in 24-48 hours, full gallery in 48-72 hours."}},{"@type":"Question","name":"What are the best proposal spots in Orlando?","acceptedAnswer":{"@type":"Answer","text":"Top Orlando proposal locations include Kraft Azalea Garden in Winter Park (sunrise), Disney's Grand Floridian Boardwalk (sunset with fireworks), Lake Eola Park downtown, Harry P. Leu Gardens, and downtown Orlando rooftops for city views."}},{"@type":"Question","name":"Do you travel for proposals outside Orlando?","acceptedAnswer":{"@type":"Answer","text":"Yes — Canon Moment Photography is available nationwide and internationally. Travel fees apply outside Central Florida. We've photographed proposals across Florida, New York, and destination locations worldwide."}}]}
 </script>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -1351,6 +1351,8 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
 }
 
 /* GALLERY FILTER ══ */
+.gal-item img { transition: transform 0.5s ease; }
+.gal-item:hover img { transform: scale(1.04); }
 .gallery-filter-btn { font-family: var(--sans); font-size: 11px; font-weight: 400; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray); padding: 18px 20px; border: none; background: none; cursor: pointer; border-bottom: 2px solid transparent; transition: all 0.25s; white-space: nowrap; flex-shrink: 0; }
 .gallery-filter-btn:hover { color: var(--gold-dark); }
 .gallery-filter-btn.active { color: var(--gold-dark); border-bottom-color: var(--gold); }
@@ -1715,24 +1717,19 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
     </div>
     <div class="gallery-cin-grid">
       <div class="gallery-cin-item cin-reveal">
-        <img src="https://images.pixieset.com/495584311/cd461862649ae9d4196bab6d60a130e4-xxlarge.jpg" alt="Surprise proposal photography Orlando - Canon Moment Photography" style="width:100%;height:100%;object-fit:cover;min-height:500px;" loading="lazy">
-        <div class="gallery-cin-overlay"><span class="gallery-cin-label">Surprise Proposal · Orlando</span></div>
+        <img src="https://images.pixieset.com/495584311/cd461862649ae9d4196bab6d60a130e4-xxlarge.jpg" alt="Surprise proposal photography - Canon Moment Photography" style="width:100%;height:100%;object-fit:cover;min-height:500px;" loading="lazy">
       </div>
       <div class="gallery-cin-item cin-reveal cin-d1">
-        <img src="https://images.pixieset.com/129670311/b39ac7a325e338f67c8dfed618556683-xxlarge.jpg" alt="Proposal photography at sunset Orlando Florida" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
-        <div class="gallery-cin-overlay"><span class="gallery-cin-label">Proposal · Golden Hour</span></div>
+        <img src="https://images.pixieset.com/129670311/b39ac7a325e338f67c8dfed618556683-xxlarge.jpg" alt="Proposal photography at sunset" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
       </div>
       <div class="gallery-cin-item cin-reveal cin-d2">
-        <img src="https://images.pixieset.com/351328801/4d17c69be9f823eaff2cba456727205b-xxlarge.jpg" alt="Engagement photography Orlando" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
-        <div class="gallery-cin-overlay"><span class="gallery-cin-label">Engagement · Orlando</span></div>
+        <img src="https://images.pixieset.com/351328801/4d17c69be9f823eaff2cba456727205b-xxlarge.jpg" alt="Engagement photography" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
       </div>
       <div class="gallery-cin-item cin-reveal cin-d1">
-        <img src="https://images.pixieset.com/201132011/e67143cfdf50890d34c48b266aa441f2-xxlarge.jpg" alt="Wedding photography Orlando Florida" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
-        <div class="gallery-cin-overlay"><span class="gallery-cin-label">Wedding · Orlando</span></div>
+        <img src="https://images.pixieset.com/201132011/e67143cfdf50890d34c48b266aa441f2-xxlarge.jpg" alt="Wedding photography" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
       </div>
       <div class="gallery-cin-item cin-reveal cin-d2">
-        <img src="https://images.pixieset.com/129670311/27247b0b58f09441a7373c2c2c66d8a2-xxlarge.jpg" alt="Romantic proposal setup with candles and flowers Orlando" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
-        <div class="gallery-cin-overlay"><span class="gallery-cin-label">Proposal Setup · Orlando</span></div>
+        <img src="https://images.pixieset.com/129670311/27247b0b58f09441a7373c2c2c66d8a2-xxlarge.jpg" alt="Romantic proposal setup with candles and flowers" style="width:100%;height:100%;object-fit:cover;" loading="lazy">
       </div>
     </div>
   </div>
@@ -1789,7 +1786,7 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
         <div class="pkg-divider"></div>
         <ul class="pkg-features">
           <li>1 hour of coverage</li>
-          <li>50+ fully edited photos</li>
+          <li>Full gallery · every photo edited & delivered</li>
           <li>Planning consultation included</li>
           <li>Location coordination & scouting</li>
           <li>Private online gallery</li>
@@ -1808,7 +1805,7 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
         <div class="pkg-divider"></div>
         <ul class="pkg-features">
           <li>1 hour of coverage</li>
-          <li>50+ fully edited photos</li>
+          <li>Full gallery · every photo edited & delivered</li>
           <li>Cinematic highlight reel included</li>
           <li>Planning consultation included</li>
           <li>Private online gallery</li>
@@ -1830,7 +1827,7 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
           <li>Full day coverage (8–10 hrs)</li>
           <li>Second photographer included</li>
           <li>Engagement session included</li>
-          <li>400+ fully edited photos</li>
+          <li>Full gallery · every photo edited & delivered</li>
           <li>Private online gallery</li>
           <li>Print-ready & web files</li>
           <li class="highlight">Gallery in 2–3 weeks</li>
@@ -1937,7 +1934,7 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
     <span class="eyebrow cin-reveal" style="display:block;text-align:center;">FAQ</span>
     <h2 class="section-title cin-reveal" style="text-align:center;font-size:clamp(32px,4vw,52px);margin-bottom:48px;">Everything you<br><em>want to know.</em></h2>
     <div class="faq-list">
-      <div class="faq-item cin-reveal"><button class="faq-question" onclick="toggleFaq(this)">How much does a proposal photographer cost in Orlando? <span class="faq-arrow">+</span></button><div class="faq-answer"><p>Our proposal packages start at $375 for a 1-hour session including 50+ professionally edited photos, a planning consultation, and a private online gallery delivered within 48–72 hours. Our most popular package is $650 for 2 hours with a 24–48hr sneak peek.</p></div></div>
+      <div class="faq-item cin-reveal"><button class="faq-question" onclick="toggleFaq(this)">How much does a proposal photographer cost in Orlando? <span class="faq-arrow">+</span></button><div class="faq-answer"><p>Our proposal packages start at $375 for a 1-hour session including Full gallery · every photo edited & delivered, a planning consultation, and a private online gallery delivered within 48–72 hours. Our most popular package is $650 for 2 hours with a 24–48hr sneak peek.</p></div></div>
       <div class="faq-item cin-reveal"><button class="faq-question" onclick="toggleFaq(this)">How do you stay hidden during a surprise proposal? <span class="faq-arrow">+</span></button><div class="faq-answer"><p>We use telephoto zoom lenses that let us shoot from 50–100 feet away without being noticed. We arrive early to scout angles and hiding spots, dress casually like tourists, and never make eye contact or draw attention. In 50+ proposals, we've never been spotted.</p></div></div>
       <div class="faq-item cin-reveal"><button class="faq-question" onclick="toggleFaq(this)">When will I receive my photos? <span class="faq-arrow">+</span></button><div class="faq-answer"><p>Sneak peeks arrive within 24–48 hours for most packages (same-day for Grand Proposal). Full edited galleries are delivered within 48–72 hours via your private Pixieset gallery with full-resolution download access. Weddings are delivered within 2–3 weeks.</p></div></div>
       <div class="faq-item cin-reveal"><button class="faq-question" onclick="toggleFaq(this)">Do you travel outside Orlando? <span class="faq-arrow">+</span></button><div class="faq-answer"><p>Absolutely — we're available nationwide and internationally. We've shot proposals across Florida and beyond. Travel fees apply outside Central Florida and are included in a custom quote. See our Hidden Locations Guide for worldwide destination pricing.</p></div></div>
@@ -2013,9 +2010,8 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
   <!-- Service 01: Proposal Photography -->
   <section style="padding:100px 80px;background:var(--warm-white);border-bottom:0.5px solid var(--border);">
     <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
-      <div style="background:var(--ivory);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
-        <div style="font-family:var(--serif);font-size:80px;font-weight:300;color:rgba(201,169,110,0.15);line-height:1;position:absolute;">01</div>
-        <span style="font-family:var(--serif);font-size:13px;color:var(--gray-light);font-style:italic;position:relative;">Add proposal photo</span>
+      <div style="background:var(--ivory);aspect-ratio:4/5;position:relative;overflow:hidden;">
+        <img src="https://images.pixieset.com/726163311/823cf5be7cd6a6f84377fa43d3bc32c7-xxlarge.jpg" alt="Surprise proposal photography Orlando - Canon Moment Photography" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
       </div>
       <div>
         <div style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;padding-bottom:10px;border-bottom:0.5px solid var(--border);">Service 01</div>
@@ -2053,9 +2049,8 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
         </div>
         <a class="btn-primary" onclick="goPage('packages-page')">See Session Options →</a>
       </div>
-      <div style="background:var(--ivory);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
-        <div style="font-family:var(--serif);font-size:80px;font-weight:300;color:rgba(201,169,110,0.15);line-height:1;position:absolute;">02</div>
-        <span style="font-family:var(--serif);font-size:13px;color:var(--gray-light);font-style:italic;position:relative;">Add engagement photo</span>
+      <div style="background:var(--ivory);aspect-ratio:4/5;position:relative;overflow:hidden;">
+        <img src="https://images.pixieset.com/169328801/470c5dc398c36b3bb73419714ceee597-xxlarge.jpg" alt="Engagement photography Orlando - Canon Moment Photography" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
       </div>
     </div>
   </section>
@@ -2063,9 +2058,8 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
   <!-- Service 03: Weddings -->
   <section style="padding:100px 80px;background:var(--warm-white);border-bottom:0.5px solid var(--border);">
     <div style="max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center;">
-      <div style="background:var(--ivory);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;">
-        <div style="font-family:var(--serif);font-size:80px;font-weight:300;color:rgba(201,169,110,0.15);line-height:1;position:absolute;">03</div>
-        <span style="font-family:var(--serif);font-size:13px;color:var(--gray-light);font-style:italic;position:relative;">Add wedding photo</span>
+      <div style="background:var(--ivory);aspect-ratio:4/5;position:relative;overflow:hidden;">
+        <img src="https://images.pixieset.com/201132011/e67143cfdf50890d34c48b266aa441f2-xxlarge.jpg" alt="Wedding photography Orlando Florida - Canon Moment Photography" style="width:100%;height:100%;object-fit:cover;display:block;" loading="lazy">
       </div>
       <div>
         <div style="font-size:10px;letter-spacing:0.24em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;padding-bottom:10px;border-bottom:0.5px solid var(--border);">Service 03</div>
@@ -2188,6 +2182,7 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
       <button class="gallery-filter-btn" onclick="filterGallery('portrait',this)">Portraits</button>
       <button class="gallery-filter-btn" onclick="filterGallery('event',this)">Events</button>
       <button class="gallery-filter-btn" onclick="filterGallery('destination',this)">Destinations</button>
+      <button class="gallery-filter-btn" onclick="filterGallery('corporate',this)">Corporate</button>
     </div>
   </div>
 
@@ -2202,16 +2197,220 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
         <div style="font-size:13px;color:var(--gray-light);">Add photos in Admin → Gallery Manager.</div>
       </div>
       <div id="portfolio-placeholder" style="columns:3;column-gap:12px;">
-        <!-- Placeholder cards shown until real photos are added -->
-        <div style="break-inside:avoid;margin-bottom:12px;background:var(--ivory);aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;"><span style="font-family:var(--serif);font-size:13px;color:var(--gray-light);font-style:italic;">Proposal · Kraft Azalea</span></div>
-        <div style="break-inside:avoid;margin-bottom:12px;background:var(--ivory);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;"><span style="font-family:var(--serif);font-size:13px;color:var(--gray-light);font-style:italic;">Proposal · Magic Kingdom</span></div>
-        <div style="break-inside:avoid;margin-bottom:12px;background:var(--ivory);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;"><span style="font-family:var(--serif);font-size:13px;color:var(--gray-light);font-style:italic;">Wedding · Lake Eola</span></div>
-        <div style="break-inside:avoid;margin-bottom:12px;background:var(--ivory);aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;"><span style="font-family:var(--serif);font-size:13px;color:var(--gray-light);font-style:italic;">Portrait · Leu Gardens</span></div>
-        <div style="break-inside:avoid;margin-bottom:12px;background:var(--ivory);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;"><span style="font-family:var(--serif);font-size:13px;color:var(--gray-light);font-style:italic;">Destination · Cocoa Beach</span></div>
-        <div style="break-inside:avoid;margin-bottom:12px;background:var(--ivory);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;"><span style="font-family:var(--serif);font-size:13px;color:var(--gray-light);font-style:italic;">Event · Downtown Orlando</span></div>
-        <div style="break-inside:avoid;margin-bottom:12px;background:var(--ivory);aspect-ratio:3/4;display:flex;align-items:center;justify-content:center;"><span style="font-family:var(--serif);font-size:13px;color:var(--gray-light);font-style:italic;">Proposal · Disney Springs</span></div>
-        <div style="break-inside:avoid;margin-bottom:12px;background:var(--ivory);aspect-ratio:1/1;display:flex;align-items:center;justify-content:center;"><span style="font-family:var(--serif);font-size:13px;color:var(--gray-light);font-style:italic;">Wedding · Rollins College</span></div>
-        <div style="break-inside:avoid;margin-bottom:12px;background:var(--ivory);aspect-ratio:4/5;display:flex;align-items:center;justify-content:center;"><span style="font-family:var(--serif);font-size:13px;color:var(--gray-light);font-style:italic;">Destination · Anna Maria</span></div>
+        <!-- PROPOSALS -->
+        <div class="gal-item" data-cat="proposal" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/495584311/cd461862649ae9d4196bab6d60a130e4-xxlarge.jpg" alt="Surprise proposal photography" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="proposal" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/129670311/b39ac7a325e338f67c8dfed618556683-xxlarge.jpg" alt="Proposal photography at golden hour" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="proposal" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/351328801/4d17c69be9f823eaff2cba456727205b-xxlarge.jpg" alt="Engagement photography" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <!-- WEDDINGS -->
+        <div class="gal-item" data-cat="wedding" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/201132011/e67143cfdf50890d34c48b266aa441f2-xxlarge.jpg" alt="Wedding photography" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="wedding" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/033333701/68e41eef6b852eeeb08a5a828649e99a-xxlarge.jpg" alt="Wedding photography" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <!-- EVENTS -->
+        <div class="gal-item" data-cat="event" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/575915011/8bc4a0a9e6b7b6ba4d53c17864ccde67-xxlarge.jpg" alt="Event photography" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="event" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/575915011/add3942c542885c64b148dd50edfb510-xxlarge.jpg" alt="Event photography" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <!-- CORPORATE / BRANDING -->
+        <div class="gal-item" data-cat="corporate" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/301284801/43b23c3cede7e0125ac1f45270c5b0c6-xxlarge.jpg" alt="Corporate photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="corporate" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/301284801/1ab2804cb536a63fdbc695255fb12acf-xxlarge.jpg" alt="Corporate photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="corporate" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/125111801/5caa4d481e8136b79b4a24b718ce6ddc-xxlarge.jpg" alt="Branding photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <!-- FAMILY / PORTRAITS -->
+        <div class="gal-item" data-cat="portrait" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/815300801/32fac3064839b1a8bb06f96e3f5bb194-xxlarge.jpg" alt="Family photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="portrait" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/066533701/189a4e769645069326d91548d811aab8-xxlarge.jpg" alt="Family photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <!-- PROPOSAL SETUPS -->
+        <div class="gal-item" data-cat="proposal" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/129670311/27247b0b58f09441a7373c2c2c66d8a2-xxlarge.jpg" alt="Romantic proposal setup Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="proposal" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/726163311/a0ee67d5dd404a4480425334938365c9-xxlarge.jpg" alt="Romantic proposal setup Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <!-- NEW PROPOSALS -->
+        <div class="gal-item" data-cat="proposal" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/726163311/823cf5be7cd6a6f84377fa43d3bc32c7-xxlarge.jpg" alt="Surprise proposal photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="proposal" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/169328801/470c5dc398c36b3bb73419714ceee597-xxlarge.jpg" alt="Surprise proposal photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="proposal" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/033333701/6d0403d5c4a08971d59fbb47fe0adbde-xxlarge.jpg" alt="Proposal photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="proposal" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/495584311/c1f23177faf82d95c81bb1549cd8728f-xxlarge.jpg" alt="Proposal photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="proposal" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/495584311/2f58c36d402344b578b7ec0d222d3783-xxlarge.jpg" alt="Proposal photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="proposal" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/495584311/cd7ee8578262901ba0b409e5d0f7b6e8-xxlarge.jpg" alt="Proposal photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="proposal" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/495584311/9df6116d324bdae2345061f61deb0c9b-xxlarge.jpg" alt="Proposal photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="proposal" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/495584311/bb9bd8b7cd6742fbf0e807f178e0ea43-xxlarge.jpg" alt="Proposal photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="proposal" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/495584311/77215fc86c40ae3f3c9d448ad42fe2b9-xxlarge.jpg" alt="Proposal photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="proposal" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/495584311/7cbce4d1a6eb2ffcfc42dcebbe896a16-xxlarge.jpg" alt="Proposal photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="proposal" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/495584311/5e24c0ec4286878025d177962c704325-xxlarge.jpg" alt="Proposal photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="proposal" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/346954901/6a8e0d07127051969a3d073d20090bc9-xxlarge.jpg" alt="Proposal photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="proposal" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/434321301/9a7a0b090a41eaa28c42b175a6ea2f29-xxlarge.jpg" alt="Proposal photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <!-- NEW EVENTS -->
+        <div class="gal-item" data-cat="event" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/575915011/d8fe250f3de97b7a7ff9e1a240cb1293-xxlarge.jpg" alt="Event photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="event" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/575915011/65bfae3ca1b2cd9975526c0fd4815dc2-xxlarge.jpg" alt="Event photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="event" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/575915011/9292525353ea861bd77544279b96f981-xxlarge.jpg" alt="Event photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="event" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/575915011/ca1ecf66c59a69909bdad9e6bff97360-xxlarge.jpg" alt="Event photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="event" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/575915011/10aedbc7bca8ebb0bb70f418507b5107-xxlarge.jpg" alt="Event photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="event" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/575915011/ee24dac6ffeac3d3923b5fb506a25d5b-xxlarge.jpg" alt="Event photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="event" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/575915011/c9b11f6b3d9cb009f31b06dd282a2bb7-xxlarge.jpg" alt="Event photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="event" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/575915011/e1e3934eda6de0daa8e3b13e86c5b497-xxlarge.jpg" alt="Event photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="event" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/575915011/3f2b4c14e937cea980764d61fce2b435-xxlarge.jpg" alt="Event photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="event" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/499985801/c09b69a836bccf8f7bd96737d47713ec-xxlarge.jpg" alt="Event photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="event" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/499985801/0f8cfdb23c5b7bc65f9bd87c2e1f9c80-xxlarge.jpg" alt="Event photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="event" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/499985801/cc4116019dc15baff9415eca2cb2c889-xxlarge.jpg" alt="Event photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="event" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/499985801/620c2fd9a0945c473aeaac66597f589c-xxlarge.jpg" alt="Event photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="event" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/499985801/8998905f6c81ad1c870e21d86c49c82a-xxlarge.jpg" alt="Event photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="event" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/499985801/c54a7887e2a1aeaa1a19d8e38e23c1bc-xxlarge.jpg" alt="Event photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="event" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/499985801/a21150cd57a70c9ac0935ee4bbc6fc43-xxlarge.jpg" alt="Event photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="event" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/499985801/ef9b698770d7b4900bd106e4264ae9e8-xxlarge.jpg" alt="Event photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="event" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/499985801/dc64b3ced56ee9a731e782d6eff5144d-xxlarge.jpg" alt="Event photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <!-- NEW WEDDINGS -->
+        <div class="gal-item" data-cat="wedding" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/201132011/e6fc4a094ee9bbdddc51f6f0dc7813b4-xxlarge.jpg" alt="Wedding photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="wedding" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/033333701/2027eb1c11e3d38e0e44455020d98210-xxlarge.jpg" alt="Wedding photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="wedding" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/033333701/8d750669dffd8b8b1fc6880ac25757eb-xxlarge.jpg" alt="Wedding photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="wedding" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/201132011/7562da876df557005ac3d31e4de30347-xxlarge.jpg" alt="Wedding photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="wedding" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/434321301/336bad78f1fa107d27cbaefeb03eed29-xxlarge.jpg" alt="Wedding photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="wedding" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/033333701/685e5a3f402ae13bb9b75703c82fb99c-xxlarge.jpg" alt="Wedding photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="wedding" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/033333701/e589efa2900e1940e02e511c9ff0d7ff-xxlarge.jpg" alt="Wedding photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="wedding" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/648423801/09779990adc4f6dd76872bc17b5ef664-xxlarge.jpg" alt="Wedding photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="wedding" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/648423801/4ad1537b7dbb2f29fc18d1c96000098f-xxlarge.jpg" alt="Wedding photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="wedding" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/033333701/37d9e04dc93abe0c71b038b0ba1ec141-xxlarge.jpg" alt="Wedding photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="wedding" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/033333701/cf550f602c3be33d7a4ceed13fe96da5-xxlarge.jpg" alt="Wedding photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="wedding" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/648423801/b4f78cb22088c7a563231f63e317624b-xxlarge.jpg" alt="Wedding photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="wedding" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/648423801/c8eddf6253987601a5e99c470dcf5e9d-xxlarge.jpg" alt="Wedding photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="wedding" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/033333701/a74a9e2e790fcd2d21ae2f9df1025f58-xxlarge.jpg" alt="Wedding photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="wedding" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/648423801/c1a4bcbfe6ced97d28066b045908b88b-xxlarge.jpg" alt="Wedding photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <!-- NEW CORPORATE / BRANDING -->
+        <div class="gal-item" data-cat="corporate" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/301284801/a7033fbe61422b7f70f78e49146baf5e-xxlarge.jpg" alt="Corporate photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="corporate" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/301284801/f86f10ba3915214208a0da8e901903f5-xxlarge.jpg" alt="Corporate photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="corporate" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/301284801/e232f4b3bf60ef11ddaac51485b5c1a6-xxlarge.jpg" alt="Corporate photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="corporate" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/301284801/58bf0131537dc61c42b29bce82f702d2-xxlarge.jpg" alt="Corporate photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="corporate" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/641265601/1489757757d62a042429c8f7f27082e8-xxlarge.jpeg" alt="Branding photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="corporate" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/641265601/b152e9bf21162f9a6414f1000acfc56d-xxlarge.jpeg" alt="Branding photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="corporate" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/641265601/b572309339820647db0ea2aefa5f1ab8-xxlarge.jpeg" alt="Branding photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
+        <div class="gal-item" data-cat="corporate" style="break-inside:avoid;margin-bottom:12px;cursor:pointer;overflow:hidden;" onclick="openLightbox(this)">
+          <img src="https://images.pixieset.com/641265601/0fc39b9539db75f2b444515262fabeb0-xxlarge.jpeg" alt="Branding photography Orlando" style="width:100%;display:block;transition:transform 0.4s;" loading="lazy">
+        </div>
       </div>
     </div>
   </section>
@@ -2231,6 +2430,8 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
 
   <!-- ══ PACKAGES HERO ══ -->
   <div style="padding:160px 80px 80px;background:var(--charcoal);position:relative;overflow:hidden;">
+    <img src="https://images.pixieset.com/726163311/823cf5be7cd6a6f84377fa43d3bc32c7-xxlarge.jpg" alt="Canon Moment Photography - Orlando proposal photographer" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.22;" loading="eager">
+    <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(28,28,28,0.85) 0%,rgba(28,28,28,0.5) 100%);"></div>
     <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 30% 60%,rgba(201,169,110,0.08) 0%,transparent 65%);"></div>
     <div style="position:relative;z-index:2;max-width:720px;">
       <span class="eyebrow" style="color:var(--gold);">Pricing & Packages</span>
@@ -2252,27 +2453,21 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
     </div>
   </div>
 
-  <!-- ══ MAIN PACKAGES SECTION ══ -->
-  <div id="pkg-section-main">
-
-    <!-- CORE PACKAGES -->
-    <section style="padding:80px 80px;background:var(--cream);">
+  <!-- ══ PROPOSALS SECTION ══ -->
+  <div id="pkg-section-proposals">
+    <div style="padding:80px 80px 40px;background:var(--charcoal);position:relative;overflow:hidden;">
+      <img src="https://images.pixieset.com/495584311/c1f23177faf82d95c81bb1549cd8728f-xxlarge.jpg" alt="Surprise proposal photography Orlando" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.28;" loading="lazy">
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(28,28,28,0.88) 0%,rgba(28,28,28,0.5) 100%);"></div>
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(201,169,110,0.07) 0%,transparent 70%);"></div>
+      <div style="position:relative;z-index:2;max-width:680px;">
+        <span class="eyebrow" style="color:var(--gold);">Proposals & Engagements</span>
+        <h2 class="section-title" style="color:var(--warm-white);font-size:clamp(32px,4vw,56px);">Capture the<br><em>perfect moment.</em></h2>
+        <p class="section-body" style="color:rgba(255,255,255,0.45);">Fully discreet, emotionally driven proposal photography. We scout the location, blend in completely, and capture every unscripted second — from the nerves to the tears to the yes.</p>
+      </div>
+    </div>
+    <section style="padding:72px 80px;background:var(--cream);">
       <div style="max-width:1200px;margin:0 auto;">
-        <div style="text-align:center;margin-bottom:56px;">
-          <span class="eyebrow" style="display:block;text-align:center;">Photography Sessions</span>
-          <h2 class="section-title" style="font-size:clamp(28px,3.5vw,44px);">Choose your <em>session.</em></h2>
-        </div>
-
-        <!-- PROPOSAL / PORTRAIT PACKAGES -->
-        <div id="pkg-sub-proposals">
-        <!-- Category header -->
-        <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;padding-bottom:14px;border-bottom:0.5px solid var(--border);">
-          <span class="eyebrow" style="font-size:10px;letter-spacing:0.24em;">📸 Proposals & Portraits</span>
-          <span style="font-size:12px;color:var(--gray-light);">Surprise proposals, engagement sessions, individual portraits</span>
-        </div>
-        <div class="packages-grid" style="margin-bottom:60px;">
-
-          <!-- The Moment -->
+        <div class="packages-grid" style="margin-bottom:48px;">
           <div class="package-card reveal" id="pkg-moment">
             <span class="package-tag">Essential</span>
             <h3 class="package-name">The Moment</h3>
@@ -2281,17 +2476,16 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
             <div class="deposit-badge"><strong>50%</strong> deposit to book: $187.50</div>
             <ul class="package-features">
               <li>1 hour of coverage</li>
-              <li>50+ fully edited photos</li>
+              <li>Full gallery · every photo edited & delivered</li>
               <li>Planning consultation</li>
               <li>Location coordination</li>
               <li>Private online gallery</li>
               <li>Full-resolution downloads</li>
-              <li>Gallery in 48–72 hours</li>
+              <li style="color:var(--gold)">24-hour sneak peek guaranteed</li>
+              <li style="color:var(--gold)">Full gallery in 48–72 hours</li>
             </ul>
             <button class="package-cta" onclick="showAddOns('moment')">Book + Add-Ons →</button>
           </div>
-
-          <!-- The Story -->
           <div class="package-card reveal reveal-d1" id="pkg-story">
             <span class="package-tag">Photo + Video</span>
             <h3 class="package-name">The Story</h3>
@@ -2300,18 +2494,18 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
             <div class="deposit-badge"><strong>50%</strong> deposit to book: $325</div>
             <ul class="package-features">
               <li>1 hour of coverage</li>
-              <li>50+ fully edited photos</li>
-              <li>Cinematic video / reel included</li>
+              <li>Full gallery · every photo edited & delivered</li>
+              <li>Cinematic video · 30–90 sec</li>
+              <li>Custom song of your choice</li>
               <li>Planning consultation</li>
               <li>Private online gallery</li>
               <li>Full-resolution downloads</li>
-              <li style="color:var(--gold)">24–48hr sneak peek guaranteed</li>
-              <li style="color:var(--gold)">Gallery in 48–72 hours</li>
+              <li style="color:var(--gold)">24-hour sneak peek guaranteed</li>
+              <li style="color:var(--gold)">Full gallery in 48–72 hours</li>
+              <li>Video delivery in 5–7 business days</li>
             </ul>
             <button class="package-cta" onclick="showAddOns('story')">Book + Add-Ons →</button>
           </div>
-
-          <!-- The Experience -->
           <div class="package-card featured reveal reveal-d2" id="pkg-experience">
             <span class="package-tag">Most Popular</span>
             <h3 class="package-name">The Experience</h3>
@@ -2320,31 +2514,40 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
             <div class="deposit-badge"><strong>50%</strong> deposit to book: $475</div>
             <ul class="package-features">
               <li>90 minutes of coverage</li>
-              <li>75+ fully edited photos</li>
-              <li>Cinematic highlight reel included</li>
+              <li>Full gallery · every photo edited & delivered</li>
+              <li>90 sec – 4 min cinematic video</li>
+              <li>Custom song of your choice</li>
               <li>Planning consultation</li>
               <li>Champagne toast setup included</li>
               <li>Bridal bouquet provided on-site</li>
               <li>Private online gallery</li>
               <li>Full-resolution downloads</li>
-              <li style="color:var(--gold)">24–48hr sneak peek guaranteed</li>
-              <li style="color:var(--gold)">Gallery in 48–72 hours</li>
+              <li style="color:var(--gold)">24-hour sneak peek guaranteed</li>
+              <li style="color:var(--gold)">Full gallery in 48–72 hours</li>
+              <li>Video delivery in 5–7 business days</li>
             </ul>
             <button class="package-cta" onclick="showAddOns('experience')">Book + Add-Ons →</button>
           </div>
         </div>
+      </div>
+    </section>
+  </div>
 
-        <!-- WEDDING PACKAGES -->
-        </div><!-- /pkg-sub-proposals -->
-
-        <div id="pkg-sub-weddings">
-        <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;padding-bottom:14px;border-bottom:0.5px solid var(--border);margin-top:60px;">
-          <span class="eyebrow" style="font-size:10px;letter-spacing:0.24em;">💍 Weddings</span>
-          <span style="font-size:12px;color:var(--gray-light);">Half-day, full-day, and destination wedding coverage</span>
-        </div>
+  <!-- ══ WEDDINGS SECTION ══ -->
+  <div id="pkg-section-weddings">
+    <div style="padding:80px 80px 40px;background:var(--charcoal);position:relative;overflow:hidden;">
+      <img src="https://images.pixieset.com/648423801/09779990adc4f6dd76872bc17b5ef664-xxlarge.jpg" alt="Wedding photography Orlando" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.25;" loading="lazy">
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(28,28,28,0.88) 0%,rgba(28,28,28,0.5) 100%);"></div>
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(201,169,110,0.07) 0%,transparent 70%);"></div>
+      <div style="position:relative;z-index:2;max-width:680px;">
+        <span class="eyebrow" style="color:var(--gold);">Wedding Photography</span>
+        <h2 class="section-title" style="color:var(--warm-white);font-size:clamp(32px,4vw,56px);">Your day,<br><em>forever remembered.</em></h2>
+        <p class="section-body" style="color:rgba(255,255,255,0.45);">From intimate elopements to grand receptions, we capture every emotion, every detail, and every moment you'll want to relive for a lifetime.</p>
+      </div>
+    </div>
+    <section style="padding:72px 80px;background:var(--cream);">
+      <div style="max-width:1200px;margin:0 auto;">
         <div class="packages-grid" style="margin-bottom:60px;">
-
-          <!-- Half Day -->
           <div class="package-card reveal">
             <span class="package-tag">New</span>
             <h3 class="package-name">Half Day</h3>
@@ -2355,7 +2558,7 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
               <li>4 hours of coverage</li>
               <li>2 photographers on site</li>
               <li>2–5 min cinematic highlight film</li>
-              <li>200+ fully edited photos</li>
+              <li>Full gallery · every photo edited & delivered</li>
               <li>Private online gallery</li>
               <li>Full-resolution + print-ready files</li>
               <li>Getting ready through first dance</li>
@@ -2363,8 +2566,6 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
             </ul>
             <button class="package-cta" onclick="showAddOns('halfday')">Book + Add-Ons →</button>
           </div>
-
-          <!-- The Forever -->
           <div class="package-card featured reveal reveal-d1">
             <span class="package-tag">Most Complete</span>
             <h3 class="package-name">The Forever</h3>
@@ -2375,7 +2576,7 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
               <li>8–10 hours of full coverage</li>
               <li>Second photographer included</li>
               <li>Engagement session included</li>
-              <li>400+ fully edited photos</li>
+              <li>Full gallery · every photo edited & delivered</li>
               <li>4–8 min cinematic highlight film</li>
               <li>Ceremony + reception full video</li>
               <li>Private online gallery</li>
@@ -2385,8 +2586,6 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
             </ul>
             <button class="package-cta" onclick="showAddOns('forever')">Book + Add-Ons →</button>
           </div>
-
-          <!-- Destination Wedding -->
           <div class="package-card reveal reveal-d2">
             <span class="package-tag">Destination</span>
             <h3 class="package-name">Away Wedding</h3>
@@ -2404,29 +2603,39 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
             <button class="package-cta" onclick="goPage('contact-page')">Get a Custom Quote →</button>
           </div>
         </div>
+      </div>
+    </section>
+  </div>
 
-        <!-- SETUP PACKAGES (existing) -->
-        </div><!-- /pkg-sub-weddings -->
-
-        <div id="pkg-sub-setup">
-        <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px;padding-bottom:14px;border-bottom:0.5px solid var(--border);margin-top:60px;">
-          <span class="eyebrow" style="font-size:10px;letter-spacing:0.24em;">✦ Full Setup & Coordination</span>
-          <span style="font-size:12px;color:var(--gray-light);">Photography + video + full romantic setup. 4-week advance booking required.</span>
-        </div>
-        <div class="setup-grid" style="position:relative;z-index:2;margin-bottom:16px;">
+  <!-- ══ PROPOSAL SETUP SECTION ══ -->
+  <div id="pkg-section-setup">
+    <div style="padding:80px 80px 40px;background:var(--charcoal);position:relative;overflow:hidden;">
+      <img src="https://images.pixieset.com/434321301/9a7a0b090a41eaa28c42b175a6ea2f29-xxlarge.jpg" alt="Romantic proposal setup Orlando" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0.25;" loading="lazy">
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(28,28,28,0.88) 0%,rgba(28,28,28,0.5) 100%);"></div>
+      <div style="position:absolute;inset:0;background:radial-gradient(ellipse at 70% 50%,rgba(201,169,110,0.07) 0%,transparent 70%);"></div>
+      <div style="position:relative;z-index:2;max-width:680px;">
+        <span class="eyebrow" style="color:var(--gold);">Full Setup & Coordination</span>
+        <h2 class="section-title" style="color:var(--warm-white);font-size:clamp(32px,4vw,56px);">We set the scene.<br><em>You say yes.</em></h2>
+        <p class="section-body" style="color:rgba(255,255,255,0.45);">Photography, video, florals, candles, and full romantic coordination — we handle every detail so you can focus entirely on the moment that matters most.</p>
+      </div>
+    </div>
+    <section style="padding:72px 80px;background:var(--cream);">
+      <div style="max-width:1200px;margin:0 auto;">
+        <div class="setup-grid" style="margin-bottom:16px;">
           <div class="setup-card">
             <span class="setup-card-tier">The Essential</span>
             <div class="setup-card-name">The Proposal<br>Package</div>
             <div class="setup-card-price">$1,200</div>
-            <div class="setup-card-price-note">Photo + Setup + Video · Starting price</div>
+            <div class="setup-card-price-note">Photo + Setup · Starting price</div>
             <div class="deposit-badge"><strong>50%</strong> deposit to book: $600</div>
             <ul class="setup-includes">
-              <li>2 hrs photography + video reel</li>
+              <li>1 hour photography</li>
               <li>Rose petal arrangement</li>
               <li>Candle setup with lanterns</li>
               <li>Custom name/message sign</li>
               <li>Location coordination & scouting</li>
-              <li>24–48hr sneak peek · 48–72hr gallery</li>
+              <li style="color:var(--gold)">24-hour sneak peek guaranteed</li>
+              <li>Full gallery in 48–72 hours</li>
             </ul>
             <button class="setup-card-cta" onclick="openSetupPayment('setup-essential')">Request & Pay Deposit →</button>
           </div>
@@ -2435,15 +2644,19 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
             <span class="setup-card-tier">The Premium</span>
             <div class="setup-card-name">The Luxury<br>Proposal</div>
             <div class="setup-card-price">$1,500</div>
-            <div class="setup-card-price-note">Full setup + 2nd photographer · Starting price</div>
+            <div class="setup-card-price-note">Photo + Video + Full setup · Starting price</div>
             <div class="deposit-badge"><strong>50%</strong> deposit to book: $750</div>
             <ul class="setup-includes">
-              <li>2 hrs · 2nd photographer</li>
+              <li>1 hr · photographer + videographer</li>
+              <li>Cinematic video · 30–90 sec</li>
+              <li>Custom song of your choice</li>
               <li>Full floral + stands + arch</li>
               <li>Rose petal pathway</li>
               <li>Tall candles + Bluetooth speaker</li>
               <li>Picnic available (+$150)</li>
-              <li>24–48hr sneak peek · 48–72hr gallery</li>
+              <li style="color:var(--gold)">24-hour sneak peek guaranteed</li>
+              <li>Full gallery in 48–72 hours</li>
+              <li>Video delivery in 5–7 business days</li>
             </ul>
             <button class="setup-card-cta" onclick="openSetupPayment('setup-premium')">Request & Pay Deposit →</button>
           </div>
@@ -2455,20 +2668,19 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
             <div class="deposit-badge"><strong>50%</strong> deposit to book: $1,000</div>
             <ul class="setup-includes">
               <li>2 photographers + videographer</li>
+              <li>90 sec – 4 min cinematic video</li>
+              <li>Custom song of your choice</li>
               <li>Live violinist during proposal</li>
               <li>Grand floral arch + full petal setup</li>
               <li>Picnic available (+$150)</li>
               <li style="color:var(--gold)">Same-day sneak peek guaranteed</li>
-              <li>48–72hr full gallery</li>
+              <li style="color:var(--gold)">Full gallery in 48–72 hours</li>
+              <li>Video delivery in 5–7 business days</li>
             </ul>
             <button class="setup-card-cta" onclick="openSetupPayment('setup-grand')">Request & Pay Deposit →</button>
           </div>
         </div>
         <div style="text-align:center;padding:20px 0 40px;font-size:13px;color:var(--gray);">Fully custom experience from $2,500 · <a onclick="goPage('contact-page')" style="color:var(--gold);cursor:pointer;">Request a custom proposal →</a></div>
-
-        </div><!-- /pkg-sub-setup -->
-
-        <!-- FAQ -->
         <div style="max-width:780px;margin:0 auto;padding-top:40px;border-top:0.5px solid var(--border);">
           <span class="eyebrow" style="display:block;margin-bottom:8px;">FAQ</span>
           <h2 class="section-title" style="font-size:clamp(24px,3vw,36px);margin-bottom:32px;">Common <em>questions.</em></h2>
@@ -2480,7 +2692,6 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
             <div class="faq-item"><button class="faq-question" onclick="toggleFaq(this)">Do you travel outside Orlando? <span class="faq-arrow">+</span></button><div class="faq-answer"><p>Yes — nationwide and internationally. Travel fees apply outside Central Florida. See our Hidden Locations Guide for destination pricing estimates.</p></div></div>
           </div>
         </div>
-
       </div>
     </section>
   </div>
@@ -2507,7 +2718,7 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
             <div class="deposit-badge"><strong>50%</strong> deposit to book: $250</div>
             <ul class="package-features">
               <li>2 hours of coverage</li>
-              <li>100+ fully edited photos</li>
+              <li>Full gallery · every photo edited & delivered</li>
               <li>Key moments coverage</li>
               <li>Private online gallery</li>
               <li>Full-resolution downloads</li>
@@ -2523,7 +2734,7 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
             <div class="deposit-badge"><strong>50%</strong> deposit to book: $450</div>
             <ul class="package-features">
               <li>4 hours of coverage</li>
-              <li>200+ fully edited photos</li>
+              <li>Full gallery · every photo edited & delivered</li>
               <li>Cinematic event highlight reel</li>
               <li>Private online gallery</li>
               <li>Full-resolution downloads</li>
@@ -2541,7 +2752,7 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
             <ul class="package-features">
               <li>6–8 hours of coverage</li>
               <li>2 photographers on site</li>
-              <li>300+ fully edited photos</li>
+              <li>Full gallery · every photo edited & delivered</li>
               <li>Cinematic highlight film</li>
               <li>Private online gallery</li>
               <li style="color:var(--gold)">Same-day sneak peek</li>
@@ -2617,7 +2828,7 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
               <li>4–6 hours of coverage</li>
               <li>Keynotes, panels, networking</li>
               <li>Headshots on-site during event</li>
-              <li>300+ fully edited photos</li>
+              <li>Full gallery · every photo edited & delivered</li>
               <li>Commercial usage rights</li>
               <li>Branded gallery with your logo</li>
               <li style="color:var(--gold)">Same-day preview set (20 images)</li>
@@ -2668,7 +2879,7 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
             <div class="deposit-badge"><strong>50%</strong> deposit to book: $100</div>
             <ul class="package-features">
               <li>30 minutes of coverage</li>
-              <li>25+ fully edited photos</li>
+              <li>Full gallery · every photo edited & delivered</li>
               <li>1 location, 1 outfit</li>
               <li>Private gallery delivery</li>
               <li>Full-resolution downloads</li>
@@ -2684,7 +2895,7 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
             <div class="deposit-badge"><strong>50%</strong> deposit to book: $187.50</div>
             <ul class="package-features">
               <li>1 hour of coverage</li>
-              <li>60+ fully edited photos</li>
+              <li>Full gallery · every photo edited & delivered</li>
               <li>Up to 6 family members</li>
               <li>2 outfit changes allowed</li>
               <li>In-home or on-location</li>
@@ -2702,7 +2913,7 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
             <ul class="package-features">
               <li>2 hours at your home</li>
               <li>Candid lifestyle storytelling</li>
-              <li>100+ fully edited photos</li>
+              <li>Full gallery · every photo edited & delivered</li>
               <li>Unlimited family members</li>
               <li>Morning routine, meals, play — real life</li>
               <li>Private online gallery</li>
@@ -2718,19 +2929,19 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
             <div style="font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Maternity</div>
             <div style="font-family:var(--serif);font-size:18px;color:var(--charcoal);margin-bottom:6px;">Maternity Session</div>
             <div style="font-family:var(--serif);font-size:26px;color:var(--charcoal);margin-bottom:8px;">$375</div>
-            <div style="font-size:12px;color:var(--gray);">1 hour · Partner included · 50+ photos · Golden hour preferred</div>
+            <div style="font-size:12px;color:var(--gray);">1 hour · Partner included · Full gallery delivered · Golden hour preferred</div>
           </div>
           <div style="background:var(--warm-white);border:0.5px solid var(--border);padding:24px;">
             <div style="font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Newborn</div>
             <div style="font-family:var(--serif);font-size:18px;color:var(--charcoal);margin-bottom:6px;">Newborn Session</div>
             <div style="font-family:var(--serif);font-size:26px;color:var(--charcoal);margin-bottom:8px;">$450</div>
-            <div style="font-size:12px;color:var(--gray);">In-home · 2 hours · Baby + family · 80+ photos</div>
+            <div style="font-size:12px;color:var(--gray);">In-home · 2 hours · Baby + family · Full gallery delivered</div>
           </div>
           <div style="background:var(--warm-white);border:0.5px solid var(--border);padding:24px;">
             <div style="font-size:9px;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;">Seniors</div>
             <div style="font-family:var(--serif);font-size:18px;color:var(--charcoal);margin-bottom:6px;">Senior Portraits</div>
             <div style="font-family:var(--serif);font-size:26px;color:var(--charcoal);margin-bottom:8px;">$375</div>
-            <div style="font-size:12px;color:var(--gray);">1 hour · 2 outfits · 50+ photos · Multiple locations</div>
+            <div style="font-size:12px;color:var(--gray);">1 hour · 2 outfits · Full gallery delivered · Multiple locations</div>
           </div>
         </div>
         <div style="background:rgba(201,169,110,0.06);border:0.5px solid rgba(201,169,110,0.2);padding:32px;text-align:center;">
@@ -2809,8 +3020,8 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
       <div class="blog-grid">
 
         <a class="blog-card reveal" href="#" onclick="openBlogPost('orlando-proposal-spots');return false;" style="cursor:pointer;">
-          <div class="blog-card-image" style="background:linear-gradient(135deg,var(--charcoal),var(--brown));display:flex;align-items:center;justify-content:center;">
-            <span style="font-family:var(--serif);font-size:13px;color:rgba(255,255,255,0.35);font-style:italic;">Add cover photo</span>
+          <div class="blog-card-image">
+            <img src="https://images.pixieset.com/495584311/c1f23177faf82d95c81bb1549cd8728f-xxlarge.jpg" alt="Romantic proposal Orlando hidden spots" loading="lazy">
           </div>
           <span class="blog-card-tag">Proposal Guide</span>
           <h3 class="blog-card-title">Orlando's 7 Most Romantic Hidden Proposal Spots (Photographer's Insider Guide)</h3>
@@ -2819,8 +3030,8 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
         </a>
 
         <a class="blog-card reveal reveal-d1" href="#" onclick="openBlogPost('how-to-plan-proposal');return false;" style="cursor:pointer;">
-          <div class="blog-card-image" style="background:linear-gradient(135deg,#1a1a2e,#2d1b1b);display:flex;align-items:center;justify-content:center;">
-            <span style="font-family:var(--serif);font-size:13px;color:rgba(255,255,255,0.35);font-style:italic;">Add cover photo</span>
+          <div class="blog-card-image">
+            <img src="https://images.pixieset.com/495584311/bb9bd8b7cd6742fbf0e807f178e0ea43-xxlarge.jpg" alt="Disney proposal photography Magic Kingdom" loading="lazy">
           </div>
           <span class="blog-card-tag">Disney</span>
           <h3 class="blog-card-title">How to Plan a Magic Kingdom Proposal — A Complete Guide from a Disney Photographer</h3>
@@ -2829,8 +3040,8 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
         </a>
 
         <a class="blog-card reveal reveal-d2" href="#" onclick="openBlogPost('proposal-photographer-faq');return false;" style="cursor:pointer;">
-          <div class="blog-card-image" style="background:linear-gradient(135deg,#1e2d1e,#2a1f0e);display:flex;align-items:center;justify-content:center;">
-            <span style="font-family:var(--serif);font-size:13px;color:rgba(255,255,255,0.35);font-style:italic;">Add cover photo</span>
+          <div class="blog-card-image">
+            <img src="https://images.pixieset.com/495584311/2f58c36d402344b578b7ec0d222d3783-xxlarge.jpg" alt="Proposal photographer cost Orlando pricing" loading="lazy">
           </div>
           <span class="blog-card-tag">Pricing</span>
           <h3 class="blog-card-title">How Much Does a Proposal Photographer Cost in Orlando? (2025 Honest Guide)</h3>
@@ -2839,8 +3050,8 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
         </a>
 
         <a class="blog-card reveal" href="#" onclick="openBlogPost('client-stories');return false;" style="cursor:pointer;">
-          <div class="blog-card-image" style="background:linear-gradient(135deg,#2d1f1f,#1a1a2e);display:flex;align-items:center;justify-content:center;">
-            <span style="font-family:var(--serif);font-size:13px;color:rgba(255,255,255,0.35);font-style:italic;">Add cover photo</span>
+          <div class="blog-card-image">
+            <img src="https://images.pixieset.com/434321301/336bad78f1fa107d27cbaefeb03eed29-xxlarge.jpg" alt="What to wear engagement session Florida" loading="lazy">
           </div>
           <span class="blog-card-tag">Tips</span>
           <h3 class="blog-card-title">What to Wear for Your Engagement or Proposal Session (Style Guide for Florida)</h3>
@@ -2849,8 +3060,8 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
         </a>
 
         <a class="blog-card reveal reveal-d1" href="#" onclick="openBlogPost('orlando-proposal-spots');return false;" style="cursor:pointer;">
-          <div class="blog-card-image" style="background:linear-gradient(135deg,#1f2d2d,#0e1e1a);display:flex;align-items:center;justify-content:center;">
-            <span style="font-family:var(--serif);font-size:13px;color:rgba(255,255,255,0.35);font-style:italic;">Add cover photo</span>
+          <div class="blog-card-image">
+            <img src="https://images.pixieset.com/495584311/cd7ee8578262901ba0b409e5d0f7b6e8-xxlarge.jpg" alt="Destination proposal photography travel" loading="lazy">
           </div>
           <span class="blog-card-tag">Destination</span>
           <h3 class="blog-card-title">Destination Proposal Photography: How It Works, What It Costs, and Why It's Worth It</h3>
@@ -2859,8 +3070,8 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
         </a>
 
         <a class="blog-card reveal reveal-d2" href="#" onclick="openBlogPost('client-stories');return false;" style="cursor:pointer;">
-          <div class="blog-card-image" style="background:linear-gradient(135deg,#2d2d1f,#1e1a0e);display:flex;align-items:center;justify-content:center;">
-            <span style="font-family:var(--serif);font-size:13px;color:rgba(255,255,255,0.35);font-style:italic;">Add cover photo</span>
+          <div class="blog-card-image">
+            <img src="https://images.pixieset.com/495584311/9df6116d324bdae2345061f61deb0c9b-xxlarge.jpg" alt="Behind the lens surprise proposal photography technique" loading="lazy">
           </div>
           <span class="blog-card-tag">Behind the Lens</span>
           <h3 class="blog-card-title">How We Stay Hidden During a Surprise Proposal (The Full Technique)</h3>
@@ -4662,13 +4873,17 @@ BUSINESS:
 - Rating: 5.0 stars · 60+ five-star reviews · 50+ proposals captured
 
 PACKAGES & PRICING:
-1. The Moment — $375: 1 hour, 50+ edited photos, planning consult, private gallery, 48–72hr delivery
-2. The Story — $650: 1 hour, 50+ photos + cinematic highlight reel, 24–48hr sneak peek, 48–72hr gallery
-3. The Experience — $950: 90 minutes, 75+ photos + cinematic reel, champagne toast setup, bridal bouquet included, 24–48hr sneak peek — best value luxury proposal package
-4. Portrait Session — $300+: 1 hour, 50+ photos, couples/families/individuals
+1. The Moment — $375: 1 hour, full gallery · every photo edited & delivered, planning consult, private gallery, 24-hour sneak peek, full gallery in 48–72 hours
+2. The Story — $650: 1 hour, full gallery, cinematic video 30–90 sec, custom song of your choice, 24-hour sneak peek, photos in 48–72 hours, video in 5–7 business days
+3. The Experience — $950: 90 min, full gallery, 90 sec–4 min cinematic video, custom song of your choice, champagne toast setup, bridal bouquet included, 24-hour sneak peek, photos in 48–72 hours, video in 5–7 business days
+4. Portrait Session — $300+: 1 hour, Full gallery delivered, couples/families/individuals
 5. Event Coverage — $400+: Hourly, full editing, gallery delivery
 6. Destination Shoots — Custom: NYC, Miami, Nashville, Paris, worldwide
-7. Wedding — Starting $3,500 (The Forever): Full day 8-10hrs, 2nd photographer included, engagement session included, 400+ photos, music gallery, 2-3 week delivery
+7. Wedding — Half Day $1,800 (4 hrs, 2 photographers, cinematic highlight film) · The Forever $3,500 (8–10 hrs, 2nd photographer, engagement session included, cinematic highlight film), full gallery, gallery in 2–3 weeks
+PROPOSAL SETUP PACKAGES (photo + decor + video, 4-week advance booking required):
+8. The Proposal Package — $1,200: 1 hour photography only (no video), rose petals, candles, custom sign, location coordination, 24-hour sneak peek, full gallery in 48–72 hours
+9. The Luxury Proposal — $1,500: 1 hr photographer + videographer, cinematic video 30–90 sec, custom song, full floral arch, rose petal pathway, Bluetooth speaker, picnic available (+$150), 24-hour sneak peek, photos in 48–72 hours, video in 5–7 days
+10. The Grand Proposal — $2,000: 2 photographers + videographer, 90 sec–4 min cinematic video, custom song, live violinist, grand floral arch + full petal setup, picnic available (+$150), same-day sneak peek, full gallery in 48–72 hours, video in 5–7 days
 All packages: 50% deposit holds date, balance due on or before session day.
 
 LOCATIONS — ORLANDO FAVORITES:
@@ -4811,7 +5026,7 @@ async function cmCallAPI(userMessage) {
   let localReply = null;
 
   if (lower.includes('pric') || lower.includes('cost') || lower.includes('how much')) {
-    localReply = `Great question! Here's a quick breakdown 📸\n\n**The Moment — $375**: 1 hour, 50+ photos, private gallery\n**The Story — $650**: 1 hour, photos + cinematic reel, 24–48hr sneak peek\n**The Experience — $950**: 90 min, photos + reel + champagne + bouquet ✨\n**Full Setup Packages** (photography + video + rose petals + decor) from $1,200.\n\nAll galleries delivered within 48–72 hours. 50% retainer holds your date. What type of session are you planning? 💍`;
+    localReply = `Great question! Here's a quick breakdown 📸\n\n**The Moment — $375**: 1 hour, full gallery, 24-hour sneak peek\n**The Story — $650**: 1 hour, full gallery + cinematic video 30–90 sec, custom song, 24-hour sneak peek\n**The Experience — $950**: 90 min, full gallery + 90 sec–4 min cinematic video, custom song, champagne + bouquet ✨\n**Full Setup Packages** from $1,200.\n\nAll photos delivered within 48–72 hours. Video in 5–7 business days. 50% retainer holds your date. What type of session are you planning? 💍`;
   } else if (lower.includes('book') || lower.includes('reserve') || lower.includes('availab')) {
     localReply = `We'd love to capture your moment! 💍\n\nThe fastest way to check availability:\n📅 **Book online:** canonmomentphotography.com (Packages & Pricing tab)\n📞 **Call/text:** (321) 368-2171\n📧 **Email:** booking@canonmomentphotography.com\n\nWe recommend booking 2–4 weeks ahead for proposals. Popular dates fill fast!`;
   } else if (lower.includes('hidden') || lower.includes('secret') || lower.includes('spot') || lower.includes('discreet') || lower.includes('see') || lower.includes('notice')) {
@@ -4819,11 +5034,11 @@ async function cmCallAPI(userMessage) {
   } else if (lower.includes('location') || lower.includes('where') || lower.includes('orlando') || lower.includes('place')) {
     localReply = `Orlando has some magical proposal spots! Our top picks:\n\n✦ **Kraft Azalea Gardens** (Winter Park) — most requested, golden hour perfection\n✦ **Magic Kingdom** area — pixie dust proposals ✨\n✦ **Lake Eola Park** — lit fountain backdrop at night\n✦ **Cocoa Beach** — sunrise on the Atlantic\n✦ **Harry P. Leu Gardens** — lush and romantic\n\nWe also travel nationwide and internationally. Want our free Hidden Proposal Spots guide? 📍`;
   } else if (lower.includes('deliver') || lower.includes('when') || lower.includes('how long') || lower.includes('photo')) {
-    localReply = `Fast turnaround is one of our biggest differentiators! ⚡\n\n📸 **Sneak peek:** 24–48 hours (same-day on Grand Proposal package)\n🖼 **Full gallery:** 48–72 hours for proposals & portraits\n💒 **Weddings:** 2–3 weeks\n\nYour private Pixieset gallery includes full-resolution downloads and sharing tools. No waiting weeks to relive your moment!`;
+    localReply = `Fast turnaround is one of our biggest differentiators! ⚡\n\n📸 **Sneak peek:** 24 hours (same-day on Grand Proposal package)\n🖼 **Full gallery:** 48–72 hours for proposals & portraits\n🎬 **Video delivery:** 5–7 business days\n💒 **Weddings:** 2–3 weeks\n\nYour private Pixieset gallery includes full-resolution downloads and sharing tools. No waiting weeks to relive your moment!`;
   } else if (lower.includes('setup') || lower.includes('decor') || lower.includes('rose') || lower.includes('candle') || lower.includes('picnic')) {
-    localReply = `We offer fully coordinated proposal setups! 🌹\n\n**The Proposal Package — $1,200**: Photography + video + rose petals + candles + custom sign\n**The Luxury Proposal — $1,500**: + flower arch, petal pathway, Bluetooth speaker, 2nd photographer\n**The Grand Proposal — $2,000**: + live violinist, same-day sneak peek, 2 photographers\n\nPicnic add-on from $150 (charcuterie, champagne, juice, styled table). Custom experiences from $2,500.\n\nRequires 4 weeks advance booking. Interested?`;
+    localReply = `We offer fully coordinated proposal setups! 🌹\n\n**The Proposal Package — $1,200**: 1 hour photography + rose petals + candles + custom sign, 24-hour sneak peek\n**The Luxury Proposal — $1,500**: Photographer + videographer, cinematic video 30–90 sec, custom song, full floral arch, rose petal pathway, Bluetooth speaker, 24-hour sneak peek\n**The Grand Proposal — $2,000**: 2 photographers + videographer, 90 sec–4 min cinematic video, custom song, live violinist, grand floral arch, same-day sneak peek\n\nPicnic add-on from $150. Custom experiences from $2,500.\n\nRequires 4 weeks advance booking. Interested?`;
   } else if (lower.includes('wedding')) {
-    localReply = `Congratulations on your upcoming wedding! 💒\n\n**The Forever Package — Starting at $3,500** includes:\n— Full day coverage (8–10 hours)\n— Second photographer included\n— Engagement session included\n— 400+ fully edited photos\n— Private online gallery\n— Gallery delivered in 2–3 weeks\n\nWe coordinate with your vendors, scout your venue, and make sure every moment is documented. Want to chat about your date?`;
+    localReply = `Congratulations on your upcoming wedding! 💒\n\n**Half Day — $1,800**: 4 hours, 2 photographers, cinematic highlight film, full gallery\n\n**The Forever — $3,500** includes:\n— Full day coverage (8–10 hours)\n— Second photographer included\n— Engagement session included\n— Full gallery · every photo edited & delivered\n— Cinematic highlight film\n— Gallery delivered in 2–3 weeks\n\nWe coordinate with your vendors, scout your venue, and make sure every moment is documented. Want to chat about your date?`;
   }
 
   if (localReply) {
@@ -4913,6 +5128,7 @@ function openAddPhotoModal() {
           <option value="portrait">Portrait</option>
           <option value="event">Event</option>
           <option value="destination">Destination</option>
+          <option value="corporate">Corporate / Branding</option>
         </select>
       </div>
       <div><label class="editor-label">Caption (optional)</label><input class="editor-input" id="ap-caption" placeholder="Kraft Azalea, Winter Park"></div>
@@ -5787,27 +6003,30 @@ function filterGallery(cat, btn) {
   const placeholder = document.getElementById('portfolio-placeholder');
   const masonry = document.getElementById('portfolio-masonry');
   const empty = document.getElementById('portfolio-empty');
-  if (!photos.length) {
-    if (placeholder) placeholder.style.display = 'block';
-    if (masonry) masonry.innerHTML = '';
-    if (empty) empty.style.display = 'none';
-    return;
+
+  // Filter real images in placeholder by data-cat
+  if (placeholder) {
+    placeholder.style.display = 'block';
+    const items = placeholder.querySelectorAll('.gal-item');
+    let visible = 0;
+    items.forEach(item => {
+      const match = cat === 'all' || item.dataset.cat === cat;
+      item.style.display = match ? 'block' : 'none';
+      if (match) visible++;
+    });
+    if (empty) empty.style.display = visible === 0 ? 'block' : 'none';
   }
-  if (placeholder) placeholder.style.display = 'none';
+
+  // Also render any admin-added photos in masonry
+  if (!photos.length) { if (masonry) masonry.innerHTML = ''; return; }
   const filtered = cat === 'all' ? photos : photos.filter(p => p.category === cat);
-  if (!filtered.length) {
-    if (masonry) masonry.innerHTML = '';
-    if (empty) empty.style.display = 'block';
-    return;
+  if (masonry) {
+    masonry.innerHTML = filtered.map((p, i) => `
+      <div class="portfolio-photo" style="break-inside:avoid;margin-bottom:12px;" onclick="openLightbox(${i})">
+        <img src="${p.url}" alt="${p.caption || p.category + ' photography'}" loading="lazy" style="width:100%;display:block;">
+        <div class="portfolio-photo-overlay"><span class="portfolio-photo-tag">${p.category}</span></div>
+      </div>`).join('');
   }
-  if (empty) empty.style.display = 'none';
-  masonry.innerHTML = filtered.map((p, i) => `
-    <div class="portfolio-photo" style="break-inside:avoid;margin-bottom:12px;" onclick="openLightbox(${i})">
-      <img src="${p.url}" alt="${p.caption || p.category + ' photography'}" loading="lazy" style="width:100%;display:block;">
-      <div class="portfolio-photo-overlay">
-        <span class="portfolio-photo-tag">${p.category}</span>
-      </div>
-    </div>`).join('');
 }
 
 
@@ -6446,53 +6665,30 @@ function openContactWithPackage(pkgName, price) {
 // ══════════════════════════════════════
 
 function showPkgSection(name) {
-  // Sub-sections that live inside pkg-section-main
-  const mainSubSections = ['proposals', 'weddings', 'setup'];
-  const isSubSection = mainSubSections.includes(name);
+  const allSections = ['proposals','weddings','setup','events','corporate','family'];
 
-  // Hide all top-level sections
-  ['main','events','corporate','family'].forEach(s => {
+  allSections.forEach(s => {
     const el = document.getElementById('pkg-section-' + s);
     if (el) el.style.display = 'none';
   });
 
-  // Remove active from all subnav buttons
   document.querySelectorAll('.pkg-subnav').forEach(b => b.classList.remove('active'));
 
-  if (isSubSection) {
-    // Show main section, then hide all sub-sections, then show the right one
-    const main = document.getElementById('pkg-section-main');
-    if (main) main.style.display = 'block';
+  const btn = document.getElementById('pnav-' + name);
+  if (btn) btn.classList.add('active');
 
-    // Hide all sub-dividers
+  if (name === 'main') {
     ['proposals','weddings','setup'].forEach(s => {
-      const el = document.getElementById('pkg-sub-' + s);
-      if (el) el.style.display = 'none';
+      const el = document.getElementById('pkg-section-' + s);
+      if (el) el.style.display = 'block';
     });
-    // Show selected sub-section
-    const sub = document.getElementById('pkg-sub-' + name);
-    if (sub) sub.style.display = 'block';
-
-    const btn = document.getElementById('pnav-' + name);
-    if (btn) btn.classList.add('active');
-    sub?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    document.getElementById('pkg-section-proposals')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   } else {
-    // Show the full main section with all sub-sections visible
-    if (name === 'main') {
-      const main = document.getElementById('pkg-section-main');
-      if (main) main.style.display = 'block';
-      ['proposals','weddings','setup'].forEach(s => {
-        const el = document.getElementById('pkg-sub-' + s);
-        if (el) el.style.display = 'block';
-      });
-    } else {
-      const target = document.getElementById('pkg-section-' + name);
-      if (target) target.style.display = 'block';
+    const target = document.getElementById('pkg-section-' + name);
+    if (target) {
+      target.style.display = 'block';
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-    const btn = document.getElementById('pnav-' + name);
-    if (btn) btn.classList.add('active');
-    const el = document.getElementById('pkg-section-' + (name === 'main' ? 'main' : name));
-    el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 }
 
@@ -6866,8 +7062,8 @@ const BLOG_POSTS = {
     <p>You'll receive a private Pixieset gallery link via email. Sneak peek within 24–48 hours, full edited gallery within 48–72 hours. Full-resolution downloads included — no extra charge. Gallery stays active for 1 year so you can share the link with family.</p>
     <h2>What's the difference between the packages?</h2>
     <ul>
-      <li><strong>The Moment ($375)</strong> — 1 photographer, 1 hour, 50+ photos. Perfect for intimate proposals.</li>
-      <li><strong>The Story ($650)</strong> — 1 photographer, 2 hours, 100+ photos + cinematic highlight reel.</li>
+      <li><strong>The Moment ($375)</strong> — 1 photographer, 1 hour, Full gallery delivered. Perfect for intimate proposals.</li>
+      <li><strong>The Story ($650)</strong> — 1 photographer, 2 hours, Full gallery delivered + cinematic highlight reel.</li>
       <li><strong>The Proposal Package ($1,200)</strong> — Photography + full romantic setup (petals, candles, custom sign) + video. Most popular.</li>
       <li><strong>The Luxury Proposal ($1,500)</strong> — Everything above + floral arch + 2nd photographer.</li>
       <li><strong>The Grand Proposal ($2,000)</strong> — Everything above + live violinist + same-day sneak peek guaranteed.</li>
