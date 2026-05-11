@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+
+  <!-- ══ HOMEPAGE (only real URL on a single-page site) ══ -->
+  <url>
+    <loc>https://www.canonmomentphotography.com/</loc>
+    <lastmod>2026-05-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+
+    <!-- Key portfolio images — helps rank in Google Images for Orlando proposal photography -->
+    <image:image>
+      <image:loc>https://images.pixieset.com/495584311/c1f23177faf82d95c81bb1549cd8728f-xxlarge.jpg</image:loc>
+      <image:title>Surprise proposal photography Orlando FL — Canon Moment Photography</image:title>
+      <image:caption>Hidden proposal photographer captures the exact moment of the proposal at an Orlando location. Canon Moment Photography LLC.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://images.pixieset.com/495584311/bb9bd8b7cd6742fbf0e807f178e0ea43-xxlarge.jpg</image:loc>
+      <image:title>Proposal photographer Orlando — Canon Moment Photography</image:title>
+      <image:caption>Romantic surprise proposal photography in Orlando, Florida. Canon Moment Photography specializes in discreet, cinematic proposal coverage.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://images.pixieset.com/495584311/2f58c36d402344b578b7ec0d222d3783-xxlarge.jpg</image:loc>
+      <image:title>Engagement photographer Orlando FL</image:title>
+      <image:caption>Engagement and proposal photography in Orlando. Full gallery delivered in 48–72 hours. Canon Moment Photography.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://images.pixieset.com/434321301/9a7a0b090a41eaa28c42b175a6ea2f29-xxlarge.jpg</image:loc>
+      <image:title>Romantic proposal setup Orlando — rose petals candles arch</image:title>
+      <image:caption>Full proposal setup service in Orlando — rose petals, candle arch, florals, and photography. Canon Moment Photography LLC.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://images.pixieset.com/575915011/8bc4a0a9e6b7b6ba4d53c17864ccde67-xxlarge.jpg</image:loc>
+      <image:title>Event photographer Orlando FL — Canon Moment Photography</image:title>
+      <image:caption>Professional event photography in Orlando, Florida. Birthdays, quinceañeras, corporate events, and more. Canon Moment Photography.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://images.pixieset.com/648423801/09779990adc4f6dd76872bc17b5ef664-xxlarge.jpg</image:loc>
+      <image:title>Wedding photographer Orlando FL — Canon Moment Photography</image:title>
+      <image:caption>Wedding photography in Orlando, Florida. Full-day coverage, cinematic highlight film, and full gallery delivered. Canon Moment Photography.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://images.pixieset.com/201132011/e67143cfdf50890d34c48b266aa441f2-xxlarge.jpg</image:loc>
+      <image:title>Corporate photography Orlando — branding headshots</image:title>
+      <image:caption>Corporate branding and headshot photography in Orlando, Florida. Canon Moment Photography.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://images.pixieset.com/495584311/9df6116d324bdae2345061f61deb0c9b-xxlarge.jpg</image:loc>
+      <image:title>Hidden proposal photographer Orlando — telephoto discreet photography</image:title>
+      <image:caption>Canon Moment Photography uses telephoto lenses from 50–100 feet away to stay completely hidden during surprise proposals in Orlando.</image:caption>
+    </image:image>
+
+  </url>
+
+</urlset>
