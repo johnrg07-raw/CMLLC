@@ -2,14 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
 
-  <!-- ══ HOMEPAGE (only real URL on a single-page site) ══ -->
+  <!-- ══ HOMEPAGE ══ -->
   <url>
     <loc>https://www.canonmomentphotography.com/</loc>
-    <lastmod>2026-05-06</lastmod>
+    <lastmod>2026-05-11</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
 
-    <!-- Key portfolio images — helps rank in Google Images for Orlando proposal photography -->
     <image:image>
       <image:loc>https://images.pixieset.com/495584311/c1f23177faf82d95c81bb1549cd8728f-xxlarge.jpg</image:loc>
       <image:title>Surprise proposal photography Orlando FL — Canon Moment Photography</image:title>
@@ -57,7 +56,89 @@
       <image:title>Hidden proposal photographer Orlando — telephoto discreet photography</image:title>
       <image:caption>Canon Moment Photography uses telephoto lenses from 50–100 feet away to stay completely hidden during surprise proposals in Orlando.</image:caption>
     </image:image>
+  </url>
 
+  <!-- ══ ABOUT ══ -->
+  <url>
+    <loc>https://www.canonmomentphotography.com/about</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ══ PACKAGES & PRICING ══ -->
+  <url>
+    <loc>https://www.canonmomentphotography.com/packages</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ══ PROPOSAL PACKAGES ══ -->
+  <url>
+    <loc>https://www.canonmomentphotography.com/proposals</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- ══ WEDDING PACKAGES ══ -->
+  <url>
+    <loc>https://www.canonmomentphotography.com/weddings</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- ══ GALLERY ══ -->
+  <url>
+    <loc>https://www.canonmomentphotography.com/gallery</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+
+    <image:image>
+      <image:loc>https://images.pixieset.com/726163311/823cf5be7cd6a6f84377fa43d3bc32c7-xxlarge.jpg</image:loc>
+      <image:title>Surprise proposal photography gallery — Canon Moment Photography Orlando</image:title>
+      <image:caption>Portfolio of surprise proposal, engagement, and wedding photography by Canon Moment Photography in Orlando, Florida.</image:caption>
+    </image:image>
+
+    <image:image>
+      <image:loc>https://images.pixieset.com/169328801/470c5dc398c36b3bb73419714ceee597-xxlarge.jpg</image:loc>
+      <image:title>Engagement photography Orlando FL — Canon Moment Photography</image:title>
+      <image:caption>Golden hour engagement photography in Orlando by Canon Moment Photography.</image:caption>
+    </image:image>
+  </url>
+
+  <!-- ══ CONTACT / BOOK ══ -->
+  <url>
+    <loc>https://www.canonmomentphotography.com/contact</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://www.canonmomentphotography.com/book</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ══ SERVICES ══ -->
+  <url>
+    <loc>https://www.canonmomentphotography.com/services</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- ══ BLOG ══ -->
+  <url>
+    <loc>https://www.canonmomentphotography.com/blog</loc>
+    <lastmod>2026-05-11</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.6</priority>
   </url>
 
 </urlset>

@@ -633,6 +633,17 @@ nav.scrolled .nav-hamburger span { background: var(--charcoal); }
 .testimonial-text { font-family: var(--serif); font-size: 17px; font-weight: 300; font-style: italic; color: var(--charcoal); line-height: 1.7; margin-bottom: 28px; }
 .testimonial-author { font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray-light); }
 .testimonial-location { font-size: 11px; color: var(--gold); margin-top: 4px; }
+.reviews-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; margin-top: 48px; }
+.review-card { background: var(--warm-white); border: 0.5px solid var(--border); padding: 36px 28px; display: flex; flex-direction: column; gap: 16px; }
+.review-card-stars { display: flex; gap: 4px; }
+.review-card-star { width: 14px; height: 14px; background: var(--gold); clip-path: polygon(50% 0%,61% 35%,98% 35%,68% 57%,79% 91%,50% 70%,21% 91%,32% 57%,2% 35%,39% 35%); }
+.review-card-text { font-family: var(--serif); font-size: 15px; font-style: italic; color: var(--charcoal); line-height: 1.75; flex: 1; }
+.review-card-author { font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray-light); }
+.review-card-loc { font-size: 10px; color: var(--gold); margin-top: 2px; }
+.review-platform-row { display: flex; gap: 24px; align-items: stretch; flex-wrap: wrap; margin-top: 48px; }
+.review-platform-badge { flex: 1; min-width: 260px; border: 0.5px solid var(--border); padding: 28px 24px; background: var(--warm-white); }
+.tt-widget-wrap { flex: 1; min-width: 260px; border: 0.5px solid var(--border); padding: 28px 24px; background: var(--warm-white); overflow: hidden; }
+@media (max-width: 768px) { .reviews-grid { grid-template-columns: 1fr; } .review-platform-row { flex-direction: column; } }
 
 /* FAQ */
 .faq { padding: 120px 80px; background: var(--cream); }
@@ -1345,7 +1356,8 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
   #page-contact-page > div[style*="padding:160px 80px"],
   #page-services-page > div[style*="padding:160px 80px"],
   #page-gallery-page > div[style*="padding:160px 80px"],
-  #page-blog-page > div[style*="padding:160px 80px"] {
+  #page-blog-page > div[style*="padding:160px 80px"],
+  #page-reviews-page > div[style*="padding:140px 80px"] {
     padding-left: 16px !important;
     padding-right: 16px !important;
     padding-top: 100px !important;
@@ -1393,7 +1405,8 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
   #page-contact-page > div[style*="padding:160px 80px"],
   #page-services-page > div[style*="padding:160px 80px"],
   #page-gallery-page > div[style*="padding:160px 80px"],
-  #page-blog-page > div[style*="padding:160px 80px"] {
+  #page-blog-page > div[style*="padding:160px 80px"],
+  #page-reviews-page > div[style*="padding:140px 80px"] {
     padding-left: 20px !important;
     padding-right: 20px !important;
     padding-top: 110px !important;
@@ -1413,6 +1426,12 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
    DEPOSIT BADGE — 50% Highlighted
 ══════════════════════════════════════════ */
 @keyframes depositPulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(201,169,110,0.4); } 50% { box-shadow: 0 0 0 6px rgba(201,169,110,0); } }
+@keyframes svcTicker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+.svc-ticker-wrap { overflow: hidden; background: var(--warm-white); border-bottom: 0.5px solid var(--border); padding: 22px 0; -webkit-mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%); mask-image: linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%); }
+.svc-ticker-track { display: flex; align-items: center; gap: 0; width: max-content; animation: svcTicker 32s linear infinite; }
+.svc-ticker-item { display: flex; flex-direction: column; align-items: center; padding: 0 48px; border-right: 0.5px solid var(--border); }
+.svc-ticker-num { font-family: var(--serif); font-size: 28px; font-weight: 300; color: var(--charcoal); line-height: 1; }
+.svc-ticker-label { font-size: 9px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray-light); margin-top: 4px; white-space: nowrap; }
 .deposit-badge {
   display: inline-block;
   background: rgba(201,169,110,0.1);
@@ -1831,7 +1850,7 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
         <span class="eyebrow cin-reveal">What We Do</span>
         <h2 class="section-title cin-reveal">Every chapter of<br><em>your love story.</em></h2>
       </div>
-      <p class="section-body cin-reveal" style="margin:0;">From the secret question to the big day. We document every milestone with the same invisible, emotional approach that has earned us 60+ five-star reviews.</p>
+      <p class="section-body cin-reveal" style="margin:0;">From the secret question to the big day. We document every milestone with the same invisible, emotional approach that has earned us 20+ five-star reviews.</p>
     </div>
     <div class="services-grid">
       <a class="service-card cin-reveal" onclick="goPage('services-page')"><div class="service-num">01</div><h3 class="service-name">Proposal Photography</h3><p class="service-desc">Completely discreet coverage. We plan the angles, scout the location, blend in completely. Starting at $375. Gallery in 48hrs.</p><span class="service-link">Learn More →</span></a>
@@ -2064,6 +2083,9 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
       <button class="t-btn" onclick="tCarousel(1)">›</button>
       <div class="t-dots" id="t-dots"></div>
     </div>
+    <div style="text-align:center;margin-top:40px;">
+      <a class="btn-cin-ghost" onclick="goPage('reviews-page')" style="cursor:pointer;font-size:11px;letter-spacing:0.18em;">See All Reviews →</a>
+    </div>
   </div>
 </section>
 
@@ -2092,7 +2114,7 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
     <p class="cin-reveal" style="font-size:15px;color:rgba(255,255,255,0.4);line-height:1.8;margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto;">Tell us your vision — the location, the plan, the person. We'll handle everything else and make sure the moment is captured exactly as it deserves to be.</p>
     <div class="cin-reveal" style="display:flex;align-items:center;justify-content:center;gap:20px;flex-wrap:wrap;">
       <a class="btn-cin-primary" onclick="goPage('contact-page')"><span>Start Planning →</span></a>
-      <a href="tel:+13213682171" class="btn-cin-ghost">(321) 368-2171</a>
+      <a href="tel:+13213006314" class="btn-cin-ghost">(321) 300-6314</a>
     </div>
     <div class="cin-reveal" style="margin-top:40px;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:rgba(255,255,255,0.2);">
       Or <a onclick="goPage(\x27packages-page\x27)" style="color:var(--gold);text-decoration:none;cursor:pointer;">view our packages &amp; pricing</a>
@@ -2116,33 +2138,22 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
     </div>
   </div>
 
-  <!-- Trust Bar / Achievements -->
-  <div style="background:var(--warm-white);border-bottom:0.5px solid var(--border);padding:28px 80px;">
-    <div style="max-width:1200px;margin:0 auto;display:flex;align-items:center;gap:48px;flex-wrap:wrap;justify-content:center;">
-      <div style="text-align:center;">
-        <div style="font-family:var(--serif);font-size:32px;font-weight:300;color:var(--charcoal);">50+</div>
-        <div style="font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray-light);margin-top:3px;">Proposals Captured</div>
-      </div>
-      <div style="width:1px;height:40px;background:var(--border);"></div>
-      <div style="text-align:center;">
-        <div style="font-family:var(--serif);font-size:32px;font-weight:300;color:var(--charcoal);">5.0 ★</div>
-        <div style="font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray-light);margin-top:3px;">Google Rating · 60+ Reviews</div>
-      </div>
-      <div style="width:1px;height:40px;background:var(--border);"></div>
-      <div style="text-align:center;">
-        <div style="font-family:var(--serif);font-size:32px;font-weight:300;color:var(--charcoal);">30+</div>
-        <div style="font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray-light);margin-top:3px;">Cities Nationwide</div>
-      </div>
-      <div style="width:1px;height:40px;background:var(--border);"></div>
-      <div style="text-align:center;">
-        <div style="font-family:var(--serif);font-size:32px;font-weight:300;color:var(--charcoal);">48hr</div>
-        <div style="font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray-light);margin-top:3px;">Avg Gallery Delivery</div>
-      </div>
-      <div style="width:1px;height:40px;background:var(--border);"></div>
-      <div style="text-align:center;">
-        <div style="font-family:var(--serif);font-size:32px;font-weight:300;color:var(--charcoal);">Celebrity</div>
-        <div style="font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gray-light);margin-top:3px;">Clients & Influencers</div>
-      </div>
+  <!-- Trust Bar / Achievements — scrolling ticker -->
+  <div class="svc-ticker-wrap">
+    <div class="svc-ticker-track">
+      <div class="svc-ticker-item"><span class="svc-ticker-num">50+</span><span class="svc-ticker-label">Proposals Captured</span></div>
+      <div class="svc-ticker-item"><span class="svc-ticker-num">5.0 ★</span><span class="svc-ticker-label">Google Rating · 20+ Reviews</span></div>
+      <div class="svc-ticker-item"><span class="svc-ticker-num">30+</span><span class="svc-ticker-label">Cities Nationwide</span></div>
+      <div class="svc-ticker-item"><span class="svc-ticker-num">48hr</span><span class="svc-ticker-label">Avg Gallery Delivery</span></div>
+      <div class="svc-ticker-item"><span class="svc-ticker-num">Celebrity</span><span class="svc-ticker-label">Clients &amp; Influencers</span></div>
+      <div class="svc-ticker-item"><span class="svc-ticker-num">100%</span><span class="svc-ticker-label">Stealth Guarantee</span></div>
+      <!-- duplicate for seamless loop -->
+      <div class="svc-ticker-item"><span class="svc-ticker-num">50+</span><span class="svc-ticker-label">Proposals Captured</span></div>
+      <div class="svc-ticker-item"><span class="svc-ticker-num">5.0 ★</span><span class="svc-ticker-label">Google Rating · 20+ Reviews</span></div>
+      <div class="svc-ticker-item"><span class="svc-ticker-num">30+</span><span class="svc-ticker-label">Cities Nationwide</span></div>
+      <div class="svc-ticker-item"><span class="svc-ticker-num">48hr</span><span class="svc-ticker-label">Avg Gallery Delivery</span></div>
+      <div class="svc-ticker-item"><span class="svc-ticker-num">Celebrity</span><span class="svc-ticker-label">Clients &amp; Influencers</span></div>
+      <div class="svc-ticker-item"><span class="svc-ticker-num">100%</span><span class="svc-ticker-label">Stealth Guarantee</span></div>
     </div>
   </div>
 
@@ -3139,7 +3150,7 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
         </div>
         <div class="form-group"><label class="form-label">Tell Us About Your Vision</label><textarea class="form-textarea" name="message" placeholder="Share details — date, location, anything that helps us understand your vision." style="min-height:90px;"></textarea></div>
         <button type="submit" class="form-submit">Send Inquiry →</button>
-        <p class="form-note" style="margin-top:12px;">Or call/text us directly: <a href="tel:+13213682171" style="color:var(--gold);text-decoration:none;">(321) 368-2171</a> · <strong style="color:var(--gold);">50% deposit required for all sessions.</strong></p>
+        <p class="form-note" style="margin-top:12px;">Or call/text us directly: <a href="tel:+13213006314" style="color:var(--gold);text-decoration:none;">(321) 300-6314</a> · <strong style="color:var(--gold);">50% deposit required for all sessions.</strong></p>
       </form>
     </div>
   </section>
@@ -3240,11 +3251,11 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
         <div>
           <div class="contact-detail-label">Call or Text</div>
           <div class="contact-detail-value">
-            <a href="tel:+13213682171">(321) 368-2171</a>
+            <a href="tel:+13213006314">(321) 300-6314</a>
           </div>
           <div style="margin-top:8px;display:flex;gap:10px;flex-wrap:wrap;">
-            <a href="tel:+13213682171" style="font-family:var(--sans);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);border:0.5px solid rgba(201,169,110,0.35);padding:7px 14px;text-decoration:none;transition:all 0.3s;" onmouseover="this.style.background='rgba(201,169,110,0.1)'" onmouseout="this.style.background='none'">📞 Call</a>
-            <a href="sms:+13213682171" style="font-family:var(--sans);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);border:0.5px solid rgba(201,169,110,0.35);padding:7px 14px;text-decoration:none;transition:all 0.3s;" onmouseover="this.style.background='rgba(201,169,110,0.1)'" onmouseout="this.style.background='none'">💬 Text</a>
+            <a href="tel:+13213006314" style="font-family:var(--sans);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);border:0.5px solid rgba(201,169,110,0.35);padding:7px 14px;text-decoration:none;transition:all 0.3s;" onmouseover="this.style.background='rgba(201,169,110,0.1)'" onmouseout="this.style.background='none'">📞 Call</a>
+            <a href="sms:+13213006314" style="font-family:var(--sans);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);border:0.5px solid rgba(201,169,110,0.35);padding:7px 14px;text-decoration:none;transition:all 0.3s;" onmouseover="this.style.background='rgba(201,169,110,0.1)'" onmouseout="this.style.background='none'">💬 Text</a>
           </div>
           <div style="margin-top:10px;font-size:12px;color:rgba(255,255,255,0.3);line-height:1.6;">If we're unavailable, leave a voicemail or text.<br>We respond to all inquiries within 24–48 hours.</div>
         </div>
@@ -3360,7 +3371,7 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
     <div>
       <div class="footer-col-title">Get In Touch</div>
       <ul class="footer-links">
-        <li><a href="tel:+13213682171">(321) 368-2171</a></li>
+        <li><a href="tel:+13213006314">(321) 300-6314</a></li>
         <li><a href="mailto:booking@canonmomentphotography.com">booking@canonmomentphotography.com</a></li>
         <li><a href="/contact" onclick="goPage('contact-page');return false;">Orlando, FL — Nationwide</a></li>
         <li><a href="/packages" onclick="goPage('packages-page');return false;" style="cursor:pointer;">View Packages →</a></li>
@@ -3412,6 +3423,69 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
 </footer>
 
 <!-- ══ LEAD MAGNET POPUP ══ -->
+<!-- ══ REVIEWS PAGE ══ -->
+<div class="page" id="page-reviews-page">
+  <div style="padding:140px 80px 80px;background:var(--cream);min-height:100vh;">
+    <div style="max-width:1200px;margin:0 auto;">
+      <button onclick="history.back()||goPage('home')" style="background:none;border:none;font-size:11px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gray-light);cursor:pointer;margin-bottom:32px;padding:0;">← Back</button>
+      <span class="eyebrow" style="display:block;margin-bottom:12px;">Verified Reviews</span>
+      <h1 class="section-title" style="font-size:clamp(32px,4vw,56px);margin-bottom:8px;">What our clients<br><em>are saying.</em></h1>
+      <p class="section-body" style="max-width:560px;margin-bottom:0;">Every review is real, unedited, and from a client who trusted us with one of their most important moments.</p>
+
+      <!-- Platform badges -->
+      <div class="review-platform-row">
+        <div class="review-platform-badge">
+          <div style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gray-light);margin-bottom:12px;">Google Reviews</div>
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px;">
+            <span style="font-family:var(--serif);font-size:36px;font-weight:300;color:var(--charcoal);">5.0</span>
+            <div>
+              <div style="display:flex;gap:3px;margin-bottom:4px;"><div class="review-card-star"></div><div class="review-card-star"></div><div class="review-card-star"></div><div class="review-card-star"></div><div class="review-card-star"></div></div>
+              <div style="font-size:11px;color:var(--gray-light);">20+ verified reviews</div>
+            </div>
+          </div>
+          <a href="https://g.page/r/CfExample/review" target="_blank" rel="noopener" style="font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);text-decoration:none;">Leave a Google Review →</a>
+        </div>
+        <div class="tt-widget-wrap">
+          <div style="font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:var(--gray-light);margin-bottom:12px;">Thumbtack Reviews</div>
+          <div class="widget" id="tt-review-widget-star-reviews-page">
+            <a target="_blank" href="https://www.thumbtack.com/fl/orlando/event-photographers/canon-moment-photography-llc/service/439348576475021313" style="display:block;margin-bottom:8px;">
+              <img src="https://cdn.thumbtackstatic.com/fe-assets-web/media/logos/thumbtack/wordmark.svg" alt="Thumbtack" style="height:20px;filter:brightness(0);">
+            </a>
+            <div style="display:flex;align-items:center;gap:8px;">
+              <div style="display:flex;gap:3px;"><img src="https://cdn.thumbtackstatic.com/fe-assets-web/media/pages/profile/standard-widgets/review-widget/orange_star.svg" style="width:14px;"><img src="https://cdn.thumbtackstatic.com/fe-assets-web/media/pages/profile/standard-widgets/review-widget/orange_star.svg" style="width:14px;"><img src="https://cdn.thumbtackstatic.com/fe-assets-web/media/pages/profile/standard-widgets/review-widget/orange_star.svg" style="width:14px;"><img src="https://cdn.thumbtackstatic.com/fe-assets-web/media/pages/profile/standard-widgets/review-widget/orange_star.svg" style="width:14px;"><img src="https://cdn.thumbtackstatic.com/fe-assets-web/media/pages/profile/standard-widgets/review-widget/orange_star.svg" style="width:14px;"></div>
+              <span style="font-size:11px;color:var(--gray-light);">33 reviews</span>
+            </div>
+            <div style="margin-top:16px;padding-top:16px;border-top:0.5px solid var(--border);">
+              <div style="font-size:13px;font-style:italic;color:var(--gray);line-height:1.65;margin-bottom:10px;">"Jon was a great help with the engagement proposal on the beach and the pictures came out fantastic."</div>
+              <div style="font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gray-light);">Garrett N.</div>
+              <a target="_blank" href="https://www.thumbtack.com/fl/orlando/event-photographers/canon-moment-photography-llc/service/439348576475021313" style="display:inline-block;margin-top:10px;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);text-decoration:none;">See all Thumbtack reviews →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- All Google reviews grid -->
+      <div style="margin-top:64px;">
+        <span class="eyebrow" style="display:block;margin-bottom:8px;">Google Reviews</span>
+        <h2 class="section-title" style="font-size:clamp(24px,3vw,36px);margin-bottom:0;">Every five-star <em>moment.</em></h2>
+      </div>
+      <div class="reviews-grid">
+        <div class="review-card"><div class="review-card-stars"><div class="review-card-star"></div><div class="review-card-star"></div><div class="review-card-star"></div><div class="review-card-star"></div><div class="review-card-star"></div></div><div class="review-card-text">"We had the most incredible experience during my surprise proposal at the Orlando Science Center observatory. They captured every single moment perfectly — the emotions, the surprise, the joy — without us ever feeling posed or pressured. Looking back at the photos feels like reliving the entire moment all over again."</div><div class="review-card-author">Danesca B.</div><div class="review-card-loc">Orlando Science Center Observatory</div></div>
+        <div class="review-card"><div class="review-card-stars"><div class="review-card-star"></div><div class="review-card-star"></div><div class="review-card-star"></div><div class="review-card-star"></div><div class="review-card-star"></div></div><div class="review-card-text">"I used Canon Moment Photography for a surprise engagement photoshoot at Magic Kingdom, Disney World. John reached out right away and set everything up — the whole experience was very seamless. The photos were outstanding and captured the moments leading up to the proposal and a whole photoshoot after. I highly recommend using John for any photography needs!"</div><div class="review-card-author">Nicholas L.</div><div class="review-card-loc">Magic Kingdom, Walt Disney World</div></div>
+        <div class="review-card"><div class="review-card-stars"><div class="review-card-star"></div><div class="review-card-star"></div><div class="review-card-star"></div><div class="review-card-star"></div><div class="review-card-star"></div></div><div class="review-card-text">"Great experience. Did an engagement shoot and the photos really captured our love. Easy to work with, professional, fair prices. Very much looking forward to Canon Moment taking our wedding photos."</div><div class="review-card-author">Danielle D.</div><div class="review-card-loc">Engagement Session, Orlando</div></div>
+        <div class="review-card"><div class="review-card-stars"><div class="review-card-star"></div><div class="review-card-star"></div><div class="review-card-star"></div><div class="review-card-star"></div><div class="review-card-star"></div></div><div class="review-card-text">"John, thank you for capturing the special moments at my grandma's 84th birthday. She loved the pictures. Thank you for your professionalism and kindness. We will definitely use your services again."</div><div class="review-card-author">Vanessa M.</div><div class="review-card-loc">84th Birthday Session, Orlando</div></div>
+        <div class="review-card"><div class="review-card-stars"><div class="review-card-star"></div><div class="review-card-star"></div><div class="review-card-star"></div><div class="review-card-star"></div><div class="review-card-star"></div></div><div class="review-card-text">"Professional, skill, and personality — focusing on the entire experience from start to finish. I recommend to anyone. Always on point."</div><div class="review-card-author">Louie S.</div><div class="review-card-loc">Portrait Session, Orlando</div></div>
+        <div class="review-card"><div class="review-card-stars"><div class="review-card-star"></div><div class="review-card-star"></div><div class="review-card-star"></div><div class="review-card-star"></div><div class="review-card-star"></div></div><div class="review-card-text">"Jon was a great help with the engagement proposal on the beach and the pictures came out fantastic."</div><div class="review-card-author">Garrett N.</div><div class="review-card-loc">Beach Proposal · via Thumbtack</div></div>
+      </div>
+
+      <div style="text-align:center;margin-top:56px;padding-top:48px;border-top:0.5px solid var(--border);">
+        <p class="section-body" style="margin-bottom:24px;">Had a great experience? We'd love to hear from you.</p>
+        <a href="https://g.page/r/CfExample/review" target="_blank" rel="noopener" class="btn-cin-primary" style="display:inline-block;text-decoration:none;"><span>Leave a Google Review →</span></a>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="lm-overlay" id="lm-overlay">
   <div class="lm-box">
     <button class="lm-close" onclick="closeLeadMagnet()">✕</button>
@@ -3658,7 +3732,7 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
           <input class="message-input" id="client-msg-input" placeholder="Type a message to Canon Moment..." onkeydown="if(event.key==='Enter')sendClientMessage()">
           <button class="message-send-btn" onclick="sendClientMessage()">Send</button>
         </div>
-        <p style="font-size:11px;color:var(--gray-light);margin-top:8px;">Responses typically within a few hours. For urgent matters call/text (321) 368-2171.</p>
+        <p style="font-size:11px;color:var(--gray-light);margin-top:8px;">Responses typically within a few hours. For urgent matters call/text (321) 300-6314.</p>
       </div>
 
       <!-- Session Timeline -->
@@ -3844,7 +3918,7 @@ footer { background: #141414; padding: 72px 80px 40px; width: 100%; max-width: 1
               <div class="admin-panel-header"><div class="admin-panel-title">Business Identity</div></div>
               <div class="editor-field"><label class="editor-label">Business Name</label><input class="editor-input" id="s-biz-name" value="Canon Moment Photography LLC"></div>
               <div class="editor-field"><label class="editor-label">Tagline</label><input class="editor-input" id="s-tagline" value="...where we capture your Story one moment at a time."></div>
-              <div class="editor-field"><label class="editor-label">Business Phone</label><input class="editor-input" id="s-phone" value="(321) 368-2171"></div>
+              <div class="editor-field"><label class="editor-label">Business Phone</label><input class="editor-input" id="s-phone" value="(321) 300-6314"></div>
               <div class="editor-field"><label class="editor-label">Business Email</label><input class="editor-input" id="s-email" value="booking@canonmomentphotography.com"></div>
               <div class="editor-field"><label class="editor-label">Website URL</label><input class="editor-input" id="s-website" value="https://canonmomentphotography.com"></div>
               <div class="editor-field"><label class="editor-label">Address / Service Area</label><input class="editor-input" id="s-address" value="Orlando, FL — Available Nationwide"></div>
@@ -4061,6 +4135,9 @@ function goPage(id) {
   if (navLink) navLink.classList.add('active');
   window.scrollTo({ top: 0, behavior: 'smooth' });
   setTimeout(initReveal, 150);
+  var _m={'home':'/','gallery-page':'/gallery','packages-page':'/packages','contact-page':'/contact','reviews-page':'/reviews','services-page':'/services','blog-page':'/blog'};
+  var _p=_m[id]||null;
+  if(_p&&window.location.pathname!==_p)history.pushState({page:id},'',_p);
 }
 function openMobileMenu() { document.getElementById('mobile-menu').classList.add('open'); }
 function closeMobileMenu() { document.getElementById('mobile-menu').classList.remove('open'); }
@@ -4985,7 +5062,7 @@ if (document.readyState === 'loading') {
     <input class="cm-chat-inp" id="cm-inp" placeholder="Ask about pricing, booking, locations...">
     <button class="cm-send-btn" onclick="cmSend()"><svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg></button>
   </div>
-  <div class="cm-chat-foot">Canon Moment Photography · Orlando, FL · (321) 368-2171</div>
+  <div class="cm-chat-foot">Canon Moment Photography · Orlando, FL · (321) 300-6314</div>
 </div>`;
   document.body.insertAdjacentHTML('beforeend', html);
   setTimeout(()=>{
@@ -5003,14 +5080,14 @@ const CM_SYSTEM = `You are the Canon Moment Photography AI assistant — warm, k
 
 BUSINESS:
 - Name: Canon Moment Photography LLC
-- Phone: (321) 368-2171
+- Phone: (321) 300-6314
 - Payment: Secure card link provided at booking
 - Email: booking@canonmomentphotography.com
 - Based: Orlando, Florida — Available Nationwide & Internationally
 - Instagram: @canonmomentphotography
 - Booking: https://canonmomentphotography.com (Packages & Pricing tab)/
 - Galleries delivered via Pixieset
-- Rating: 5.0 stars · 60+ five-star reviews · 50+ proposals captured
+- Rating: 5.0 stars · 20+ five-star reviews · 50+ proposals captured
 
 PACKAGES & PRICING:
 1. The Moment — $375: 1 hour, full gallery · every photo edited & delivered, planning consult, private gallery, 24-hour sneak peek, full gallery in 48–72 hours
@@ -5059,11 +5136,11 @@ RESPONSE RULES:
 - Always end with a clear next step: book online, call, or fill out contact form
 - Match client energy — if they're excited about proposing, be excited with them!
 - Never be pushy. Be genuinely helpful.
-- If unsure of specifics, direct to (321) 368-2171
+- If unsure of specifics, direct to (321) 300-6314
 
 PUSH TOWARD:
 1. Book online: https://canonmomentphotography.com (Packages & Pricing tab)/
-2. Call/text: (321) 368-2171
+2. Call/text: (321) 300-6314
 3. Email: booking@canonmomentphotography.com`;
 
 // ── Toggle ──
@@ -5168,7 +5245,7 @@ async function cmCallAPI(userMessage) {
   if (lower.includes('pric') || lower.includes('cost') || lower.includes('how much')) {
     localReply = `Great question! Here's a quick breakdown 📸\n\n**The Moment — $375**: 1 hour, full gallery, 24-hour sneak peek\n**The Story — $650**: 1 hour, full gallery + cinematic video 30–90 sec, custom song, 24-hour sneak peek\n**The Experience — $950**: 90 min, full gallery + 90 sec–4 min cinematic video, custom song, champagne + bouquet ✨\n**Full Setup Packages** from $1,200.\n\nAll photos delivered within 48–72 hours. Video in 5–7 business days. 50% retainer holds your date. What type of session are you planning? 💍`;
   } else if (lower.includes('book') || lower.includes('reserve') || lower.includes('availab')) {
-    localReply = `We'd love to capture your moment! 💍\n\nThe fastest way to check availability:\n📅 **Book online:** canonmomentphotography.com (Packages & Pricing tab)\n📞 **Call/text:** (321) 368-2171\n📧 **Email:** booking@canonmomentphotography.com\n\nWe recommend booking 2–4 weeks ahead for proposals. Popular dates fill fast!`;
+    localReply = `We'd love to capture your moment! 💍\n\nThe fastest way to check availability:\n📅 **Book online:** canonmomentphotography.com (Packages & Pricing tab)\n📞 **Call/text:** (321) 300-6314\n📧 **Email:** booking@canonmomentphotography.com\n\nWe recommend booking 2–4 weeks ahead for proposals. Popular dates fill fast!`;
   } else if (lower.includes('hidden') || lower.includes('secret') || lower.includes('spot') || lower.includes('discreet') || lower.includes('see') || lower.includes('notice')) {
     localReply = `This is what we're known for 🕵️\n\nWe use **telephoto lenses** that let us shoot from 50–100 feet away without being noticed. We arrive early to scout the location, dress casually like tourists, and never make eye contact or draw attention.\n\nIn 50+ proposals, we've **never been spotted**. Your partner will have absolutely zero idea until you show them the photos. 100% Stealth Guarantee.`;
   } else if (lower.includes('location') || lower.includes('where') || lower.includes('orlando') || lower.includes('place')) {
@@ -5225,7 +5302,7 @@ async function cmCallAPI(userMessage) {
   } catch (err) {
     cmHideTyping();
     // Graceful general fallback
-    cmAddBotBubble('I\'d love to help you plan your proposal! 💍\n\nFor the fastest answer, reach us directly:\n\n📞 **(321) 368-2171**\n📧 **booking@canonmomentphotography.com**\n📅 **Book:** canonmomentphotography.com (Packages & Pricing tab)\n\nWe respond within a few hours every day!');
+    cmAddBotBubble('I\'d love to help you plan your proposal! 💍\n\nFor the fastest answer, reach us directly:\n\n📞 **(321) 300-6314**\n📧 **booking@canonmomentphotography.com**\n📅 **Book:** canonmomentphotography.com (Packages & Pricing tab)\n\nWe respond within a few hours every day!');
     cmShowQR(['📅 Book Online', '📞 Call/Text Us', '💰 See Pricing']);
   }
 }
@@ -5353,7 +5430,7 @@ body{font-family:'Jost',Helvetica,sans-serif;font-weight:300;color:#1C1C1C;backg
 </style></head><body>
 <div class="brand-header">
   <div><div class="brand-name">Canon <span>Moment</span> Photography</div><div style="font-size:11px;color:#6B6B6B;margin-top:4px;">LLC · Orlando, Florida</div></div>
-  <div class="brand-info">booking@canonmomentphotography.com<br>(321) 368-2171<br>canonmomentphotography.com<br><br>Invoice #${invNum}<br>Date: ${now}</div>
+  <div class="brand-info">booking@canonmomentphotography.com<br>(321) 300-6314<br>canonmomentphotography.com<br><br>Invoice #${invNum}<br>Date: ${now}</div>
 </div>
 <div class="info-grid">
   <div>
@@ -5385,7 +5462,7 @@ body{font-family:'Jost',Helvetica,sans-serif;font-weight:300;color:#1C1C1C;backg
   </div>
   <a href="mailto:booking@canonmomentphotography.com?subject=Payment for Invoice %23${invNum}" class="pay-btn">Pay Now →</a>
 </div>
-<div class="footer-note">Thank you for trusting Canon Moment Photography with your most important moments.<br>A 50% non-refundable retainer is required to hold your date. Balance is due on or before your session day.<br>Questions? booking@canonmomentphotography.com · (321) 368-2171</div>
+<div class="footer-note">Thank you for trusting Canon Moment Photography with your most important moments.<br>A 50% non-refundable retainer is required to hold your date. Balance is due on or before your session day.<br>Questions? booking@canonmomentphotography.com · (321) 300-6314</div>
 </body></html>`;
 }
 
@@ -5424,7 +5501,7 @@ p{margin-bottom:12px;color:#3D2E1E;}
 </style></head><body>
 <div class="brand-header">
   <div><div class="brand-name">Canon <span>Moment</span> Photography</div><div style="font-size:11px;color:#6B6B6B;margin-top:4px;font-family:Helvetica,sans-serif;">LLC · Orlando, Florida</div></div>
-  <div class="brand-info">booking@canonmomentphotography.com<br>(321) 368-2171<br>Date: ${now}</div>
+  <div class="brand-info">booking@canonmomentphotography.com<br>(321) 300-6314<br>Date: ${now}</div>
 </div>
 <div class="doc-title">Photography Services Agreement</div>
 <div class="doc-sub">Please read carefully. This agreement is binding upon signature.</div>
@@ -5458,7 +5535,7 @@ p{margin-bottom:12px;color:#3D2E1E;}
   <div class="sig-box"><div class="sig-line"></div><div class="sig-label">Client Signature</div><div style="margin-top:6px;font-size:12px;color:#6B6B6B;">${client.first} ${client.last}</div></div>
   <div class="sig-box"><div class="sig-line"></div><div class="sig-label">Photographer Signature</div><div style="margin-top:6px;font-size:12px;color:#6B6B6B;">Canon Moment Photography LLC</div></div>
 </div>
-<div style="text-align:center;margin-top:36px;font-size:10px;color:#B8B8B8;letter-spacing:0.1em;font-family:Helvetica,sans-serif;">CANON MOMENT PHOTOGRAPHY LLC · ORLANDO, FLORIDA · (321) 368-2171 · HELP@CANONMOMENTPHOTOGRAPHY.COM</div>
+<div style="text-align:center;margin-top:36px;font-size:10px;color:#B8B8B8;letter-spacing:0.1em;font-family:Helvetica,sans-serif;">CANON MOMENT PHOTOGRAPHY LLC · ORLANDO, FLORIDA · (321) 300-6314 · HELP@CANONMOMENTPHOTOGRAPHY.COM</div>
 </body></html>`;
 }
 
@@ -5490,7 +5567,7 @@ body{font-family:'Jost',Helvetica,sans-serif;font-weight:300;color:#1C1C1C;backg
 </style></head><body>
 <div class="brand-header">
   <div><div class="brand-name">Canon <span>Moment</span> Photography</div></div>
-  <div class="brand-info">booking@canonmomentphotography.com<br>(321) 368-2171</div>
+  <div class="brand-info">booking@canonmomentphotography.com<br>(321) 300-6314</div>
 </div>
 <div class="doc-title">Pre-Session Questionnaire</div>
 <div class="doc-sub">For: ${client.first} ${client.last} · ${client.session||'Your Session'}</div>
@@ -5506,7 +5583,7 @@ body{font-family:'Jost',Helvetica,sans-serif;font-weight:300;color:#1C1C1C;backg
 <div class="q-block"><div class="q-label">10. What's most important for you to have captured?</div><div class="q-hint">The exact moment? Reactions? Celebrations after? All of the above?</div><textarea class="q-box"></textarea></div>
 <div class="q-block"><div class="q-label">11. Any special requests, props, or things we should know?</div><textarea class="q-box"></textarea></div>
 <div class="q-block"><div class="q-label">12. How did you hear about Canon Moment Photography?</div><div>☐ Instagram &nbsp; ☐ Google &nbsp; ☐ Friend/Referral &nbsp; ☐ TikTok &nbsp; ☐ Pinterest &nbsp; ☐ Other: _________</div></div>
-<div style="text-align:center;margin-top:32px;font-size:10px;color:#B8B8B8;letter-spacing:0.1em;">CANON MOMENT PHOTOGRAPHY LLC · ORLANDO, FL · (321) 368-2171</div>
+<div style="text-align:center;margin-top:32px;font-size:10px;color:#B8B8B8;letter-spacing:0.1em;">CANON MOMENT PHOTOGRAPHY LLC · ORLANDO, FL · (321) 300-6314</div>
 </body></html>`;
 }
 
@@ -5606,7 +5683,7 @@ async function initiateStripePayment(invoiceId) {
       throw new Error(data.error || 'No checkout URL returned');
     }
   } catch(e) {
-    showToast('Payment link unavailable. Contact us at (321) 368-2171', 'error');
+    showToast('Payment link unavailable. Contact us at (321) 300-6314', 'error');
     console.error('Stripe error:', e);
   }
 }
@@ -5761,7 +5838,7 @@ body{font-family:Georgia,serif;color:#1C1C1C;background:white;max-width:794px;ma
   <div class="location-block">
     <div class="loc-num">Location 01</div>
     <div class="loc-name">Kraft Azalea Gardens</div>
-    <div class="loc-photo"><span>Add location photo</span></div>
+    <div class="loc-photo"><img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/Kraft_entrance.jpg" alt="Kraft Azalea Gardens Winter Park" style="width:100%;height:100%;object-fit:cover;"></div>
     <span class="loc-tag">Winter Park · Most Requested</span>
     <p class="loc-desc">The undisputed king of Orlando proposal locations. Tucked along the shores of Lake Maitland in Winter Park, this hidden garden features a stunning open-air cypress pavilion called "The Exedra" — a curved colonnade that frames couples perfectly against the water and Spanish moss trees. The light here at golden hour is genuinely breathtaking.</p>
     <ul class="loc-tips">
@@ -5776,7 +5853,7 @@ body{font-family:Georgia,serif;color:#1C1C1C;background:white;max-width:794px;ma
   <div class="location-block">
     <div class="loc-num">Location 02</div>
     <div class="loc-name">Lake Eola Park — Amphitheatre Side</div>
-    <div class="loc-photo"><span>Add location photo</span></div>
+    <div class="loc-photo"><img src="https://upload.wikimedia.org/wikipedia/commons/5/55/Lake_Eola_Park_at_Night.JPG" alt="Lake Eola Park at Night Orlando" style="width:100%;height:100%;object-fit:cover;"></div>
     <span class="loc-tag">Downtown Orlando · Iconic</span>
     <p class="loc-desc">Everyone knows Lake Eola, but most people propose at the main swan boat area. The secret is the eastern amphitheatre side, just past the fountain — a quieter stretch of waterfront with perfect sightlines, Spanish moss, and the downtown skyline in the background. The fountain itself at night is spectacular for post-proposal portraits.</p>
     <ul class="loc-tips">
@@ -5790,7 +5867,7 @@ body{font-family:Georgia,serif;color:#1C1C1C;background:white;max-width:794px;ma
   <div class="location-block">
     <div class="loc-num">Location 03</div>
     <div class="loc-name">Harry P. Leu Gardens</div>
-    <div class="loc-photo"><span>Add location photo</span></div>
+    <div class="loc-photo"><img src="https://upload.wikimedia.org/wikipedia/commons/4/4a/Bauhinia_divaricata_at_Leu_Gardens_01.jpg" alt="Harry P. Leu Gardens Orlando" style="width:100%;height:100%;object-fit:cover;"></div>
     <span class="loc-tag">Orlando · Botanical Romance</span>
     <p class="loc-desc">50 acres of botanical gardens just north of downtown Orlando, and one of the most underutilized proposal spots in the city. The Rose Garden in bloom is absolutely stunning. The lakeside boardwalk offers a quiet, shaded path that feels a world away from the city. This is the spot for couples who want something lush, intimate, and genuinely beautiful.</p>
     <ul class="loc-tips">
@@ -5804,7 +5881,7 @@ body{font-family:Georgia,serif;color:#1C1C1C;background:white;max-width:794px;ma
   <div class="location-block">
     <div class="loc-num">Location 04</div>
     <div class="loc-name">Disney Springs Waterfront</div>
-    <div class="loc-photo"><span>Add location photo</span></div>
+    <div class="loc-photo"><img src="https://upload.wikimedia.org/wikipedia/commons/5/5d/Disney_Springs_%2823169700192%29.jpg" alt="Disney Springs Waterfront" style="width:100%;height:100%;object-fit:cover;"></div>
     <span class="loc-tag">Lake Buena Vista · Magical</span>
     <p class="loc-desc">Free to access (no park ticket needed), the Disney Springs waterfront offers a genuinely magical backdrop without the crowds of the parks. The Town Center section near the water has beautiful evening lighting, cobblestone walkways, and the unmistakable Disney atmosphere. Perfect for couples who love Disney but don't want to navigate a full park day.</p>
     <ul class="loc-tips">
@@ -5818,7 +5895,7 @@ body{font-family:Georgia,serif;color:#1C1C1C;background:white;max-width:794px;ma
   <div class="location-block">
     <div class="loc-num">Location 05</div>
     <div class="loc-name">Rollins College Waterfront</div>
-    <div class="loc-photo"><span>Add location photo</span></div>
+    <div class="loc-photo"><img src="https://upload.wikimedia.org/wikipedia/commons/3/37/Rollins_college_viewfromlake.jpg" alt="Rollins College Lake Virginia Winter Park" style="width:100%;height:100%;object-fit:cover;"></div>
     <span class="loc-tag">Winter Park · Architectural Beauty</span>
     <p class="loc-desc">One of the most beautiful campuses in Florida, Rollins College in Winter Park sits directly on the shore of Lake Virginia. The Spanish Mediterranean architecture creates stunning backdrops, and the lakefront dock is one of the most romantic spots in Central Florida — especially at golden hour when the water turns gold.</p>
     <ul class="loc-tips">
@@ -5832,7 +5909,7 @@ body{font-family:Georgia,serif;color:#1C1C1C;background:white;max-width:794px;ma
   <div class="location-block">
     <div class="loc-num">Location 06</div>
     <div class="loc-name">Cocoa Beach at Sunrise</div>
-    <div class="loc-photo"><span>Add location photo</span></div>
+    <div class="loc-photo"><img src="https://upload.wikimedia.org/wikipedia/commons/8/8f/Cocoa_Beach_Florida_sunrise.jpg" alt="Cocoa Beach Florida Sunrise" style="width:100%;height:100%;object-fit:cover;"></div>
     <span class="loc-tag">East Coast FL · Beach Romance</span>
     <p class="loc-desc">About an hour east of Orlando, Cocoa Beach at sunrise is one of the most underrated proposal settings in Florida. The beach is nearly empty in the early morning, the light is extraordinary, and the Atlantic Ocean backdrop is dramatic and timeless. It also pairs perfectly with a morning after the SpaceX launch if your partner is into that.</p>
     <ul class="loc-tips">
@@ -5846,7 +5923,7 @@ body{font-family:Georgia,serif;color:#1C1C1C;background:white;max-width:794px;ma
   <div class="location-block" style="border-bottom:none;margin-bottom:0;padding-bottom:0;">
     <div class="loc-num">Location 07</div>
     <div class="loc-name">UNICO Hotel Rooftop</div>
-    <div class="loc-photo"><span>Add location photo</span></div>
+    <div class="loc-photo"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Skyline_of_Orlando%2C_FL%2C_USA%2C_2012-03-28.JPG" alt="Orlando Skyline from Lake Ivanhoe" style="width:100%;height:100%;object-fit:cover;"></div>
     <span class="loc-tag">Orlando · Luxury View</span>
     <p class="loc-desc">For the couple who wants something truly elevated — literally. The rooftop bar at UNICO Hotel offers panoramic views of the Orlando skyline and resort district. It's sophisticated, private, and genuinely unexpected. This is the spot for the partner who loves luxury, city life, and a proposal story that nobody else has.</p>
     <ul class="loc-tips">
@@ -5923,7 +6000,7 @@ body{font-family:Georgia,serif;color:#1C1C1C;background:white;max-width:794px;ma
     <div class="cta-title">Ready to plan your moment?</div>
     <div class="cta-sub">We'd love to be there when you ask the most important question of your life — wherever in the world that might be.</div>
     <div class="cta-contact">
-      (321) 368-2171 · booking@canonmomentphotography.com<br>
+      (321) 300-6314 · booking@canonmomentphotography.com<br>
       canonmomentphotography.com (Packages & Pricing tab)<br>
       Instagram: @canonmomentphotography
     </div>
@@ -7229,7 +7306,7 @@ const BLOG_POSTS = {
     <h2>Can you do engagement sessions too?</h2>
     <p>Yes — and I love them just as much as proposals. Engagement sessions are more relaxed, both of you know about it, and we have the luxury of time and movement. Many couples do a proposal session with me and then come back for a separate engagement shoot. The photos tell a beautiful two-chapter story.</p>
     <h2>How do I book?</h2>
-    <p>The easiest way is to book directly at <strong>canonmomentphotography.com (Packages & Pricing tab)</strong> or text us at <strong>(321) 368-2171</strong>. A 50% retainer holds your date — balance due on session day.</p>`
+    <p>The easiest way is to book directly at <strong>canonmomentphotography.com (Packages & Pricing tab)</strong> or text us at <strong>(321) 300-6314</strong>. A 50% retainer holds your date — balance due on session day.</p>`
   },
   'client-stories': {
     tag:'Client Stories', date:'January 2025', readTime:'6 min read',
@@ -7293,6 +7370,8 @@ function closeBlogModal() {
       'gallery':   function() { goPage('gallery-page'); },
       'contact':   function() { goPage('contact-page'); },
       'book':      function() { goPage('contact-page'); },
+      'services':  function() { goPage('services-page'); },
+      'blog':      function() { goPage('blog-page'); },
       'proposals': function() { goPage('packages-page'); setTimeout(function() { showPkgSection('proposals'); }, 100); },
       'weddings':  function() { goPage('packages-page'); setTimeout(function() { showPkgSection('weddings'); }, 100); }
     };
@@ -7306,6 +7385,7 @@ function closeBlogModal() {
   } else {
     handleUrlPath();
   }
+  window.addEventListener('popstate', function() { handleUrlPath(); });
 })();
 </script>
 
