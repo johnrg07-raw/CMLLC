@@ -1,10 +1,4 @@
 User-agent: *
 Allow: /
 
-# Block admin, portal, and internal tool paths
-Disallow: /admin
-Disallow: /portal
-Disallow: /client-portal
-Disallow: /.claude/
-
-Sitemap: https://www.canonmomentphotography.com/sitemap.xml
+Sitemap: https://canonmomentphotography.com/sitemap.xml
